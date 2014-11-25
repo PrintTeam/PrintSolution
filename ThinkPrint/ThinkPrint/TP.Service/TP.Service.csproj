@@ -52,6 +52,8 @@
     <Compile Include="Employee\IEmployeeService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceModel.cs" />
+    <Compile Include="Store\IStoreService.cs" />
+    <Compile Include="Store\StoreService.cs" />
     <Compile Include="SysResource\IResourceService.cs" />
     <Compile Include="SysResource\ResourceService.cs" />
     <Compile Include="User\IUserService.cs" />
