@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{71A818AE-A30F-43AB-9F2F-30D14A5386F4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TP.EntityFramework</RootNamespace>
+    <AssemblyName>TP.EntityFramework</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DbFactory\DataBaseFactory.cs" />
+    <Compile Include="DbFactory\IDataBaseFactory.cs" />
+    <Compile Include="EntityFrameworkModel.cs" />
+    <Compile Include="Models\AUT_Role.cs" />
+    <Compile Include="Models\AUT_RoleMenuFunction.cs" />
+    <Compile Include="Models\AUT_RoleModule.cs" />
+    <Compile Include="Models\AUT_RoleModuleMenu.cs" />
+    <Compile Include="Models\AUT_User.cs" />
+    <Compile Include="Models\AUT_UserRole.cs" />
+    <Compile Include="Models\BOM_Paper.cs" />
+    <Compile Include="Models\BOM_PaperCategory.cs" />
+    <Compile Include="Models\BOM_PaperSize.cs" />
+    <Compile Include="Models\BPM_PostpressAgreementPriceList.cs" />
+    <Compile Include="Models\BPM_PostpressSalePriceList.cs" />
+    <Compile Include="Models\BPM_PrintingAgreementPriceList.cs" />
+    <Compile Include="Models\BPM_PrintingMembershipPriceList.cs" />
+    <Compile Include="Models\BPM_PrintingPriceRangeList.cs" />
+    <Compile Include="Models\BPM_PrintingSalePriceList.cs" />
+    <Compile Include="Models\BUS_BusinessCategory.cs" />
+    <Compile Include="Models\BUS_BusinessComponent.cs" />
+    <Compile Include="Models\CRM_CardConsumption.cs" />
+    <Compile Include="Models\CRM_CardDictionary.cs" />
+    <Compile Include="Models\CRM_CardRecharge.cs" />
+    <Compile Include="Models\CRM_MembershipCard.cs" />
+    <Compile Include="Models\CRM_MembershipCardCategory.cs" />
+    <Compile Include="Models\CRM_MembershipFreeze.cs" />
+    <Compile Include="Models\CRM_MembershipUnfreeze.cs" />
+    <Compile Include="Models\CRM__PostRegisterCard.cs" />
+    <Compile Include="Models\Mapping\AUT_RoleMap.cs" />
+    <Compile Include="Models\Mapping\AUT_RoleMenuFunctionMap.cs" />
+    <Compile Include="Models\Mapping\AUT_RoleModuleMap.cs" />
+    <Compile Include="Models\Mapping\AUT_RoleModuleMenuMap.cs" />
+    <Compile Include="Models\Mapping\AUT_UserMap.cs" />
+    <Compile Include="Models\Mapping\AUT_UserRoleMap.cs" />
+    <Compile Include="Models\Mapping\BOM_PaperCategoryMap.cs" />
+    <Compile Include="Models\Mapping\BOM_PaperMap.cs" />
+    <Compile Include="Models\Mapping\BOM_PaperSizeMap.cs" />
+    <Compile Include="Models\Mapping\BPM_PostpressAgreementPriceListMap.cs" />
+    <Compile Include="Models\Mapping\BPM_PostpressSalePriceListMap.cs" />
+    <Compile Include="Models\Mapping\BPM_PrintingAgreementPriceListMap.cs" />
+    <Compile Include="Models\Mapping\BPM_PrintingMembershipPriceListMap.cs" />
+    <Compile Include="Models\Mapping\BPM_PrintingPriceRangeListMap.cs" />
+    <Compile Include="Models\Mapping\BPM_PrintingSalePriceListMap.cs" />
+    <Compile Include="Models\Mapping\BUS_BusinessCategoryMap.cs" />
+    <Compile Include="Models\Mapping\BUS_BusinessComponentMap.cs" />
+    <Compile Include="Models\Mapping\CRM_CardConsumptionMap.cs" />
+    <Compile Include="Models\Mapping\CRM_CardDictionaryMap.cs" />
+    <Compile Include="Models\Mapping\CRM_CardRechargeMap.cs" />
+    <Compile Include="Models\Mapping\CRM_MembershipCardCategoryMap.cs" />
+    <Compile Include="Models\Mapping\CRM_MembershipCardMap.cs" />
+    <Compile Include="Models\Mapping\CRM_MembershipFreezeMap.cs" />
+    <Compile Include="Models\Mapping\CRM_MembershipUnfreezeMap.cs" />
+    <Compile Include="Models\Mapping\CRM__PostRegisterCardMap.cs" />
+    <Compile Include="Models\Mapping\ORG_AuthorizeUserStoreMap.cs" />
+    <Compile Include="Models\Mapping\ORG_CompanyMap.cs" />
+    <Compile Include="Models\Mapping\ORG_DepartmentMap.cs" />
+    <Compile Include="Models\Mapping\ORG_EmployeeDepartmentHistoryMap.cs" />
+    <Compile Include="Models\Mapping\ORG_EmployeeMap.cs" />
+    <Compile Include="Models\Mapping\ORG_ShiftMap.cs" />
+    <Compile Include="Models\Mapping\ORG_StoreMap.cs" />
+    <Compile Include="Models\Mapping\PMW_MachineCategoryMap.cs" />
+    <Compile Include="Models\Mapping\PMW_MachineMap.cs" />
+    <Compile Include="Models\Mapping\PMW_PostpressMembershipPriceListMap.cs" />
+    <Compile Include="Models\Mapping\PMW_PostpressPriceRangeListMap.cs" />
+    <Compile Include="Models\Mapping\PMW_PostpressProcessMap.cs" />
+    <Compile Include="Models\Mapping\PMW_PrintingProcessMap.cs" />
+    <Compile Include="Models\Mapping\PMW_ProcessRequirementMap.cs" />
+    <Compile Include="Models\Mapping\SAL_CustomerMap.cs" />
+    <Compile Include="Models\Mapping\SAL_OrderMap.cs" />
+    <Compile Include="Models\Mapping\SAL_WorkProjectDetailMap.cs" />
+    <Compile Include="Models\Mapping\SAL_WorkProjectMap.cs" />
+    <Compile Include="Models\Mapping\SYS_FunctionMap.cs" />
+    <Compile Include="Models\Mapping\SYS_IndustryMap.cs" />
+    <Compile Include="Models\Mapping\SYS_MenuFunctionMap.cs" />
+    <Compile Include="Models\Mapping\SYS_MenuMap.cs" />
+    <Compile Include="Models\Mapping\SYS_ModuleMap.cs" />
+    <Compile Include="Models\Mapping\SYS_OrderRemindSettingMap.cs" />
+    <Compile Include="Models\Mapping\SYS_PrepaymentsSettingMap.cs" />
+    <Compile Include="Models\Mapping\SYS_SysSettingMap.cs" />
+    <Compile Include="Models\Mapping\SYS_TaxRateCategoryMap.cs" />
+    <Compile Include="Models\Mapping\SYS_UnitMap.cs" />
+    <Compile Include="Models\Mapping\SYS_VoucherDataMap.cs" />
+    <Compile Include="Models\Mapping\SYS_VoucherEncodingRuleMap.cs" />
+    <Compile Include="Models\ORG_AuthorizeUserStore.cs" />
+    <Compile Include="Models\ORG_Company.cs" />
+    <Compile Include="Models\ORG_Department.cs" />
+    <Compile Include="Models\ORG_Employee.cs" />
+    <Compile Include="Models\ORG_EmployeeDepartmentHistory.cs" />
+    <Compile Include="Models\ORG_Shift.cs" />
+    <Compile Include="Models\ORG_Store.cs" />
+    <Compile Include="Models\PMW_Machine.cs" />
+    <Compile Include="Models\PMW_MachineCategory.cs" />
+    <Compile Include="Models\PMW_PostpressMembershipPriceList.cs" />
+    <Compile Include="Models\PMW_PostpressPriceRangeList.cs" />
+    <Compile Include="Models\PMW_PostpressProcess.cs" />
+    <Compile Include="Models\PMW_PrintingProcess.cs" />
+    <Compile Include="Models\PMW_ProcessRequirement.cs" />
+    <Compile Include="Models\SAL_Customer.cs" />
+    <Compile Include="Models\SAL_Order.cs" />
+    <Compile Include="Models\SAL_WorkProject.cs" />
+    <Compile Include="Models\SAL_WorkProjectDetail.cs" />
+    <Compile Include="Models\SYS_Function.cs" />
+    <Compile Include="Models\SYS_Industry.cs" />
+    <Compile Include="Models\SYS_Menu.cs" />
+    <Compile Include="Models\SYS_MenuFunction.cs" />
+    <Compile Include="Models\SYS_Module.cs" />
+    <Compile Include="Models\SYS_OrderRemindSetting.cs" />
+    <Compile Include="Models\SYS_PrepaymentsSetting.cs" />
+    <Compile Include="Models\SYS_SysSetting.cs" />
+    <Compile Include="Models\SYS_TaxRateCategory.cs" />
+    <Compile Include="Models\SYS_Unit.cs" />
+    <Compile Include="Models\SYS_VoucherData.cs" />
+    <Compile Include="Models\SYS_VoucherEncodingRule.cs" />
+    <Compile Include="Models\TinkPrintContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,24 @@
+﻿@model TP.Site.Models.Organization.EmployeeModel
+@Html.HiddenFor(u => u.IsEdit)
+<div class="form-group form-group-boder">
+    <label for="txtName" class="control-label col-lg-2">员工名称</label>
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "员工名称信息", id = "txtName" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Name)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    <label for="txtJobNumber" class="control-label col-lg-2">员工工号</label>
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.JobNumber, new { @class = "form-control", placeholder = "员工工号信息", id = "txtJobNumber" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.JobNumber)
+        </p>
+    </div>
+</div>

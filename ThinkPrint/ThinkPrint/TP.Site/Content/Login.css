@@ -1,0 +1,231 @@
+﻿body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: #666666;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.475;
+    font-family: Tahoma,Arial,Roboto,”Droid Sans”,”Helvetica Neue”,”Droid Sans Fallback”,”Heiti SC”,”Hiragino Sans GB”,Simsun,sans-self;
+}
+
+
+
+.login-page #main {
+    background: none;
+}
+
+.login-page #page-logo {
+    width: 285px;
+    margin: 50px auto 80px;
+}
+
+.login-page .panel {
+    width: 400px;
+    margin: 0 auto;
+    position: relative;
+    background: #f8f8f8;
+    border: 10px solid #9C9C9C;
+    border: none;
+    border-radius: 0;
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1), -1px -2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.login-page .panel-bg {
+    padding: 12px;
+    width: 430px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0px 0 1px rgba(255, 255, 255, 0.8) inset;
+}
+
+.login-page .login-avatar {
+    margin: 15px 20px 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px dashed #DDD;
+}
+
+    .login-page .login-avatar img {
+        display: block;
+        margin: 0 auto;
+        padding: 5px;
+        border: 2px solid #DDD;
+    }
+
+.login-page .login-alert {
+    font-size: 13px;
+    padding: 9px 13px;
+}
+
+.login-page .panel-heading,
+.login-page .panel-footer {
+    background: #FFF;
+    border-color: #eee;
+}
+
+.login-page .overlay-black {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+}
+
+.panel {
+    position: relative;
+    margin-bottom: 20px;
+    border-color: #d5d5d5;
+    border-radius: 2px;
+}
+
+/* panel helper class */
+.panel-overflow {
+    overflow: hidden;
+}
+
+.panel-heading {
+    position: relative;
+    padding: 0;
+    min-height: 40px;
+    line-height: 40px;
+    color: #666;
+    font-size: 13px;
+    font-weight: 600;
+    border-bottom: 1px solid #e5e5e5;
+    border-radius: 2px 2px 0 0;
+    background: #fafafa;
+}
+
+.panel-title {
+    font-size: 13px;
+    padding-left: 15px;
+}
+
+    .panel-title > .fa {
+        min-width: 25px;
+        margin-right: 8px;
+        border-right: 1px solid #ddd;
+        color: #a87fc6;
+        font-size: 16px;
+        top: 2px;
+    }
+
+.panel-heading + .panel-body {
+    border-top-color: #e5e5e5;
+}
+
+body.login-page .login-avatar {
+    margin: 15px 20px 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px dashed #DDD;
+}
+
+    body.login-page .login-avatar img {
+        display: block;
+        margin: 0 auto;
+        padding: 5px;
+        border: 2px solid #DDD;
+    }
+
+.input-group-addon {
+    min-width: 40px;
+    color: #a287d4;
+    background-color: #fafafa;
+    border-radius: 0;
+    border-color: #DDD;
+}
+
+/* Input Focus */
+.form-control:focus {
+    border-color: #b18cde;
+    box-shadow: none;
+}
+
+.btn {
+    color: white;
+    outline: none;
+    line-height: 1.47;
+    border-radius: 2px;
+}
+
+    .btn:hover {
+        color: #FFF;
+        background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.13) 1%, rgba(255, 255, 255, 0.13) 100%);
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.13) 1%, rgba(255, 255, 255, 0.13) 100%);
+    }
+
+    .btn:focus, .btn:active:focus, .btn.active:focus {
+        color: white;
+        outline: none;
+    }
+
+    .btn.btn-default:focus, .btn.btn-default:active:focus, .btn.btn-default.active:focus {
+        color: #777777;
+        outline: none;
+    }
+
+.btn-sm {
+    line-height: 1.5;
+}
+
+.bg-purple {
+    background-color: #a287d4 !important;
+}
+
+#main {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: #e8e8e8;
+}
+
+#content {
+    padding: 20px 13px 50px 17px;
+}
+
+@media (min-width: 1200px) {
+
+    #content {
+        padding: 20px 20px 50px 23px;
+    }
+}
+
+.help-block {
+    margin-top: 8px;
+    color: #999;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.has-error .form-control {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.has-error .control-label, .has-error .help-block, .has-error .input-group-addon {
+    color: #de815c;
+}
+
+.has-error .form-control, .has-error .input-group-addon {
+    border-color: #de815c;
+    background-color: #fff;
+}
+
+    .has-error .form-control:focus {
+        border-color: #cc7872;
+    }
+
+.animation-slideUp {
+    animation-name: slideUp;
+    -webkit-animation-name: slideUp;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    animation-timing-function: ease;
+    -webkit-animation-timing-function: ease;
+    visibility: visible !important;
+}

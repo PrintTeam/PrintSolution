@@ -1,0 +1,25 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="fa fa-user fa-fw"></i><i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-user">
+            <li>
+                <a href="#"><i class="fa fa-user fa-fw"></i>@User.Identity.Name</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-gear fa-fw"></i> 修改密码</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 退 出</a>
+            </li>
+        </ul>
+        <!-- /.dropdown-user -->
+    </li>
+}
+else
+{
+    Response.Redirect("~/Account/Login");
+}

@@ -1,0 +1,105 @@
+﻿@model TP.Site.Models.Organization.EmployeeListModel
+
+@using Webdiyer.WebControls.Mvc
+@{
+    var j = 1;
+}
+<div class="row">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>
+                    序号
+                </th>
+                <th>
+                    名称
+                </th>
+                <th>
+                    工号
+                </th>
+                <th>
+                    性别
+                </th>
+                <th>
+                    年龄
+                </th>
+                <th>
+                    状态
+                </th>
+                <th class="hidden-xs">
+                    入职时间
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ViewList)
+            {
+
+
+
+                <tr>
+                    <td>
+                        @j.ToString()
+                    </td>
+                    <td>
+                        <a href="~/Employee/EmployeeShowView/@item.EmployeeId">@item.Name</a>
+                    </td>
+                    
+                    <td>
+                        @item.JobNumber
+                    </td>
+                    <td>
+                        @if (@item.Sex)
+                        {
+                            <span class="label label-primary">男</span>
+                        }
+                        else
+                        {
+                            <span class="label label-info">女</span>
+                        }
+
+                    </td>
+                    <td>
+                        @item.Age
+                    </td>
+                    <td>
+                        @if (@item.LeaveDate.HasValue)
+                        {
+                            <a href="~/Employee/EditStatus/@item.EmployeeId" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="left" title="编辑状态">@Model.StatusList.SingleOrDefault(s => s.ParamValue == @item.Status.Trim()).Name</a>
+
+                        }
+                        else
+                        {
+                            <a href="~/Employee/EditStatus/@item.EmployeeId" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="left" title="编辑状态">@Model.StatusList.SingleOrDefault(s => s.ParamValue == @item.Status.Trim()).Name</a>
+
+                        }
+
+                    </td>
+                    <td class="hidden-xs">
+                        @item.EntryDate.ToLongDateString()
+                    </td>
+                    <td class="table-action">
+
+                        <a href="~/Employee/Edit/@item.EmployeeId" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="left" title="编辑"><i class="fa fa-edit"></i></a>
+                        <button id="@item.EmployeeId" type="button" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="删除"><i class="fa fa-trash-o "></i></button>
+
+                    </td>
+                </tr>
+                        j++;
+            }
+
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <div class="dataTable_info">
+            共 @Model.ViewList.TotalPageCount 页 @Model.ViewList.TotalItemCount
+            条记录，当前为第 @Model.ViewList.CurrentPageIndex 页
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        @Html.Pager(Model.ViewList, new PagerOptions { PageIndexParameterName = "pageIndex", ShowPageIndexBox = false, ShowGoButton = false, CurrentPagerItemWrapperFormatString = "<span class=\"current\">{0}</span>" }, new { id = "badoopager", @class = "pull-right" })
+    </div>
+</div>

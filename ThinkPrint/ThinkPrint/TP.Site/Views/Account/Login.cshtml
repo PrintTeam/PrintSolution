@@ -1,0 +1,78 @@
+﻿@model TP.Site.Models.Account.LogOnModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width  initial-scale=1" />
+    <title>Login</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/login.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="login-page">
+    <div id="main">
+        <div id="content">
+            <div class="row">
+                <div id="page-logo">
+                    <img src="~/img/logo-white.png" class="img-responsive" alt="logo">
+                </div>
+            </div>
+            <div class="row">
+                <div class="panel-bg">
+                    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "form-horizontal", @id = "loginPanel" }))
+                    {
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <span class="panel-title">
+                                    <i class="fa fa-toggle-off fa-fw"></i>登录
+                                </span>
+                            </div>
+                            <div class="panel-body">
+                                <div class="login-avatar"> <img src="~/img/login.png" width="150" height="112" alt="avatar"> </div>
+
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger", id = "validation-summary-errors" })
+                                <div class="form-group">
+                                    <div class="col-lg-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                                            @Html.TextBoxFor(m => m.UserName, new { id = "UserName", @class = "form-control", autofocus = "", placeholder = "用户名称" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <div class="col-lg-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>
+                                            @Html.PasswordFor(m => m.Password, new { id = "Password", @class = "form-control", placeholder = "登陆密码" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <button class="btn btn-sm bg-purple pull-right" type="submit"><i class="fa fa-home fa-fw"></i>登 陆</button>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overlay-black"></div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/backstretch")
+    @Scripts.Render("~/bundles/login")
+</body>
+</html>
