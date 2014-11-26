@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace NSIS.Web.Models
+namespace TP.Web.Framework.Mvc
 {
     public class BaseViewModel
     {

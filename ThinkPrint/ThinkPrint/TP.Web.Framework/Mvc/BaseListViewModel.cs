@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Webdiyer.WebControls.Mvc;
 
-namespace NSIS.Web.Models
+namespace TP.Web.Framework.Mvc
 {
     public class BaseListViewModel<T> where T : class
     {

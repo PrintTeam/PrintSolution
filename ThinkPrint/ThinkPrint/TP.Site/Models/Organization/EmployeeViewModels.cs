@@ -1,11 +1,11 @@
-﻿using NSIS.Web.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TP.EntityFramework.Models;
+using TP.Web.Framework.Mvc;
 
 namespace TP.Site.Models.Organization
 {
