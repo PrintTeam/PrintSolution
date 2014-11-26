@@ -28,8 +28,10 @@ namespace TP.Service.Store {
             if (!string.IsNullOrWhiteSpace(searchKey)) {
                 q.Where(p => p.Name.Contains(searchKey));
             }
-            q.OrderByDescending(p => p.ModifiedDate);
-            PagedList<ORG_Store> result = q.ToPagedList(pageIndex, pageSize);
+            q = q.OrderByDescending(p => p.ModifiedDate);
+            //List<ORG_Store> List = q.ToList<ORG_Store>();
+            //PagedList<ORG_Store> result = new PagedList<ORG_Store>(List, pageIndex, pageSize);
+            PagedList<ORG_Store> result = q.ToPagedList<ORG_Store>(pageIndex, pageSize);
             return result;
         }
 
