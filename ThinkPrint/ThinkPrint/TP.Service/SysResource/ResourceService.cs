@@ -116,5 +116,30 @@ namespace TP.Service.SysResource
                 throw ex;
             }
         }
+
+
+        public SYS_SysSetting CheckExistSysSettingByCode(Guid rowGuid, string uniqueCode)
+        {
+            if (string.IsNullOrWhiteSpace(uniqueCode))
+                throw new ArgumentNullException("Check UniqueCode is Null");
+            var query = _sysSettingRepository.Filter(u => u.RowGuid==rowGuid && u.UniqueCode == uniqueCode).FirstOrDefault();
+            return query;
+        }
+
+        public SYS_SysSetting CheckExistSysSettingByTitleCode(string titleCode)
+        {
+            if (string.IsNullOrWhiteSpace(titleCode))
+                throw new ArgumentNullException("Check titleCode is Null");
+            var query = _sysSettingRepository.Filter(u => u.TitleCode == titleCode).FirstOrDefault();
+            return query;
+        }
+
+        public SYS_SysSetting CheckExistSysSettingByTitleCode(Guid rowGuid, string titleCode)
+        {
+            if (string.IsNullOrWhiteSpace(titleCode))
+                throw new ArgumentNullException("Check titleCode is Null");
+            var query = _sysSettingRepository.Filter(u => u.RowGuid == rowGuid && u.TitleCode == titleCode).FirstOrDefault();
+            return query;
+        }
     }
 }

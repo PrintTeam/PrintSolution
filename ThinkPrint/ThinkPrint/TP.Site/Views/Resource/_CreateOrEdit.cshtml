@@ -1,0 +1,66 @@
+﻿@model TP.Site.Models.SysSetting.ResourceModel
+@Html.HiddenFor(u => u.IsEdit)
+<div class="form-group form-group-boder">
+    <label for="txtName" class="control-label col-lg-2">参数名称</label>
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "系统参数名称信息", id = "txtName" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Name)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    <label for="txtTitle" class="control-label col-lg-2">参数标识</label>
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "系统参数标识信息", id = "txtTitle" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Title)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    <label for="txtTitleCode" class="control-label col-lg-2">标识编码</label>
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.TitleCode, new { @class = "form-control", placeholder = "系统参数标识编码信息", id = "txtTitleCode" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.TitleCode)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    <label for="txtUniqueCode" class="control-label col-lg-2">参数编码</label>
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.UniqueCode, new { @class = "form-control", placeholder = "系统参数编码信息", id = "txtUniqueCode" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.UniqueCode)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    <label for="txtParamValue" class="control-label col-lg-2">参数值</label>
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.ParamValue, new { @class = "form-control", placeholder = "系统参数值信息", id = "txtParamValue" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.ParamValue)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    <label for="txtDescription" class="control-label col-lg-2">描述</label>
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control", placeholder = "系统参数值信息", id = "txtDescription" })
+    </div>
+    <div class="col-lg-4">
+     
+    </div>
+</div>

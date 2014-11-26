@@ -46,6 +46,28 @@ namespace TP.Service.SysResource
         /// <param name="uniqueCode"></param>
         /// <returns></returns>
         SYS_SysSetting CheckExistSysSettingByCode(string uniqueCode);
+      
+        /// <summary>
+        /// 检查系统参数信息编码唯一性
+        /// </summary>
+        /// <param name="uniqueCode"></param>
+        /// <returns></returns>
+        SYS_SysSetting CheckExistSysSettingByCode(Guid rowGuid, string uniqueCode);
+
+        /// <summary>
+        /// 检查系统参数信息编码唯一性
+        /// </summary>
+        /// <param name="uniqueCode"></param>
+        /// <returns></returns>
+        SYS_SysSetting CheckExistSysSettingByTitleCode(string titleCode);
+
+        /// <summary>
+        /// 检查系统参数信息编码唯一性
+        /// </summary>
+        /// <param name="uniqueCode"></param>
+        /// <returns></returns>
+        SYS_SysSetting CheckExistSysSettingByTitleCode(Guid rowGuid, string titleCode);
+
 
         /// <summary>
         /// 添加系统参数信息

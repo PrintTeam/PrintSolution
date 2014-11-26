@@ -14,6 +14,7 @@ namespace TP.Site.Models.SysSetting
         {
 
         }
+        public System.Guid RowGuid { get; set; }
 
         [Required(ErrorMessage = "请输入参数名称")]
         [StringLength(20, ErrorMessage = "参数名称过长.")]

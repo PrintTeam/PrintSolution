@@ -2,25 +2,25 @@
 @{
     //success messages
     var successMessages = new List<string>();
-    if (TempData[string.Format("nsis.notifications.{0}", NotifyType.Success)] != null)
+    if (TempData[string.Format("tp.notifications.{0}", NotifyType.Success)] != null)
     {
-        successMessages.AddRange(TempData[string.Format("nsis.notifications.{0}", NotifyType.Success)] as IList<string>);
+        successMessages.AddRange(TempData[string.Format("tp.notifications.{0}", NotifyType.Success)] as IList<string>);
     }
-    if (ViewData[string.Format("nsis.notifications.{0}", NotifyType.Success)] != null)
+    if (ViewData[string.Format("tp.notifications.{0}", NotifyType.Success)] != null)
     {
-        successMessages.AddRange(ViewData[string.Format("nsis.notifications.{0}", NotifyType.Success)] as IList<string>);
+        successMessages.AddRange(ViewData[string.Format("tp.notifications.{0}", NotifyType.Success)] as IList<string>);
     }
 
 
     //error messages
     var errorMessages = new List<string>();
-    if (TempData[string.Format("nsis.notifications.{0}", NotifyType.Error)] != null)
+    if (TempData[string.Format("tp.notifications.{0}", NotifyType.Error)] != null)
     {
-        errorMessages.AddRange(TempData[string.Format("nsis.notifications.{0}", NotifyType.Error)] as IList<string>);
+        errorMessages.AddRange(TempData[string.Format("tp.notifications.{0}", NotifyType.Error)] as IList<string>);
     }
-    if (ViewData[string.Format("nsis.notifications.{0}", NotifyType.Error)] != null)
+    if (ViewData[string.Format("tp.notifications.{0}", NotifyType.Error)] != null)
     {
-        errorMessages.AddRange(ViewData[string.Format("nsis.notifications.{0}", NotifyType.Error)] as IList<string>);
+        errorMessages.AddRange(ViewData[string.Format("tp.notifications.{0}", NotifyType.Error)] as IList<string>);
     }
 }
 
