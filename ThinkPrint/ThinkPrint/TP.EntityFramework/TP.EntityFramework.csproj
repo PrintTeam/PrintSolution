@@ -162,11 +162,10 @@
     <Compile Include="Models\SYS_Unit.cs" />
     <Compile Include="Models\SYS_VoucherData.cs" />
     <Compile Include="Models\SYS_VoucherEncodingRule.cs" />
-    <Compile Include="Models\TinkPrintContext.cs" />
+    <Compile Include="Models\ThinkPrintContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

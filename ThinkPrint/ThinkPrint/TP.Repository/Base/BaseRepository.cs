@@ -14,7 +14,7 @@ namespace TP.Repository.Base
 {
     public abstract class BaseRepository<T> : IRepository<T> where T : class
     {
-        private TinkPrintContext dataContext;
+        private ThinkPrintContext dataContext;
         private IDbSet<T> dbSet;
         /// <summary>
         /// 获取实体
@@ -45,7 +45,7 @@ namespace TP.Repository.Base
             private set;
         }
 
-        protected TinkPrintContext DataContext
+        protected ThinkPrintContext DataContext
         {
             get { return dataContext ?? (dataContext = DatabaseFactory.GetDataBase()); }
         }

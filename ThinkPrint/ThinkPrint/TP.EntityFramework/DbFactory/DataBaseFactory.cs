@@ -10,7 +10,7 @@ namespace TP.EntityFramework.DbFactory
 {
     public class DataBaseFactory : IDataBaseFactory
     {
-        private TinkPrintContext _context;
+        private ThinkPrintContext _context;
         public void Dispose()
         {
             if (_context != null)
@@ -18,9 +18,9 @@ namespace TP.EntityFramework.DbFactory
             GC.SuppressFinalize(this);
         }
 
-        public TinkPrintContext GetDataBase()
+        public ThinkPrintContext GetDataBase()
         {
-            return _context ?? (_context = new TinkPrintContext());
+            return _context ?? (_context = new ThinkPrintContext());
         }
     }
 }

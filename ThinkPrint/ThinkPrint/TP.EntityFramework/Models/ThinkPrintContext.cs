@@ -4,15 +4,15 @@ using TP.EntityFramework.Models.Mapping;
 
 namespace TP.EntityFramework.Models
 {
-    public partial class TinkPrintContext : DbContext
+    public partial class ThinkPrintContext : DbContext
     {
-        static TinkPrintContext()
+        static ThinkPrintContext()
         {
-            Database.SetInitializer<TinkPrintContext>(null);
+            Database.SetInitializer<ThinkPrintContext>(null);
         }
 
-        public TinkPrintContext()
-            : base("Name=TinkPrintContext")
+        public ThinkPrintContext()
+            : base("Name=ThinkPrintContext")
         {
         }
 

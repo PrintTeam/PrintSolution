@@ -13,7 +13,7 @@ namespace TP.Repository.Base
     public class BaseUnitOfWork : IUnitOfWork
     {
         private readonly IDataBaseFactory _dataBaseFactory;
-        private TinkPrintContext context;
+        private ThinkPrintContext context;
         
 
         public BaseUnitOfWork(IDataBaseFactory dataBaseFactory)
@@ -21,7 +21,7 @@ namespace TP.Repository.Base
             _dataBaseFactory = dataBaseFactory;
         }
 
-        protected TinkPrintContext Context
+        protected ThinkPrintContext Context
         {
             get { return context ?? (context = _dataBaseFactory.GetDataBase()); }
         }

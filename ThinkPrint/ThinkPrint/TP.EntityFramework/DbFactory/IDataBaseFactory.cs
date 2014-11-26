@@ -10,6 +10,6 @@ namespace TP.EntityFramework
 {
     public interface IDataBaseFactory :IDisposable
     {
-        TinkPrintContext GetDataBase();
+        ThinkPrintContext GetDataBase();
     }
 }
