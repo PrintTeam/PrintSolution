@@ -26,7 +26,7 @@ namespace TP.Service.Store {
         public PagedList<ORG_Store> GetStoreList(int pageIndex, int pageSize, string searchKey = null) {
             var q = _storeRepository.Table.Where(u=>u.IsDelete==false);
             if (!string.IsNullOrWhiteSpace(searchKey)) {
-                q.Where(p => p.Name.Contains(searchKey));
+                q = q.Where(p => p.Name.Contains(searchKey));
             }
             q = q.OrderByDescending(p => p.ModifiedDate);
             //List<ORG_Store> List = q.ToList<ORG_Store>();
@@ -41,6 +41,7 @@ namespace TP.Service.Store {
             }
             try {
                 store.IsDelete = false;
+                store.ModifiedDate = DateTime.Now.ToLocalTime();
                 _storeRepository.Add(store);
                 _unitOfWork.Commint();
             }
