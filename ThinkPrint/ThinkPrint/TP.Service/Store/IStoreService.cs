@@ -7,7 +7,7 @@ using TP.EntityFramework.Models;
 using Webdiyer.WebControls.Mvc;
 
 namespace TP.Service.Store {
-    interface IStoreService {
+    public interface IStoreService {
         /// <summary>
         /// 根据提供的店铺编码返回店铺实体
         /// </summary>
