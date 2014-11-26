@@ -155,6 +155,7 @@
     <Compile Include="Helper\SysConstant.cs" />
     <Compile Include="Models\Account\AccountModels.cs" />
     <Compile Include="Models\Organization\EmployeeViewModels.cs" />
+    <Compile Include="Models\Organization\StoreViewModels.cs" />
     <Compile Include="Models\SysSetting\ResourceViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -238,10 +239,11 @@
     <Content Include="Views\Employee\_CreateOrEdit.cshtml" />
     <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Store\Index.cshtml" />
+    <Content Include="Views\Store\_StoreList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Store\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
