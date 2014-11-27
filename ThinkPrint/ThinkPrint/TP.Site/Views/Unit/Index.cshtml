@@ -1,8 +1,41 @@
-﻿
+﻿@model TP.Site.Models.SysSetting.UnitListModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Model.PageTitle;
+    //ViewBag.SubTitle = Model.PageSubTitle;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <span><i class="fa fa-table fa-fw"></i></span>
+                信息列表
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm("Index", "Employee", FormMethod.Get, new { id = "search-form" })) {
+
+                    <div class="row">
+                        <div class="col-xs-6 col-md-4">
+                            <a href="~/Unit/Create" class="btn btn-info btn-sm"><i class="fa fa-plus fa-fw"></i>新 建</a>
+                            <a href="~/Unit/Index" class="btn btn-success btn-sm"><i class="fa fa-refresh fa-fw"></i>刷 新</a>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-8">
+                            <div class="input-group input-group-sm">
+                                @Html.TextBoxFor(m => m.searchKey, new { @class = "form-control", placeholder = "查询关键字", id = "txtSearchkey" })
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-default btn-sm">查 找</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    @Html.Partial("_UnitList", Model)
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
 

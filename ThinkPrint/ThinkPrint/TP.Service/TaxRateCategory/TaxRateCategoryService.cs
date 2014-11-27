@@ -27,7 +27,7 @@ namespace TP.Service.TaxRateCategory {
             return _repository.Table.Where(u => u.IsDelete == false).ToList();
         }
 
-        public List<SYS_TaxRateCategory> GetTaxRateCategorys(int pageIndex, int pageSize, string searchKey = null) {
+        public PagedList<SYS_TaxRateCategory> GetTaxRateCategorys(int pageIndex, int pageSize, string searchKey = null) {
             var q = _repository.Table.Where(u => u.IsDelete == false);
             if (!string.IsNullOrWhiteSpace(searchKey)) {
                 q = q.Where(p => p.Name.Contains(searchKey));
