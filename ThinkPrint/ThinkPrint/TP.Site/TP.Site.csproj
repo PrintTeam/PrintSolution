@@ -149,6 +149,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ResourceController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
+    <Compile Include="Controllers\TaxRateCategoryController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -159,6 +160,7 @@
     <Compile Include="Models\Organization\EmployeeViewModels.cs" />
     <Compile Include="Models\Organization\StoreViewModels.cs" />
     <Compile Include="Models\SysSetting\ResourceViewModels.cs" />
+    <Compile Include="Models\SysSetting\TaxRateCategoryViewModels.cs" />
     <Compile Include="Models\SysSetting\UnitViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -256,6 +258,11 @@
     <Content Include="Views\Unit\Index.cshtml" />
     <Content Include="Views\Unit\_UnitList.cshtml" />
     <Content Include="Views\Unit\_CreateOrEdit.cshtml" />
+    <Content Include="Views\TaxRateCategory\Create.cshtml" />
+    <Content Include="Views\TaxRateCategory\Edit.cshtml" />
+    <Content Include="Views\TaxRateCategory\Index.cshtml" />
+    <Content Include="Views\TaxRateCategory\_CreateOrEdit.cshtml" />
+    <Content Include="Views\TaxRateCategory\_TaxRateCategoryList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

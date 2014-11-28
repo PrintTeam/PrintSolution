@@ -1,7 +1,7 @@
-﻿@model TP.Site.Models.SysSetting.UnitListModel
+﻿@model TP.Site.Models.SysSetting.TaxRateCategoryListModel
 @{
     ViewBag.Title = Model.PageTitle;
-    //ViewBag.SubTitle = Model.PageSubTitle;
+    ViewBag.SubTitle = Model.PageSubTitle;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -13,12 +13,12 @@
                 信息列表
             </div>
             <div class="panel-body">
-                @using (Html.BeginForm("Index", "Unit", FormMethod.Get, new { id = "search-form" })) {
+                @using (Html.BeginForm("Index", "TaxRateCategory", FormMethod.Get, new { id = "search-form" })) {
 
                     <div class="row">
                         <div class="col-xs-6 col-md-4">
-                            <a href="~/Unit/Create" class="btn btn-info btn-sm"><i class="fa fa-plus fa-fw"></i>新 建</a>
-                            <a href="~/Unit/Index" class="btn btn-success btn-sm"><i class="fa fa-refresh fa-fw"></i>刷 新</a>
+                            <a href="~/TaxRateCategory/Create" class="btn btn-info btn-sm"><i class="fa fa-plus fa-fw"></i>新 建</a>
+                            <a href="~/TaxRateCategory/Index" class="btn btn-success btn-sm"><i class="fa fa-refresh fa-fw"></i>刷 新</a>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-8">
                             <div class="input-group input-group-sm">
@@ -30,7 +30,7 @@
                         </div>
                     </div>
 
-                    @Html.Partial("_UnitList", Model)
+                    @Html.Partial("_TaxRateCategoryList", Model)
                 }
             </div>
         </div>
