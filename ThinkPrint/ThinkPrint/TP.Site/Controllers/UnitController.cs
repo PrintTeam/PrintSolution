@@ -87,7 +87,7 @@ namespace TP.Site.Controllers {
         public ActionResult Delete(int id) {
             SYS_Unit Unit = m_Service.GetUnit(id);
             m_Service.DeleteUnit(Unit);
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }

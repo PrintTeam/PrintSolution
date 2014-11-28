@@ -39,6 +39,7 @@ namespace TP.Site.Controllers {
         }
         [HttpPost]
         public ActionResult Create(StoreModel model) {
+            VerifyModel(model);
             if (ModelState.IsValid) {
                 ORG_Store Store = new ORG_Store {
                     CompanyId = 1,
@@ -79,6 +80,7 @@ namespace TP.Site.Controllers {
 
         [HttpPost]
         public ActionResult Edit(StoreModel model) {
+            VerifyModel(model);
             if (ModelState.IsValid) {
                 ORG_Store Store = _storeService.GetStore(model.Id);
                 Store.StoreId = model.Id;
@@ -103,8 +105,16 @@ namespace TP.Site.Controllers {
         }
 
         public ActionResult Delete(int id) {
+            ORG_Store Store = _storeService.GetStore(id);
+            _storeService.DeleteStore(Store);
             return RedirectToAction("Index");
             //return View();
+        }
+
+        [NonAction]
+        private void VerifyModel(StoreModel model) {
+           if (_storeService.StoreExisted(model.UniqueCode))
+                ModelState.AddModelError("UniqueCode", "店铺编码已存在.");
         }
     }
 }
