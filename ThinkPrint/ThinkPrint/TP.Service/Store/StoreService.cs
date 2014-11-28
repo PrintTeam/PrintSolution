@@ -23,6 +23,11 @@ namespace TP.Service.Store {
             return _storeRepository.GetById(storeID);
         }
 
+        public bool StoreExisted(String UniqueCode) {
+            var q = _storeRepository.Table.Where(p => p.UniqueCode == UniqueCode);
+            return q.ToList().Count > 0;
+        }
+
         public PagedList<ORG_Store> GetStoreList(int pageIndex, int pageSize, string searchKey = null) {
             var q = _storeRepository.Table.Where(u=>u.IsDelete==false);
             if (!string.IsNullOrWhiteSpace(searchKey)) {
