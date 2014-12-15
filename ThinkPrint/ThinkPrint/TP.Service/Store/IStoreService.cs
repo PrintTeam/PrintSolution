@@ -22,6 +22,14 @@ namespace TP.Service.Store {
         /// <param name="searchKey">检索条件</param>
         /// <returns>店铺实体列表</returns>
         PagedList<ORG_Store> GetStoreList(int pageIndex, int pageSize, string searchKey = null);
+
+        /// <summary>
+        /// 根据店铺代码判断店铺是否存在
+        /// </summary>
+        /// <param name="UniqueCode"></param>
+        /// <returns></returns>
+        bool StoreExisted(String UniqueCode);
+
         /// <summary>
         /// 新增店铺
         /// </summary>

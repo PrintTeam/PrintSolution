@@ -1,4 +1,5 @@
-﻿@model TP.Site.Models.Organization.StoreListModel
+﻿@model TP.Site.Models.SysSetting.UnitListModel
+
 @using Webdiyer.WebControls.Mvc
 @{
     var j = 1;
@@ -11,23 +12,12 @@
                     序号
                 </th>
                 <th>
-                    编号
-                </th>
-                <th>
                     名称
                 </th>
                 <th>
-                    地址
+                    单位类型
                 </th>
-                <th>
-                    电话
-                </th>
-                <th>
-                    负责人
-                </th>
-                <th>
-                    描述
-                </th>
+                <th>备注</th>
                 <th>操作</th>
             </tr>
         </thead>
@@ -38,31 +28,20 @@
                         @j.ToString()
                     </td>
                     <td>
-                        @item.UniqueCode
+                        @item.Name
                     </td>
                     <td>
-                        <a href="~/Employee/EmployeeShowView/@item.StoreId">@item.Name</a>
-                    </td>
-
-                    <td>
-                        @item.Address
-                    </td>
-                    <td>
-                        @item.Telephone
-                    </td>
-                    <td>
-                       @item.ResponsiblePerson
+                        @item.UnitType
                     </td>
                     <td>
                         @item.Description
                     </td>
-                   
                     <td class="table-action">
-                        <a href="~/Store/Edit/@item.StoreId" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="left" title="编辑"><i class="fa fa-edit"></i></a>
-                        <button id="@item.StoreId" type="button" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="删除"><i class="fa fa-trash-o "></i></button>
+                        <a href="~/Unit/Edit/@item.UnitId" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="left" title="编辑"><i class="fa fa-edit"></i></a>
+                        <button id="@item.UnitId" type="button" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="删除"><i class="fa fa-trash-o "></i></button>
                     </td>
                 </tr>
-                        j++;
+                j++;
             }
         </tbody>
     </table>
@@ -78,3 +57,4 @@
         @Html.Pager(Model.ViewList, new PagerOptions { PageIndexParameterName = "pageIndex", ShowPageIndexBox = false, ShowGoButton = false, CurrentPagerItemWrapperFormatString = "<span class=\"current\">{0}</span>" }, new { id = "badoopager", @class = "pull-right" })
     </div>
 </div>
+

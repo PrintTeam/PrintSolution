@@ -149,6 +149,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ResourceController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
+    <Compile Include="Controllers\TaxRateCategoryController.cs" />
+    <Compile Include="Controllers\UnitController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -158,6 +160,8 @@
     <Compile Include="Models\Organization\EmployeeViewModels.cs" />
     <Compile Include="Models\Organization\StoreViewModels.cs" />
     <Compile Include="Models\SysSetting\ResourceViewModels.cs" />
+    <Compile Include="Models\SysSetting\TaxRateCategoryViewModels.cs" />
+    <Compile Include="Models\SysSetting\UnitViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -246,7 +250,23 @@
     <Content Include="Views\Resource\_ResourceList.cshtml" />
     <Content Include="Views\Resource\Create.cshtml" />
     <Content Include="Views\Resource\_CreateOrEdit.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Resource\Edit.cshtml" />
+=======
+    <Content Include="Views\Store\_CreateOrEdit.cshtml" />
+    <Content Include="Views\Store\Create.cshtml" />
+    <Content Include="Views\Store\Edit.cshtml" />
+    <Content Include="Views\Unit\Create.cshtml" />
+    <Content Include="Views\Unit\Edit.cshtml" />
+    <Content Include="Views\Unit\Index.cshtml" />
+    <Content Include="Views\Unit\_UnitList.cshtml" />
+    <Content Include="Views\Unit\_CreateOrEdit.cshtml" />
+    <Content Include="Views\TaxRateCategory\Create.cshtml" />
+    <Content Include="Views\TaxRateCategory\Edit.cshtml" />
+    <Content Include="Views\TaxRateCategory\Index.cshtml" />
+    <Content Include="Views\TaxRateCategory\_CreateOrEdit.cshtml" />
+    <Content Include="Views\TaxRateCategory\_TaxRateCategoryList.cshtml" />
+>>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -291,16 +311,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>9617</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:8066</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

@@ -1,0 +1,35 @@
+﻿@model TP.Site.Models.SysSetting.UnitModel
+
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.Name, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Name)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.UnitType, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.UnitType, new { @class = "form-control" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.UnitType)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.Description, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextAreaFor(m => m.Description,10,20, new { @class = "form-control" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Description)
+        </p>
+    </div>
+</div>

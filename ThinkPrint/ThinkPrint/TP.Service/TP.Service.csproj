@@ -56,6 +56,10 @@
     <Compile Include="Store\StoreService.cs" />
     <Compile Include="SysResource\IResourceService.cs" />
     <Compile Include="SysResource\ResourceService.cs" />
+    <Compile Include="TaxRateCategory\ITaxRateCategoryService.cs" />
+    <Compile Include="TaxRateCategory\TaxRateCategoryService.cs" />
+    <Compile Include="Unit\IUnitService.cs" />
+    <Compile Include="Unit\UnitService.cs" />
     <Compile Include="User\IUserService.cs" />
     <Compile Include="User\UserService.cs" />
   </ItemGroup>
