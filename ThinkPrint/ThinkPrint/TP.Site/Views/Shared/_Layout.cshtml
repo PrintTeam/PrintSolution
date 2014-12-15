@@ -106,7 +106,7 @@
             </ul>
         </nav>
         <aside>
-            <div id="sidebar">
+            <div id="sidebar" style="overflow: hidden; outline: none;">
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
                     <li>
@@ -213,7 +213,7 @@
                                 <a href="#">公司信息</a>
                             </li>
                             <li>
-                                <a href="#">店铺信息</a>
+                                @Html.ActionLink("店铺信息", "Index", "Store")
                             </li>
                             <li>
                                 @Html.ActionLink("员工信息", "Index", "Employee")
@@ -225,10 +225,10 @@
                                 <a href="#">预收款设置</a>
                             </li>
                             <li>
-                                <a href="#">税率分类</a>
+                                @Html.ActionLink("税率分类", "Index", "TaxRateCategory")
                             </li>
                             <li>
-                                <a href="#">计量单位</a>
+                                @Html.ActionLink("计量单位", "Index", "Unit")
                             </li>
 
                         </ul>

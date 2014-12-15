@@ -250,9 +250,7 @@
     <Content Include="Views\Resource\_ResourceList.cshtml" />
     <Content Include="Views\Resource\Create.cshtml" />
     <Content Include="Views\Resource\_CreateOrEdit.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Resource\Edit.cshtml" />
-=======
     <Content Include="Views\Store\_CreateOrEdit.cshtml" />
     <Content Include="Views\Store\Create.cshtml" />
     <Content Include="Views\Store\Edit.cshtml" />
@@ -266,7 +264,7 @@
     <Content Include="Views\TaxRateCategory\Index.cshtml" />
     <Content Include="Views\TaxRateCategory\_CreateOrEdit.cshtml" />
     <Content Include="Views\TaxRateCategory\_TaxRateCategoryList.cshtml" />
->>>>>>> origin/master
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

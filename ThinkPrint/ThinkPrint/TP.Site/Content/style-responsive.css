@@ -21,6 +21,9 @@
         display: block;
     }
 
+    ul.sidebar-menu {
+    margin-top: 100px;
+}
 
     /* body container */
     #main-content {
