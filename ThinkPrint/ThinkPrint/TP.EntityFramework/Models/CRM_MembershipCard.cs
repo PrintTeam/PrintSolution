@@ -7,7 +7,7 @@ namespace TP.EntityFramework.Models
     {
         public CRM_MembershipCard()
         {
-            this.CRM__PostRegisterCard = new List<CRM__PostRegisterCard>();
+            this.CRM__PostRegisterCard = new List<CRM_PostRegisterCard>();
             this.CRM_CardConsumption = new List<CRM_CardConsumption>();
             this.CRM_CardRecharge = new List<CRM_CardRecharge>();
             this.CRM_MembershipUnfreeze = new List<CRM_MembershipUnfreeze>();
@@ -39,7 +39,7 @@ namespace TP.EntityFramework.Models
         public string CardStatus { get; set; }
         public string Description { get; set; }
         public System.DateTime ModifiedDate { get; set; }
-        public virtual ICollection<CRM__PostRegisterCard> CRM__PostRegisterCard { get; set; }
+        public virtual ICollection<CRM_PostRegisterCard> CRM__PostRegisterCard { get; set; }
         public virtual ICollection<CRM_CardConsumption> CRM_CardConsumption { get; set; }
         public virtual ICollection<CRM_CardRecharge> CRM_CardRecharge { get; set; }
         public virtual ICollection<CRM_MembershipUnfreeze> CRM_MembershipUnfreeze { get; set; }

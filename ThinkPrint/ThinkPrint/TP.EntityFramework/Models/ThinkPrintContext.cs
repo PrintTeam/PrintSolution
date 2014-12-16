@@ -33,7 +33,7 @@ namespace TP.EntityFramework.Models
         public DbSet<BPM_PrintingSalePriceList> BPM_PrintingSalePriceList { get; set; }
         public DbSet<BUS_BusinessCategory> BUS_BusinessCategory { get; set; }
         public DbSet<BUS_BusinessComponent> BUS_BusinessComponent { get; set; }
-        public DbSet<CRM__PostRegisterCard> CRM__PostRegisterCard { get; set; }
+        public DbSet<CRM_PostRegisterCard> CRM__PostRegisterCard { get; set; }
         public DbSet<CRM_CardConsumption> CRM_CardConsumption { get; set; }
         public DbSet<CRM_CardDictionary> CRM_CardDictionary { get; set; }
         public DbSet<CRM_CardRecharge> CRM_CardRecharge { get; set; }
@@ -91,7 +91,7 @@ namespace TP.EntityFramework.Models
             modelBuilder.Configurations.Add(new BPM_PrintingSalePriceListMap());
             modelBuilder.Configurations.Add(new BUS_BusinessCategoryMap());
             modelBuilder.Configurations.Add(new BUS_BusinessComponentMap());
-            modelBuilder.Configurations.Add(new CRM__PostRegisterCardMap());
+            modelBuilder.Configurations.Add(new CRM_PostRegisterCardMap());
             modelBuilder.Configurations.Add(new CRM_CardConsumptionMap());
             modelBuilder.Configurations.Add(new CRM_CardDictionaryMap());
             modelBuilder.Configurations.Add(new CRM_CardRechargeMap());

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TP.EntityFramework.Models
 {
-    public partial class CRM__PostRegisterCard
+    public partial class CRM_PostRegisterCard
     {
         public int PostRegisterCardId { get; set; }
         public int MembershipCardId { get; set; }

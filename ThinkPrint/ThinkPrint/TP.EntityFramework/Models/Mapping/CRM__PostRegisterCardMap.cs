@@ -3,9 +3,9 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace TP.EntityFramework.Models.Mapping
 {
-    public class CRM__PostRegisterCardMap : EntityTypeConfiguration<CRM__PostRegisterCard>
+    public class CRM_PostRegisterCardMap : EntityTypeConfiguration<CRM_PostRegisterCard>
     {
-        public CRM__PostRegisterCardMap()
+        public CRM_PostRegisterCardMap()
         {
             // Primary Key
             this.HasKey(t => t.PostRegisterCardId);
