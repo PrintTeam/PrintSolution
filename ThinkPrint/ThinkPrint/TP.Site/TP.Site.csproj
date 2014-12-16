@@ -157,11 +157,51 @@
     <Compile Include="Helper\NotifyType.cs" />
     <Compile Include="Helper\SysConstant.cs" />
     <Compile Include="Models\Account\AccountModels.cs" />
+    <Compile Include="Models\AuthorizeUserStore\AuthorizeUserStoreViewModels.cs" />
+    <Compile Include="Models\BusinessCategory\BusinessCategoryViewModels.cs" />
+    <Compile Include="Models\BusinessComponent\BusinessComponentViewModels.cs" />
+    <Compile Include="Models\CardConsumption\CardConsumptionViewModels.cs" />
+    <Compile Include="Models\CardDictionary\CardDictionaryViewModels.cs" />
+    <Compile Include="Models\CardRecharge\CardRechargeViewModels.cs" />
+    <Compile Include="Models\Company\CompanyViewModels.cs" />
+    <Compile Include="Models\Customer\CustomerViewModels.cs" />
+    <Compile Include="Models\Department\DepartmentViewModels.cs" />
+    <Compile Include="Models\EmployeeDepartmentHistory\EmployeeDepartmentHistoryViewModels.cs" />
+    <Compile Include="Models\Industry\IndustryViewModels.cs" />
+    <Compile Include="Models\MachineCategory\MachineCategoryViewModels.cs" />
+    <Compile Include="Models\Machine\MachineViewModels.cs" />
+    <Compile Include="Models\MembershipCardCategory\MembershipCardCategoryViewModels.cs" />
+    <Compile Include="Models\MembershipCard\MembershipCardViewModels.cs" />
+    <Compile Include="Models\MembershipFreeze\MembershipFreezeViewModels.cs" />
+    <Compile Include="Models\MembershipUnfreeze\MembershipUnfreezeViewModels.cs" />
+    <Compile Include="Models\OrderRemindSetting\OrderRemindSettingViewModels.cs" />
+    <Compile Include="Models\Order\OrderViewModels.cs" />
     <Compile Include="Models\Organization\EmployeeViewModels.cs" />
     <Compile Include="Models\Organization\StoreViewModels.cs" />
+    <Compile Include="Models\PaperCategory\PaperCategoryViewModels.cs" />
+    <Compile Include="Models\PaperSize\PaperSizeViewModels.cs" />
+    <Compile Include="Models\Paper\PaperViewModels.cs" />
+    <Compile Include="Models\PostpressAgreementPriceList\PostpressAgreementPriceListViewModels.cs" />
+    <Compile Include="Models\PostpressMembershipPriceList\PostpressMembershipPriceListViewModels.cs" />
+    <Compile Include="Models\PostpressPriceRangeList\PostpressPriceRangeListViewModels.cs" />
+    <Compile Include="Models\PostpressProcess\PostpressProcessViewModels.cs" />
+    <Compile Include="Models\PostpressSalePriceList\PostpressSalePriceListViewModels.cs" />
+    <Compile Include="Models\PostRegisterCard\PostRegisterCardViewModels.cs" />
+    <Compile Include="Models\PrepaymentsSetting\PrepaymentsSettingViewModels.cs" />
+    <Compile Include="Models\PrintingAgreementPriceList\PrintingAgreementPriceListViewModels.cs" />
+    <Compile Include="Models\PrintingMembershipPriceList\PrintingMembershipPriceListViewModels.cs" />
+    <Compile Include="Models\PrintingPriceRangeList\PrintingPriceRangeListViewModels.cs" />
+    <Compile Include="Models\PrintingProcess\PrintingProcessViewModels.cs" />
+    <Compile Include="Models\PrintingSalePriceList\PrintingSalePriceListViewModels.cs" />
+    <Compile Include="Models\ProcessRequirement\ProcessRequirementViewModels.cs" />
+    <Compile Include="Models\Shift\ShiftViewModels.cs" />
     <Compile Include="Models\SysSetting\ResourceViewModels.cs" />
     <Compile Include="Models\SysSetting\TaxRateCategoryViewModels.cs" />
     <Compile Include="Models\SysSetting\UnitViewModels.cs" />
+    <Compile Include="Models\VoucherData\VoucherDataViewModels.cs" />
+    <Compile Include="Models\VoucherEncodingRule\VoucherEncodingRuleViewModels.cs" />
+    <Compile Include="Models\WorkProjectDetail\WorkProjectDetailViewModels.cs" />
+    <Compile Include="Models\WorkProject\WorkProjectViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -264,7 +304,6 @@
     <Content Include="Views\TaxRateCategory\Index.cshtml" />
     <Content Include="Views\TaxRateCategory\_CreateOrEdit.cshtml" />
     <Content Include="Views\TaxRateCategory\_TaxRateCategoryList.cshtml" />
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
