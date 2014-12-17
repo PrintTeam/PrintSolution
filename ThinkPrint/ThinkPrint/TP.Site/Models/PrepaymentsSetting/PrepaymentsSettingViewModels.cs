@@ -15,14 +15,10 @@ namespace TP.Site.Models.PrepaymentsSetting{
     public class PrepaymentsSettingModel : BaseViewModel{
     
         public PrepaymentsSettingModel(){
-        }
-
-        public int PrepaymentsSettingId {
-            get;
-            set;
-        }
+        }       
         
         [Required(ErrorMessage = "请输入订单最小金额")]
+        [DisplayFormat(DataFormatString = "{0:C}")]
 		[Display(Name = "订单最小金额")]
         public decimal OrderMinAmount
 		{
@@ -32,6 +28,7 @@ namespace TP.Site.Models.PrepaymentsSetting{
 		
         [Required(ErrorMessage = "请输入订单最大金额")]
 		[Display(Name = "订单最大金额")]
+        [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal OrderMaxAmount
 		{
 			get;
@@ -39,6 +36,7 @@ namespace TP.Site.Models.PrepaymentsSetting{
 		}
 		
         [Required(ErrorMessage = "请输入预收金额")]
+        [DisplayFormat(DataFormatString = "{0:C}")]
 		[Display(Name = "预收金额")]
         public decimal PrepaymentsAmount
 		{

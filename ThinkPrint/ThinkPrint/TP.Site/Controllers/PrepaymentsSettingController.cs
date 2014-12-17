@@ -64,6 +64,7 @@ namespace TP.Site.Controllers {
         public ActionResult Edit(int id) {
             SYS_PrepaymentsSetting PrepaymentsSetting = m_PrepaymentsSettingService.GetPrepaymentsSetting(id);
             PrepaymentsSettingModel model = new PrepaymentsSettingModel {
+                Id = PrepaymentsSetting.PrepaymentsSettingId,
                 OrderMinAmount = PrepaymentsSetting.OrderMinAmount,
                 OrderMaxAmount = PrepaymentsSetting.OrderMaxAmount,
                 PrepaymentsAmount = PrepaymentsSetting.PrepaymentsAmount,
@@ -76,7 +77,7 @@ namespace TP.Site.Controllers {
         [HttpPost]
         public ActionResult Edit(PrepaymentsSettingModel model) {
             if (ModelState.IsValid) {
-                SYS_PrepaymentsSetting PrepaymentsSetting = m_PrepaymentsSettingService.GetPrepaymentsSetting(model.PrepaymentsSettingId);
+                SYS_PrepaymentsSetting PrepaymentsSetting = m_PrepaymentsSettingService.GetPrepaymentsSetting(model.Id);
                 PrepaymentsSetting.OrderMinAmount = model.OrderMinAmount;
                 PrepaymentsSetting.OrderMaxAmount = model.OrderMaxAmount;
                 PrepaymentsSetting.PrepaymentsAmount = model.PrepaymentsAmount;

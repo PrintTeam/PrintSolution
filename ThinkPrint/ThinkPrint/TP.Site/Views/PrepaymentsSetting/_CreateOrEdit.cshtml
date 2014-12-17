@@ -1,0 +1,48 @@
+﻿@model TP.Site.Models.PrepaymentsSetting.PrepaymentsSettingModel
+
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.OrderMinAmount, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.OrderMinAmount, new { @class = "form-control", placeholder = "订单最小金额", id = "txtOrderMinAmount" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.OrderMinAmount)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.OrderMaxAmount, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.OrderMaxAmount, new { @class = "form-control", placeholder = "订单最大金额", id = "txtOrderMaxAmount" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.OrderMaxAmount)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.PrepaymentsAmount, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.PrepaymentsAmount, new { @class = "form-control", placeholder = "预收金额", id = "txtPrepaymentsAmount" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.PrepaymentsAmount)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.Description, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control", placeholder = "描述", id = "txtDescription" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Description)
+        </p>
+    </div>
+</div>
+
+
