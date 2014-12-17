@@ -6,7 +6,8 @@ using System.Web;
 using TP.EntityFramework.Models;
 using TP.Web.Framework.Mvc;
 
-namespace TP.Site.Models.Department{
+namespace TP.Site.Models.Organization
+{
 
      
     /// <summary>

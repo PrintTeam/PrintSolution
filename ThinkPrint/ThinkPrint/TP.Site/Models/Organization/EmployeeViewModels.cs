@@ -16,6 +16,7 @@ namespace TP.Site.Models.Organization
         {
             StatusList = new List<SYS_SysSetting>();
             DepartmentList = new List<SelectListItem>();
+            StoreList = new List<SelectListItem>();
         }
 
         [Required(ErrorMessage = "请输入员工名称")]
@@ -25,6 +26,9 @@ namespace TP.Site.Models.Organization
 
         public string CurrentDepartment { get; set; }
         public int CurrentDepartmentId { get; set; }
+
+        public string CurrentStrore { get; set; }
+        public int CurrentStroreId { get; set; }
 
         [Required(ErrorMessage = "请输入员工编码")]
         [StringLength(20, ErrorMessage = "员工编码过长.")]
@@ -68,6 +72,8 @@ namespace TP.Site.Models.Organization
         public IList<SYS_SysSetting> StatusList { get; set; }
 
         public IList<SelectListItem> DepartmentList { get; set; }
+
+        public IList<SelectListItem> StoreList { get; set; }
     }
 
     public class EmployeeListModel : BaseListViewModel<ORG_Employee>

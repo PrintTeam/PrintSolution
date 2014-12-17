@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TP.EntityFramework.Models;
+using TP.Service.Department;
+using TP.Service.Store;
+using TP.Service.SysResource;
 using TP.Site.Helper;
 using TP.Site.Models.Organization;
 using TP.Web.Framework.Mvc;
@@ -16,9 +19,17 @@ namespace TP.Site.Controllers
     {
       
         private readonly IEmployeeService _employeeService;
-        public EmployeeController(IEmployeeService employeeService)
+        private readonly IResourceService _resourceService;
+        private readonly IDepartmentService _departmentService;
+        private readonly IStoreService _storeService;
+        private IList<SYS_SysSetting> statusList;
+        public EmployeeController(IEmployeeService employeeService,IDepartmentService departmentService,IStoreService storeService, IResourceService resourceService)
         {
             _employeeService = employeeService;
+            _departmentService = departmentService;
+            _storeService = storeService;
+            _resourceService = resourceService;
+            PrepareStatusList();
         }
         // GET: Employee
         public ActionResult Index(int pageIndex = 1, string searchKey = null)
@@ -76,6 +87,67 @@ namespace TP.Site.Controllers
                 model.Sex = true;
             }
             //PrepareDepartmnet(model);
+        }
+
+        [NonAction]
+        private void PrepareStatusList()
+        {
+            statusList = _resourceService.GetSysSettingList(SysConstant.EmployeeStatus_titleCode);
+        }
+
+        [NonAction]
+        private void PrepareDepartmnet(EmployeeModel model) 
+        {
+            if (model == null)
+                throw new ArgumentNullException("model");
+
+            IList<ORG_Department> departmentList = _departmentService.GetDepartments();
+
+            foreach (var item in departmentList)
+            {
+                model.DepartmentList.Add(new SelectListItem
+                {
+                    Text = item.Name,
+                    Value = item.DepartmentId.ToString()
+                });
+            }
+
+            if (!model.IsEdit)
+            {
+                model.DepartmentList.Insert(0, new SelectListItem { Selected = true, Text = "选择部门信息", Value = "0" });
+            }
+            else
+            {
+                var selected = model.DepartmentList.FirstOrDefault(u => u.Value == model.CurrentDepartmentId.ToString());
+                selected.Selected = true;
+            }
+        }
+
+        private void PrepareStore(EmployeeModel model) 
+        {
+            if (model == null)
+                throw new ArgumentNullException("model");
+
+            IList<ORG_Store> storeList = _storeService.GetStores();
+
+            foreach (var item in storeList)
+            {
+                model.StoreList.Add(new SelectListItem
+                {
+                    Text = item.Name,
+                    Value = item.StoreId.ToString()
+                });
+            }
+
+            if (!model.IsEdit)
+            {
+                model.StoreList.Insert(0, new SelectListItem { Selected = true, Text = "选择店铺信息", Value = "0" });
+            }
+            else
+            {
+                var selected = model.StoreList.FirstOrDefault(u => u.Value == model.CurrentStroreId.ToString());
+                selected.Selected = true;
+            }
         }
     }
 }

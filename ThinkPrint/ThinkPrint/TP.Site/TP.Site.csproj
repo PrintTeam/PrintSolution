@@ -145,6 +145,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderRemindSettingController.cs" />
@@ -168,7 +169,7 @@
     <Compile Include="Models\CardRecharge\CardRechargeViewModels.cs" />
     <Compile Include="Models\Company\CompanyViewModels.cs" />
     <Compile Include="Models\Customer\CustomerViewModels.cs" />
-    <Compile Include="Models\Department\DepartmentViewModels.cs" />
+    <Compile Include="Models\Organization\DepartmentViewModels.cs" />
     <Compile Include="Models\EmployeeDepartmentHistory\EmployeeDepartmentHistoryViewModels.cs" />
     <Compile Include="Models\Industry\IndustryViewModels.cs" />
     <Compile Include="Models\MachineCategory\MachineCategoryViewModels.cs" />
@@ -323,6 +324,8 @@
     <Content Include="Views\VoucherEncodingRule\Index.cshtml" />
     <Content Include="Views\VoucherEncodingRule\_CreateOrEdit.cshtml" />
     <Content Include="Views\VoucherEncodingRule\_VoucherEncodingRuleList.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Department\_DepartmentList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

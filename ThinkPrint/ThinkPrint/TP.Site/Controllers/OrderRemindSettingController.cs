@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using TP.EntityFramework.Models;
 using TP.Service.OrderRemindSetting;
+using TP.Service.SysResource;
 using TP.Site.Helper;
 using TP.Site.Models.OrderRemindSetting;
 using TP.Web.Framework.Mvc;
@@ -16,9 +17,12 @@ namespace TP.Site.Controllers {
     /// </summary>
     public class OrderRemindSettingController : BaseController {
         private readonly IOrderRemindSettingService m_OrderRemindSettingService;
+        private readonly IResourceService _resourceService;
         private string messages = "";
-        public OrderRemindSettingController(IOrderRemindSettingService OrderRemindSettingService) {
+        public OrderRemindSettingController(IOrderRemindSettingService OrderRemindSettingService, IResourceService resourceService)
+        {
             m_OrderRemindSettingService = OrderRemindSettingService;
+            _resourceService = resourceService;
         }
 
         // GET: Resource
@@ -112,6 +116,11 @@ namespace TP.Site.Controllers {
             model.PageTitle = "订单消息设置";
             model.PageSubTitle = "维护订单消息设置信息";
             //model.IsEdit = model.Id == 0 ? false : true;
+        }
+
+        private void PrepareReminderType() 
+        {
+             
         }
     }
 }

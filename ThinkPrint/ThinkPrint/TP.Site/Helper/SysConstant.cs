@@ -14,7 +14,11 @@ namespace TP.Site.Helper
         public static readonly string EmployeeStatus_leave = "EMPLOYEESTATUS_LEAVE";
         public static readonly string EmployeeStatus_seconded = "EMPLOYEESTATUS_SECONDED";
 
+        public static readonly string ReminderType_titleCode = "REMINDERTYPE";
+      
+
         public static readonly string MenuTypeName_Category = "菜单分类";
         public static readonly string MenuTypeName_Link = "链接";
+
     }
 }
