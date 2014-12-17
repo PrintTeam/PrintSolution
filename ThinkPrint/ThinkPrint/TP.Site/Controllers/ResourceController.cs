@@ -38,7 +38,7 @@ namespace TP.Site.Controllers
         public ActionResult Create()
         {
             var model = new ResourceModel();
-
+            model.IsEdit = false;
             PrepareModel(model);
             return View(model);
         }
@@ -52,6 +52,7 @@ namespace TP.Site.Controllers
             {
                 SYS_SysSetting sysSetting = new SYS_SysSetting
                 {
+                    RowGuid=Guid.NewGuid(),
                     Name = model.Name,
                     Title=model.Title.Trim(),
                     UniqueCode = model.UniqueCode.Trim(),
@@ -135,12 +136,30 @@ namespace TP.Site.Controllers
             return View(model);
         }
 
+
+        public ActionResult Delete(string id)
+        {
+            try
+            {
+                SYS_SysSetting sysSetting = _resourceService.GetSysSettingByCode(id);
+                _resourceService.DeleteSysSetting(sysSetting);
+                return Redirect("~/Resource/Index");
+               
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.ToString());
+                ErrorNotification(ex.ToString());
+
+            }
+            return RedirectToAction("Index", "Resource");
+        }
+
         [NonAction]
         private void PrepareModel(ResourceModel model)
         {
             model.PageTitle = "系统参数";
             model.PageSubTitle = "维护系统中重要参数信息";
-            model.IsEdit = model.Id == 0 ? false : true;
         }
 
         [NonAction]

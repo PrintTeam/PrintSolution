@@ -23,14 +23,14 @@ namespace TP.Service.SysResource
 
         public IList<SYS_SysSetting> GetSysSettingList()
         {
-            var query = _sysSettingRepository.Table;
+            var query = _sysSettingRepository.Table.Where(u => u.IsDelete == false);
             IList<SYS_SysSetting> sysSettingList = query.OrderByDescending(u => u.ModifiedDate).ToList();
             return sysSettingList;
         }
 
         public PagedList<SYS_SysSetting> GetSysSettingList(int pageIndex, int pageSize, string searchKey = null)
         {
-            var query = _sysSettingRepository.Table;
+            var query = _sysSettingRepository.Table.Where(u => u.IsDelete == false);
             if (!string.IsNullOrWhiteSpace(searchKey))
             {
                 query = query.Where(u => u.Name.Contains(searchKey) || u.Title.Contains(searchKey));
@@ -44,7 +44,7 @@ namespace TP.Service.SysResource
 
         public List<SYS_SysSetting> GetSysSettingList(string titleCode)
         {
-            var query = _sysSettingRepository.Filter(s => s.TitleCode == titleCode).ToList();
+            var query = _sysSettingRepository.Filter(s=> s.IsDelete == false &&  s.TitleCode == titleCode).ToList();
             return query;
         }
 
@@ -52,7 +52,7 @@ namespace TP.Service.SysResource
         {
             if (string.IsNullOrWhiteSpace(uniqueCode))
                 throw new ArgumentNullException("Get UniqueCode is Null");
-            var query = _sysSettingRepository.Filter(u => u.UniqueCode == uniqueCode).SingleOrDefault();
+            var query = _sysSettingRepository.Filter(s => s.IsDelete == false && s.UniqueCode == uniqueCode).SingleOrDefault();
             return query;
         }
 
@@ -60,7 +60,7 @@ namespace TP.Service.SysResource
         {
             if (string.IsNullOrWhiteSpace(uniqueCode))
                 throw new ArgumentNullException("Check UniqueCode is Null");
-            var query = _sysSettingRepository.Filter(u => u.UniqueCode == uniqueCode).FirstOrDefault();
+            var query = _sysSettingRepository.Filter(s => s.IsDelete == false && s.UniqueCode == uniqueCode).FirstOrDefault();
             return query;
         }
 
@@ -122,7 +122,7 @@ namespace TP.Service.SysResource
         {
             if (string.IsNullOrWhiteSpace(uniqueCode))
                 throw new ArgumentNullException("Check UniqueCode is Null");
-            var query = _sysSettingRepository.Filter(u => u.RowGuid==rowGuid && u.UniqueCode == uniqueCode).FirstOrDefault();
+            var query = _sysSettingRepository.Filter(u => u.IsDelete == false && u.RowGuid==rowGuid && u.UniqueCode == uniqueCode).FirstOrDefault();
             return query;
         }
 
@@ -130,7 +130,7 @@ namespace TP.Service.SysResource
         {
             if (string.IsNullOrWhiteSpace(titleCode))
                 throw new ArgumentNullException("Check titleCode is Null");
-            var query = _sysSettingRepository.Filter(u => u.TitleCode == titleCode).FirstOrDefault();
+            var query = _sysSettingRepository.Filter(u => u.IsDelete == false && u.TitleCode == titleCode).FirstOrDefault();
             return query;
         }
 
@@ -138,7 +138,7 @@ namespace TP.Service.SysResource
         {
             if (string.IsNullOrWhiteSpace(titleCode))
                 throw new ArgumentNullException("Check titleCode is Null");
-            var query = _sysSettingRepository.Filter(u => u.RowGuid == rowGuid && u.TitleCode == titleCode).FirstOrDefault();
+            var query = _sysSettingRepository.Filter(u => u.IsDelete == false && u.RowGuid == rowGuid && u.TitleCode == titleCode).FirstOrDefault();
             return query;
         }
     }

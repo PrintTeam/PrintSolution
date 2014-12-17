@@ -304,6 +304,7 @@
     <Content Include="Views\TaxRateCategory\Index.cshtml" />
     <Content Include="Views\TaxRateCategory\_CreateOrEdit.cshtml" />
     <Content Include="Views\TaxRateCategory\_TaxRateCategoryList.cshtml" />
+    <Content Include="Views\Shared\_DeletePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
