@@ -16,9 +16,9 @@ namespace TP.Site.Models.VoucherEncodingRule{
     
         public VoucherEncodingRuleModel(){
         }
-        
-        [Required(ErrorMessage = "请输入StoreId")]
-		[Display(Name = "StoreId")]
+
+        [Required(ErrorMessage = "请输入店铺")]
+		[Display(Name = "店铺")]
         public int StoreId
 		{
 			get;
@@ -26,7 +26,7 @@ namespace TP.Site.Models.VoucherEncodingRule{
 		}
 		
         [Required(ErrorMessage = "请输入名称")]
-		[Display(Name = "名称")]
+		[Display(Name = "单据名称")]
         public string Name
 		{
 			get;
@@ -74,7 +74,8 @@ namespace TP.Site.Models.VoucherEncodingRule{
 		}
 		
 		[Display(Name = "年位数")]
-        public int YearLength
+        [Range(2,4)]
+        public int? YearLength
 		{
 			get;
 			set;

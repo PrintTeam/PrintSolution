@@ -1,0 +1,103 @@
+﻿@model TP.Site.Models.VoucherEncodingRule.VoucherEncodingRuleModel
+
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.StoreId, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.StoreId, new { @class = "form-control", placeholder = "StoreId", id = "txtStoreId" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.StoreId)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.Name, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "名称", id = "txtName" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Name)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.BillType, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.BillType, new { @class = "form-control", placeholder = "单据类型", id = "txtBillType" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.BillType)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.Prefix, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.Prefix, new { @class = "form-control", placeholder = "前缀", id = "txtPrefix" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Prefix)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.SequenceNumberLength, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.SequenceNumberLength, new { @class = "form-control", placeholder = "流水号长度", id = "txtSequenceNumberLength" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.SequenceNumberLength)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.SequenceNumberStartValue, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.SequenceNumberStartValue, new { @class = "form-control", placeholder = "流水号起始值", id = "txtSequenceNumberStartValue" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.SequenceNumberStartValue)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.CodeModeType, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.CodeModeType, new { @class = "form-control", placeholder = "编码方式", id = "txtCodeModeType" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.CodeModeType)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.YearLength, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.YearLength, new { @class = "form-control", placeholder = "年位数", id = "txtYearLength" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.YearLength)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.Description, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control", placeholder = "描述", id = "txtDescription" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Description)
+        </p>
+    </div>
+</div>
+
+

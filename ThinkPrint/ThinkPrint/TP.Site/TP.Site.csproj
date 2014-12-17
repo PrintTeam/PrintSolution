@@ -153,6 +153,7 @@
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Controllers\TaxRateCategoryController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
+    <Compile Include="Controllers\VoucherEncodingRuleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -316,6 +317,11 @@
     <Content Include="Views\OrderRemindSetting\Index.cshtml" />
     <Content Include="Views\OrderRemindSetting\_CreateOrEdit.cshtml" />
     <Content Include="Views\OrderRemindSetting\_OrderRemindSettingList.cshtml" />
+    <Content Include="Views\VoucherEncodingRule\Create.cshtml" />
+    <Content Include="Views\VoucherEncodingRule\Edit.cshtml" />
+    <Content Include="Views\VoucherEncodingRule\Index.cshtml" />
+    <Content Include="Views\VoucherEncodingRule\_CreateOrEdit.cshtml" />
+    <Content Include="Views\VoucherEncodingRule\_VoucherEncodingRuleList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

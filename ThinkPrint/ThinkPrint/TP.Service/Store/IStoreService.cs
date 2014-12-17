@@ -24,6 +24,12 @@ namespace TP.Service.Store {
         PagedList<ORG_Store> GetStoreList(int pageIndex, int pageSize, string searchKey = null);
 
         /// <summary>
+        /// 返回所有店铺
+        /// </summary>
+        /// <returns></returns>
+        List<ORG_Store> GetStores();
+
+        /// <summary>
         /// 根据店铺代码判断店铺是否存在
         /// </summary>
         /// <param name="UniqueCode"></param>

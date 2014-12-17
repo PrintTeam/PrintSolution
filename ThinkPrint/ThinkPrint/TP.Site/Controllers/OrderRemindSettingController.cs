@@ -11,6 +11,9 @@ using TP.Web.Framework.Mvc;
 using Webdiyer.WebControls.Mvc;
 
 namespace TP.Site.Controllers {
+    /// <summary>
+    /// 订单消息设置
+    /// </summary>
     public class OrderRemindSettingController : BaseController {
         private readonly IOrderRemindSettingService m_OrderRemindSettingService;
         private string messages = "";

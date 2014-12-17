@@ -11,7 +11,9 @@ using TP.Web.Framework.Mvc;
 using Webdiyer.WebControls.Mvc;
 
 namespace TP.Site.Controllers {
-
+    /// <summary>
+    /// 预收款设置信息
+    /// </summary>
     public class PrepaymentsSettingController : BaseController {
         private readonly IPrepaymentsSettingService m_PrepaymentsSettingService;
         private string messages = "";

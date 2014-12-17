@@ -40,6 +40,10 @@ namespace TP.Service.Store {
             return result;
         }
 
+        public List<ORG_Store> GetStores() {
+            return _storeRepository.Table.Where(p => p.IsDelete == false).ToList();
+        }
+
         public void InsertStore(ORG_Store store) {
             if (store == null) {
                 throw new ArgumentNullException("Insert ORG_Store entity is Null");
