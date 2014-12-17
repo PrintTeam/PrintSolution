@@ -16,6 +16,11 @@ namespace TP.Site.Models.PrepaymentsSetting{
     
         public PrepaymentsSettingModel(){
         }
+
+        public int PrepaymentsSettingId {
+            get;
+            set;
+        }
         
         [Required(ErrorMessage = "请输入订单最小金额")]
 		[Display(Name = "订单最小金额")]

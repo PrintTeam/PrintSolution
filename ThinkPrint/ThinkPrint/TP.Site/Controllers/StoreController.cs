@@ -34,7 +34,7 @@ namespace TP.Site.Controllers {
         public ActionResult Create() {
             var model = new StoreModel();
             model.PageTitle = "店铺信息";
-            //model.PageSubTitle = "新增或修改店铺信息";
+            model.PageSubTitle = "新增或修改店铺信息";
             return View(model);
         }
         [HttpPost]
