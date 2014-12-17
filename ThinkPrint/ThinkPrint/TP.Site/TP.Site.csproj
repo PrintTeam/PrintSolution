@@ -147,10 +147,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderRemindSettingController.cs" />
+    <Compile Include="Controllers\PrepaymentsSettingController.cs" />
     <Compile Include="Controllers\ResourceController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Controllers\TaxRateCategoryController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
+    <Compile Include="Controllers\VoucherEncodingRuleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -304,7 +307,6 @@
     <Content Include="Views\TaxRateCategory\Index.cshtml" />
     <Content Include="Views\TaxRateCategory\_CreateOrEdit.cshtml" />
     <Content Include="Views\TaxRateCategory\_TaxRateCategoryList.cshtml" />
-    <Content Include="Views\Shared\_DeletePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
