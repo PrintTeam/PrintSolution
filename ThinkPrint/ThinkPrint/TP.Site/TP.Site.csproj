@@ -307,6 +307,22 @@
     <Content Include="Views\TaxRateCategory\Index.cshtml" />
     <Content Include="Views\TaxRateCategory\_CreateOrEdit.cshtml" />
     <Content Include="Views\TaxRateCategory\_TaxRateCategoryList.cshtml" />
+    <Content Include="Views\OrderRemindSetting\Create.cshtml" />
+    <Content Include="Views\OrderRemindSetting\Edit.cshtml" />
+    <Content Include="Views\OrderRemindSetting\Index.cshtml" />
+    <Content Include="Views\OrderRemindSetting\_CreateOrEdit.cshtml" />
+    <Content Include="Views\OrderRemindSetting\_OrderRemindSettingList.cshtml" />
+    <Content Include="Views\PrepaymentsSetting\Create.cshtml" />
+    <Content Include="Views\PrepaymentsSetting\Edit.cshtml" />
+    <Content Include="Views\PrepaymentsSetting\Index.cshtml" />
+    <Content Include="Views\PrepaymentsSetting\_CreateOrEdit.cshtml" />
+    <Content Include="Views\PrepaymentsSetting\_PrepaymentsSettingList.cshtml" />
+    <Content Include="Views\Shared\_DeletePartial.cshtml" />
+    <Content Include="Views\VoucherEncodingRule\Create.cshtml" />
+    <Content Include="Views\VoucherEncodingRule\Edit.cshtml" />
+    <Content Include="Views\VoucherEncodingRule\Index.cshtml" />
+    <Content Include="Views\VoucherEncodingRule\_CreateOrEdit.cshtml" />
+    <Content Include="Views\VoucherEncodingRule\_VoucherEncodingRuleList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
