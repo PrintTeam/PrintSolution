@@ -40,6 +40,14 @@ namespace TP.Site
              bundles.Add(new ScriptBundle("~/bundles/login").Include(
                      "~/JS/login.js"));
 
+             bundles.Add(new ScriptBundle("~/bundles/employee").Include(
+                    "~/JS/Organization/employee.js"
+             ));
+
+             bundles.Add(new ScriptBundle("~/bundles/employee-status").Include(
+                     "~/JS/Organization/employee-status.js"
+              ));
+
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

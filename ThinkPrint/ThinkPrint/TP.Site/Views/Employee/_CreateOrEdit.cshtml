@@ -1,6 +1,35 @@
 ﻿@model TP.Site.Models.Organization.EmployeeModel
 @Html.HiddenFor(u => u.IsEdit)
 <div class="form-group form-group-boder">
+    <label for="selectDepartment" class="control-label col-lg-2">部门名称</label>
+    <div class="col-lg-6">
+        @Html.DropDownListFor(i => i.CurrentDepartmentId, Model.DepartmentList, new { @class = "form-control", id = "selectDepartment" })
+    </div>
+    <div class="col-lg-4">
+        @Html.ValidationMessageFor(m => m.CurrentDepartmentId)
+    </div>
+</div>
+
+<div class="form-group form-group-boder">
+    <label for="selectStore" class="control-label col-lg-2">店铺名称</label>
+    <div class="col-lg-6">
+        @Html.DropDownListFor(i => i.CurrentStroreId, Model.StoreList, new { @class = "form-control", id = "selectStore" })
+    </div>
+    <div class="col-lg-4">
+        @Html.ValidationMessageFor(m => m.CurrentStroreId)
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    <label for="selectStore" class="control-label col-lg-2">直属领导</label>
+    <div class="col-lg-6">
+        @Html.DropDownListFor(i => i.ManagerId, Model.ManagerList, new { @class = "form-control", id = "selectStore" })
+    </div>
+    <div class="col-lg-4">
+        @Html.ValidationMessageFor(m => m.ManagerId)
+    </div>
+</div>
+
+<div class="form-group form-group-boder">
     <label for="txtName" class="control-label col-lg-2">员工名称</label>
     <div class="col-lg-6">
         @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "员工名称信息", id = "txtName" })
@@ -19,6 +48,73 @@
     <div class="col-lg-4">
         <p class="text-danger">
             @Html.ValidationMessageFor(m => m.JobNumber)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    <label for="txtCredentialsNum" class="control-label col-lg-2">证件号码</label>
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.CredentialsNum, new { @class = "form-control", placeholder = "证件号码", id = "txtCredentialsNum" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.CredentialsNum)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    <label class="control-label col-lg-2">性别</label>
+    <div class="col-lg-4">
+        <label class="radio-inline col-lg-2">
+            @Html.RadioButtonFor(m => m.Sex, true, new { name = "radSex", id = "radMan" })
+            男
+        </label>
+        <label class="radio-inline col-lg-2">
+            @Html.RadioButtonFor(m => m.Sex, false, new { name = "radSex", id = "radWoMen" })
+            女
+        </label>
+    </div>
+    <label class="control-label col-lg-1" for="txtAge">年龄</label>
+    <div class="col-lg-1">
+        @Html.TextBoxFor(m => m.Age, new { @class = "form-control", placeholder = "员工年龄信息", id = "txtAge" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Age)
+        </p>
+    </div>
+</div>
+
+<div class="form-group form-group-boder">
+    <label for="txtMobilePhone" class="control-label col-lg-2">手机号码</label>
+    <div class="col-lg-3">
+        @Html.TextBoxFor(m => m.MobilePhone, new { @class = "form-control", placeholder = "员工的联系方式", id = "txtMobilePhone" })
+    </div>
+    <div class="col-lg-3">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.MobilePhone)
+        </p>
+    </div>
+    <label class="control-label col-lg-1" for="txtEmail">邮箱</label>
+    <div class="col-lg-2">
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "员工邮箱(E-Mail)信息", id = "txtEmail" })
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    <label for="txtEntryDate" class="control-label col-lg-2">入职时间</label>
+    <div class="col-lg-6">
+        <div class="input-group">
+            @Html.TextBoxFor(m => m.EntryDate, new { @class = "form-control", placeholder = "员工的入职时间", Value = Model.EntryDate.ToString("yyyy-MM-dd"), id = "txtEntryDate", size = "16", @readonly = "" })
+            <div class="input-group-btn">
+                <button type="button" id="btnEntryDate" class="btn btn-warning date-set">
+                    <i class="fa fa-calendar-o"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.EntryDate)
         </p>
     </div>
 </div>

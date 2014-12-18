@@ -15,6 +15,15 @@
                     名称
                 </th>
                 <th>
+                    所属部门
+                </th>
+                <th>
+                    所属门店
+                </th>
+                <th>
+                    直属领导
+                </th>
+                <th>
                     工号
                 </th>
                 <th>
@@ -45,7 +54,15 @@
                     <td>
                         <a href="~/Employee/EmployeeShowView/@item.EmployeeId">@item.Name</a>
                     </td>
-                    
+                    <td>
+                        @item.ORG_Department.Name
+                    </td>
+                    <td>
+                        @item.ORG_Store.Name
+                    </td>
+                    <td>
+                        @item.ORG_Employee2.Name
+                    </td>
                     <td>
                         @item.JobNumber
                     </td>

@@ -239,6 +239,8 @@
     <Content Include="img\logo-white.png" />
     <Content Include="img\nav-expand.png" />
     <Content Include="JS\login.js" />
+    <Content Include="JS\Organization\employee-status.js" />
+    <Content Include="JS\Organization\employee.js" />
     <Content Include="JS\Shared\defaultDeleteScript.js" />
     <Content Include="JS\Shared\sharedScript.js" />
     <Content Include="Scripts\bootstrap.js" />

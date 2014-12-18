@@ -23,6 +23,7 @@ namespace TP.Site.Controllers
         private readonly IDepartmentService _departmentService;
         private readonly IStoreService _storeService;
         private IList<SYS_SysSetting> statusList;
+        private string messages = "";
         public EmployeeController(IEmployeeService employeeService,IDepartmentService departmentService,IStoreService storeService, IResourceService resourceService)
         {
             _employeeService = employeeService;
@@ -46,6 +47,7 @@ namespace TP.Site.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public ActionResult Create()
         {
             var model = new EmployeeModel();
@@ -54,6 +56,53 @@ namespace TP.Site.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        public ActionResult Create(EmployeeModel model)
+        {
+            model.Status = statusList.SingleOrDefault(s => s.UniqueCode == SysConstant.EmployeeStatus_normal).ParamValue;
+            VerifyModel(model);
+
+            if (ModelState.IsValid)
+            {
+                ORG_Employee employee = new ORG_Employee
+                {
+                    Name = model.Name,
+                    ManagerId=model.ManagerId,
+                    DepartmentId=model.CurrentDepartmentId,
+                    StoreId=model.CurrentStroreId,
+                    JobNumber = model.JobNumber.Trim(),
+                    CredentialsNum = model.CredentialsNum,
+                    Email=model.Email,
+                    Sex = model.Sex,
+                    Age = model.Age,
+                    MobilePhone = model.MobilePhone,
+                    Status = model.Status,
+                    EntryDate = model.EntryDate,
+                    ModifiedDate = DateTime.UtcNow.ToLocalTime()
+
+                };
+
+                try
+                {
+                    _employeeService.InsertEmployee(employee);
+                  
+                    messages = "创建" + model.Name + "信息成功.";
+                    SuccessNotification(messages);
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.ToString());
+                    ErrorNotification(ex.ToString());
+                }
+            }
+
+
+            PrepareModel(model);
+            return View(model);
+        }
+
+
+        [HttpGet]
         public ActionResult Edit(int id) 
         {
             ORG_Employee employee = _employeeService.GetEmployeeById(id);
@@ -75,6 +124,46 @@ namespace TP.Site.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        public ActionResult Edit(EmployeeModel model)
+        {
+
+            VerifyModel(model);
+            if (ModelState.IsValid)
+            {
+                ORG_Employee employee = _employeeService.GetEmployeeById(model.Id);
+
+                employee.Name = model.Name;
+                employee.ManagerId = model.ManagerId;
+                employee.DepartmentId = model.CurrentDepartmentId;
+                employee.StoreId = model.CurrentStroreId;
+                employee.Email = model.Email;
+                employee.JobNumber = model.JobNumber;
+                employee.CredentialsNum = model.CredentialsNum;
+                employee.Sex = model.Sex;
+                employee.Age = model.Age;
+                employee.MobilePhone = model.MobilePhone;
+                employee.EntryDate = model.EntryDate;
+                employee.ModifiedDate = DateTime.UtcNow.ToLocalTime();
+
+                try
+                {
+                    _employeeService.UpdateEmployee(employee);
+
+                    messages = "编辑" + model.Name + "信息成功.";
+                    SuccessNotification(messages);
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.ToString());
+                    ErrorNotification(ex.ToString());
+                }
+
+            }
+            PrepareModel(model);
+            return View(model);
+        }
+
         [NonAction]
         private void PrepareModel(EmployeeModel model)
         {
@@ -86,7 +175,9 @@ namespace TP.Site.Controllers
             {
                 model.Sex = true;
             }
-            //PrepareDepartmnet(model);
+            PrepareDepartmnet(model);
+            PrepareStore(model);
+            PrepareManager(model);
         }
 
         [NonAction]
@@ -148,6 +239,71 @@ namespace TP.Site.Controllers
                 var selected = model.StoreList.FirstOrDefault(u => u.Value == model.CurrentStroreId.ToString());
                 selected.Selected = true;
             }
+        }
+
+        private void PrepareManager(EmployeeModel model) 
+        {
+            if (model == null)
+                throw new ArgumentNullException("model");
+            IList<ORG_Employee> employeeList = _employeeService.GetEmployeeList();
+
+            if (model.IsEdit)
+            {
+                employeeList = employeeList.Where(e => e.EmployeeId != model.Id).ToList();
+
+            }
+
+            foreach (var item in employeeList)
+            {
+                model.ManagerList.Add(new SelectListItem
+                {
+                    Text = item.Name,
+                    Value = item.EmployeeId.ToString()
+                });
+            }
+
+            if (!model.IsEdit)
+            {
+                model.ManagerList.Insert(0, new SelectListItem { Selected = true, Text = "选择直属领导", Value = "0" });
+            }
+            else
+            {
+                var selected = model.ManagerList.FirstOrDefault(u => u.Value == model.ManagerId.ToString());
+                selected.Selected = true;
+            }
+        }
+
+        [NonAction]
+        private void VerifyModel(EmployeeModel model)
+        {
+
+            if (model.CurrentDepartmentId == 0)
+            {
+                ModelState.AddModelError("", "请选择指标所属的部门信息.");
+                return;
+            }
+          
+            if (string.IsNullOrWhiteSpace(model.JobNumber))
+            {
+                ModelState.AddModelError("", "员工工号不能为空.");
+                return;
+            }
+
+            ORG_Employee employee = null;
+
+            if (model.IsEdit)
+            {
+
+                employee = _employeeService.CheckExistEmployeeByJobNumber(model.Id, model.JobNumber.Trim());
+
+            }
+            else
+            {
+                employee = _employeeService.CheckExistEmployeeByJobNumber(model.JobNumber.Trim());
+            }
+            if (employee != null)
+                ModelState.AddModelError("", "员工工号已存在.");
+
         }
     }
 }

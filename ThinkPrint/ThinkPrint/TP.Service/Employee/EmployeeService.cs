@@ -110,7 +110,6 @@ namespace NSIS.Service.Employee
             }
         }
 
-
         public ORG_Employee CheckExistEmployeeByJobNumber(string jobNumber)
         {
             if (string.IsNullOrWhiteSpace(jobNumber))
@@ -126,5 +125,7 @@ namespace NSIS.Service.Employee
             var query = _employeeRepository.Filter(u => u.EmployeeId != id && u.JobNumber == jobNumber).FirstOrDefault();
             return query;
         }
+
+       
     }
 }

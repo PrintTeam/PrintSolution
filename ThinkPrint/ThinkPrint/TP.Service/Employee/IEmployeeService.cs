@@ -32,6 +32,7 @@ namespace NSIS.Service.Employee
         /// <param name="employeeId"></param>
         /// <returns></returns>
         ORG_Employee GetEmployeeById(int employeeId);
+    
 
         /// <summary>
         ///  检查员工信息工号唯一性

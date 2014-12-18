@@ -238,7 +238,7 @@
                         <a href="#"><i class="fa fa-cogs fa-fw"></i> 系统管理<span class="fa arrow"></span></a>
                         <ul class="sub">
                             <li>
-                               @Html.ActionLink("系统参数", "Index", "Resource")
+                                @Html.ActionLink("系统参数", "Index", "Resource")
                             </li>
                             <li>
                                 <a href="#">角色信息</a>
@@ -288,6 +288,6 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/slidebars")
     @Scripts.Render("~/bundles/initScript")
-    @RenderSection("scripts", required: false)
+    @RenderSection("subScripts", required: false)
 </body>
 </html>

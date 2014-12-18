@@ -17,6 +17,7 @@ namespace TP.Site.Models.Organization
             StatusList = new List<SYS_SysSetting>();
             DepartmentList = new List<SelectListItem>();
             StoreList = new List<SelectListItem>();
+            ManagerList = new List<SelectListItem>();
         }
 
         [Required(ErrorMessage = "请输入员工名称")]
@@ -30,10 +31,9 @@ namespace TP.Site.Models.Organization
         public string CurrentStrore { get; set; }
         public int CurrentStroreId { get; set; }
 
-        [Required(ErrorMessage = "请输入员工编码")]
-        [StringLength(20, ErrorMessage = "员工编码过长.")]
-        [Display(Name = "员工编码")]
-        public string UniqueCode { get; set; }
+
+        public int ManagerId { get; set; }
+        public string ManagerName { get; set; }
 
         [Required(ErrorMessage = "请输入员工工号")]
         [StringLength(20, ErrorMessage = "员工工号过长.")]
@@ -44,6 +44,8 @@ namespace TP.Site.Models.Organization
         [StringLength(50, ErrorMessage = "证件号码过长.")]
         [Display(Name = "证件号码")]
         public string CredentialsNum { get; set; }
+
+        public string Email { get; set; }
 
         [Required(ErrorMessage = "请选择性别")]
         public bool Sex { get; set; }
@@ -66,14 +68,16 @@ namespace TP.Site.Models.Organization
 
         public Nullable<DateTime> LeaveDate { get; set; }
 
-        public DateTime CreateDate { get; set; }
+        public DateTime ModifiedDate { get; set; }
 
-        public string Description { get; set; }
+       
         public IList<SYS_SysSetting> StatusList { get; set; }
 
         public IList<SelectListItem> DepartmentList { get; set; }
 
         public IList<SelectListItem> StoreList { get; set; }
+
+        public IList<SelectListItem> ManagerList { get; set; }
     }
 
     public class EmployeeListModel : BaseListViewModel<ORG_Employee>
