@@ -149,6 +149,9 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderRemindSettingController.cs" />
+    <Compile Include="Controllers\PaperCategoryController.cs" />
+    <Compile Include="Controllers\PaperController.cs" />
+    <Compile Include="Controllers\PaperSizeController.cs" />
     <Compile Include="Controllers\PrepaymentsSettingController.cs" />
     <Compile Include="Controllers\ResourceController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
@@ -328,6 +331,21 @@
     <Content Include="Views\VoucherEncodingRule\_VoucherEncodingRuleList.cshtml" />
     <Content Include="Views\Department\Index.cshtml" />
     <Content Include="Views\Department\_DepartmentList.cshtml" />
+    <Content Include="Views\PaperCategory\Create.cshtml" />
+    <Content Include="Views\PaperCategory\Edit.cshtml" />
+    <Content Include="Views\PaperCategory\Index.cshtml" />
+    <Content Include="Views\PaperCategory\_CreateOrEdit.cshtml" />
+    <Content Include="Views\PaperCategory\_PaperCategoryList.cshtml" />
+    <Content Include="Views\PaperSize\Create.cshtml" />
+    <Content Include="Views\PaperSize\Edit.cshtml" />
+    <Content Include="Views\PaperSize\Index.cshtml" />
+    <Content Include="Views\PaperSize\_CreateOrEdit.cshtml" />
+    <Content Include="Views\PaperSize\_PaperSizeList.cshtml" />
+    <Content Include="Views\Paper\Create.cshtml" />
+    <Content Include="Views\Paper\Edit.cshtml" />
+    <Content Include="Views\Paper\Index.cshtml" />
+    <Content Include="Views\Paper\_CreateOrEdit.cshtml" />
+    <Content Include="Views\Paper\_PaperList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

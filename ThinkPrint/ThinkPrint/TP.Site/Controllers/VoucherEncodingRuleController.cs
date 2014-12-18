@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TP.EntityFramework.Models;
+using TP.Service.Store;
+using TP.Service.SysResource;
 using TP.Service.VoucherEncodingRule;
 using TP.Site.Helper;
 using TP.Site.Models.VoucherEncodingRule;
@@ -16,9 +18,14 @@ namespace TP.Site.Controllers {
     /// </summary>
     public class VoucherEncodingRuleController : BaseController {
         private readonly IVoucherEncodingRuleService m_VoucherEncodingRuleService;
+        private readonly IStoreService m_StoreService;
+        private readonly IResourceService m_ResourceService;
         private string messages = "";
-        public VoucherEncodingRuleController(IVoucherEncodingRuleService VoucherEncodingRuleService) {
+        public VoucherEncodingRuleController(IVoucherEncodingRuleService VoucherEncodingRuleService,
+            IStoreService storeService,IResourceService resourceService) {
             m_VoucherEncodingRuleService = VoucherEncodingRuleService;
+            m_StoreService = storeService;
+            m_ResourceService = resourceService;
         }
 
         // GET: Resource
@@ -32,7 +39,7 @@ namespace TP.Site.Controllers {
             return View(model);
         }
 
-        public ActionResult Create() {
+        public ActionResult Create() {           
             var model = new VoucherEncodingRuleModel();
             PrepareModel(model);
             return View(model);
@@ -42,7 +49,7 @@ namespace TP.Site.Controllers {
         public ActionResult Create(VoucherEncodingRuleModel model) {
             if (ModelState.IsValid) {
                 SYS_VoucherEncodingRule VoucherEncodingRule = new SYS_VoucherEncodingRule {
-                    StoreId = model.StoreId,
+                    StoreId = Convert.ToInt32(model.StoreId),
                     Name = model.Name,
                     BillType = model.BillType,
                     Prefix = model.Prefix,
@@ -71,7 +78,7 @@ namespace TP.Site.Controllers {
             SYS_VoucherEncodingRule VoucherEncodingRule = m_VoucherEncodingRuleService.GetVoucherEncodingRule(id);
             VoucherEncodingRuleModel model = new VoucherEncodingRuleModel {
                 Id = VoucherEncodingRule.VoucherEncodingRuleId,
-                StoreId = VoucherEncodingRule.StoreId,
+                StoreId = VoucherEncodingRule.StoreId+"",
                 Name = VoucherEncodingRule.Name,
                 BillType = VoucherEncodingRule.BillType,
                 Prefix = VoucherEncodingRule.Prefix,
@@ -90,7 +97,7 @@ namespace TP.Site.Controllers {
             if (ModelState.IsValid) {
                 SYS_VoucherEncodingRule VoucherEncodingRule = m_VoucherEncodingRuleService.GetVoucherEncodingRule(model.Id);
                 VoucherEncodingRule.VoucherEncodingRuleId = model.Id;
-                VoucherEncodingRule.StoreId = model.StoreId;
+                VoucherEncodingRule.StoreId = Convert.ToInt32(model.StoreId);
                 VoucherEncodingRule.Name = model.Name;
                 VoucherEncodingRule.BillType = model.BillType;
                 VoucherEncodingRule.Prefix = model.Prefix;
@@ -120,6 +127,31 @@ namespace TP.Site.Controllers {
             model.PageTitle = "单据编码规则";
             model.PageSubTitle = "维护单据编码规则信息";
             //model.IsEdit = model.Id == 0 ? false : true;
+            model.StoreList = new List<SelectListItem>();
+             List<ORG_Store> Stores = m_StoreService.GetStores();
+             foreach (ORG_Store Store in Stores) {
+                 model.StoreList.Add(new SelectListItem {
+                     Value = Store.StoreId+"",
+                     Text = Store.Name
+                 });
+             }
+             model.BillCategoryList = new List<SelectListItem>();
+             IList<SYS_SysSetting> SysSettings = m_ResourceService.GetSysSettingList("001");
+             foreach (SYS_SysSetting SysSetting in SysSettings) {
+                 model.BillCategoryList.Add(new SelectListItem {
+                     Value = SysSetting.UniqueCode,
+                     Text = SysSetting.ParamValue
+                 });
+             }
+             
+             model.CodeModeTypeList = new List<SelectListItem>();
+             SysSettings = m_ResourceService.GetSysSettingList("002");
+             foreach (SYS_SysSetting SysSetting in SysSettings) {
+                 model.CodeModeTypeList.Add(new SelectListItem {
+                     Value = SysSetting.UniqueCode,
+                     Text = SysSetting.ParamValue
+                 });
+             }
         }
     }
 }

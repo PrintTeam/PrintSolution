@@ -3,7 +3,9 @@
 <div class="form-group form-group-boder">
    @Html.LabelFor(m => m.StoreId, new { @class = "control-label col-lg-2" })
     <div class="col-lg-6">
-        @Html.TextBoxFor(m => m.StoreId, new { @class = "form-control", placeholder = "StoreId", id = "txtStoreId" })
+        @Html.DropDownListFor(m => m.StoreId, Model.StoreList, new {
+   @class="form-control"})
+        
     </div>
     <div class="col-lg-4">
         <p class="text-danger">
@@ -25,7 +27,9 @@
 <div class="form-group form-group-boder">
    @Html.LabelFor(m => m.BillType, new { @class = "control-label col-lg-2" })
     <div class="col-lg-6">
-        @Html.TextBoxFor(m => m.BillType, new { @class = "form-control", placeholder = "单据类型", id = "txtBillType" })
+        @Html.DropDownListFor(m => m.BillType, Model.BillCategoryList, new {
+       @class = "form-control"
+   })        
     </div>
     <div class="col-lg-4">
         <p class="text-danger">
@@ -69,7 +73,9 @@
 <div class="form-group form-group-boder">
    @Html.LabelFor(m => m.CodeModeType, new { @class = "control-label col-lg-2" })
     <div class="col-lg-6">
-        @Html.TextBoxFor(m => m.CodeModeType, new { @class = "form-control", placeholder = "编码方式", id = "txtCodeModeType" })
+        @Html.DropDownListFor(p => p.CodeModeType, Model.CodeModeTypeList, new {
+   @class="form-control"})
+       
     </div>
     <div class="col-lg-4">
         <p class="text-danger">

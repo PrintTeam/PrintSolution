@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using TP.EntityFramework.Models;
 using TP.Web.Framework.Mvc;
 
@@ -19,7 +20,7 @@ namespace TP.Site.Models.VoucherEncodingRule{
 
         [Required(ErrorMessage = "请输入店铺")]
 		[Display(Name = "店铺")]
-        public int StoreId
+        public string StoreId
 		{
 			get;
 			set;
@@ -87,7 +88,23 @@ namespace TP.Site.Models.VoucherEncodingRule{
 			get;
 			set;
 		}
-		
+        /// <summary>
+        /// 店铺列表
+        /// </summary>
+        public IList<SelectListItem> StoreList {
+            get;
+            set;
+        }
+
+        public IList<SelectListItem> BillCategoryList {
+            get;
+            set;
+        }
+
+        public IList<SelectListItem> CodeModeTypeList {
+            get;
+            set;
+        }
     }
     
     
