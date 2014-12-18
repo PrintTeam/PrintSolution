@@ -168,8 +168,8 @@ namespace TP.Site.Controllers
         private void PrepareModel(EmployeeModel model)
         {
 
-            model.PageTitle = "创建信息";
-            model.PageSubTitle = "新增一个员工信息";
+            model.PageTitle = "员工信息";
+            model.PageSubTitle = "维护系统中员工信息";
             model.IsEdit = model.Id == 0 ? false : true;
             if (!model.IsEdit)
             {

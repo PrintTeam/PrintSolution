@@ -62,20 +62,24 @@
         </p>
     </div>
 </div>
+
 <div class="form-group form-group-boder">
     <label class="control-label col-lg-2">性别</label>
-    <div class="col-lg-4">
-        <label class="radio-inline col-lg-2">
+    <div class="col-lg-6">
+        <label class="radio-inline col-lg-3">
             @Html.RadioButtonFor(m => m.Sex, true, new { name = "radSex", id = "radMan" })
             男
         </label>
-        <label class="radio-inline col-lg-2">
+        <label class="radio-inline col-lg-3">
             @Html.RadioButtonFor(m => m.Sex, false, new { name = "radSex", id = "radWoMen" })
             女
         </label>
     </div>
-    <label class="control-label col-lg-1" for="txtAge">年龄</label>
-    <div class="col-lg-1">
+</div>
+
+<div class="form-group form-group-boder">
+    <label class="control-label col-lg-2" for="txtAge">年龄</label>
+    <div class="col-lg-6">
         @Html.TextBoxFor(m => m.Age, new { @class = "form-control", placeholder = "员工年龄信息", id = "txtAge" })
     </div>
     <div class="col-lg-4">
@@ -86,17 +90,20 @@
 </div>
 
 <div class="form-group form-group-boder">
-    <label for="txtMobilePhone" class="control-label col-lg-2">手机号码</label>
-    <div class="col-lg-3">
+    <label class="control-label col-lg-2" for="txtMobilePhone">手机号码</label>
+    <div class="col-lg-6">
         @Html.TextBoxFor(m => m.MobilePhone, new { @class = "form-control", placeholder = "员工的联系方式", id = "txtMobilePhone" })
     </div>
-    <div class="col-lg-3">
+    <div class="col-lg-4">
         <p class="text-danger">
             @Html.ValidationMessageFor(m => m.MobilePhone)
         </p>
     </div>
-    <label class="control-label col-lg-1" for="txtEmail">邮箱</label>
-    <div class="col-lg-2">
+</div>
+
+<div class="form-group form-group-boder">
+    <label class="control-label col-lg-2" for="txtEmail">邮箱</label>
+    <div class="col-lg-6">
         @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "员工邮箱(E-Mail)信息", id = "txtEmail" })
     </div>
 </div>
