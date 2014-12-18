@@ -18,14 +18,11 @@
                     编码
                 </th>
                 <th>
-                    高度
+                    高度(mm)
                 </th>
                 <th>
-                    宽度
-                </th>
-                <th>
-                    描述
-                </th>
+                    宽度(mm)
+                </th>                
                 <th></th>
             </tr>
         </thead>
@@ -47,10 +44,7 @@
                     </td>
                     <td>
                         @item.Width
-                    </td>
-                    <td>
-                        @item.Description
-                    </td>
+                    </td>                   
                     <td class="table-action">
                         <a href="~/PaperSize/Edit/@item.PaperSizeId" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="left" title="编辑"><i class="fa fa-edit"></i></a>
                         <button id="@item.PaperSizeId" type="button" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="删除"><i class="fa fa-trash-o "></i></button>

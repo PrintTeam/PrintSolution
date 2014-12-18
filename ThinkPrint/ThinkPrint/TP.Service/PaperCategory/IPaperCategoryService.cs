@@ -10,6 +10,7 @@ namespace TP.Service.PaperCategory {
 
     public interface IPaperCategoryService {
         BOM_PaperCategory GetPaperCategory(int  PaperCategoryId);
+        BOM_PaperCategory GetPaperCategory(String UniqueCode);
         List<BOM_PaperCategory> GetPaperCategorys();
         PagedList<BOM_PaperCategory> GetPaperCategorys(int pageIndex, int pageSize, string searchKey = null);
         void InsertPaperCategory(BOM_PaperCategory PaperCategory);

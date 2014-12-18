@@ -10,6 +10,7 @@ namespace TP.Service.PaperSize {
 
     public interface IPaperSizeService {
         BOM_PaperSize GetPaperSize(int  PaperSizeId);
+        BOM_PaperSize GetPaperSize(String UniqueCode);
         List<BOM_PaperSize> GetPaperSizes();
         PagedList<BOM_PaperSize> GetPaperSizes(int pageIndex, int pageSize, string searchKey = null);
         void InsertPaperSize(BOM_PaperSize PaperSize);

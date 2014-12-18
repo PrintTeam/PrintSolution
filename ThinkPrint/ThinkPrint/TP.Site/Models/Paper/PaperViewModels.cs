@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using TP.EntityFramework.Models;
 using TP.Web.Framework.Mvc;
 
@@ -18,7 +19,7 @@ namespace TP.Site.Models.Paper{
         }
         
         [Required(ErrorMessage = "请输入PaperCategoryId")]
-		[Display(Name = "PaperCategoryId")]
+        [Display(Name = "纸张类型")]
         public int PaperCategoryId
 		{
 			get;
@@ -26,7 +27,7 @@ namespace TP.Site.Models.Paper{
 		}
 		
         [Required(ErrorMessage = "请输入PaperSizeId")]
-		[Display(Name = "PaperSizeId")]
+        [Display(Name = "纸张尺寸")]
         public int PaperSizeId
 		{
 			get;
@@ -70,6 +71,16 @@ namespace TP.Site.Models.Paper{
 			get;
 			set;
 		}
+
+        public List<SelectListItem> PaperSizes {
+            get;
+            set;
+        }
+
+        public List<SelectListItem> PaperCategorys {
+            get;
+            set;
+        }
 		
     }
     

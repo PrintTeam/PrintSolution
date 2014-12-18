@@ -26,6 +26,14 @@ namespace TP.Service.PaperSize {
             return m_Repository.GetById(PaperSizeId);
         }
 
+        public BOM_PaperSize GetPaperSize(String UniqueCode) {
+            var q = m_Repository.Table.Where(u => u.IsDelete == false && u.UniqueCode==UniqueCode);
+            List<BOM_PaperSize> List = q.ToList();
+            if (List.Count > 0)
+                return List.First();
+            return null;
+        }
+
         public List<BOM_PaperSize> GetPaperSizes() {
             return m_Repository.Table.Where(p => p.IsDelete == false).ToList();
         }

@@ -34,13 +34,14 @@ namespace TP.Site.Controllers{
         }
 
         public ActionResult Create(){
-            var model = new PaperSizeModel();
+            var model = new PaperSizeModel();         
             PrepareModel(model);
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Create(PaperSizeModel model){            
+        public ActionResult Create(PaperSizeModel model){
+            VerifyModel(model);
             if (ModelState.IsValid){
                 BOM_PaperSize PaperSize = new BOM_PaperSize{
                     Name = model.Name,  
@@ -72,14 +73,16 @@ namespace TP.Site.Controllers{
               UniqueCode = PaperSize.UniqueCode,
               Height = PaperSize.Height,
               Width = PaperSize.Width,
-              Description = PaperSize.Description,
+              Description = PaperSize.Description
             };
             PrepareModel(model);
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Edit(PaperSizeModel model){            
+        public ActionResult Edit(PaperSizeModel model){
+            model.IsEdit = true;
+            VerifyModel(model);
             if (ModelState.IsValid){
                 BOM_PaperSize PaperSize = m_PaperSizeService.GetPaperSize(model.Id);
                 PaperSize.Name = model.Name;  
@@ -109,6 +112,18 @@ namespace TP.Site.Controllers{
             model.PageTitle = "纸张尺寸";
             model.PageSubTitle = "维护纸张尺寸信息";
             //model.IsEdit = model.Id == 0 ? false : true;
-        }       
+        }
+
+        [NonAction]
+        private void VerifyModel(PaperSizeModel model) {
+            BOM_PaperSize PaperSize = null;
+            PaperSize = m_PaperSizeService.GetPaperSize(model.UniqueCode);
+            if ((model.IsEdit) && (PaperSize.PaperSizeId != model.Id) && (PaperSize != null)) {
+                ModelState.AddModelError("UniqueCode", "参数编码已存在."); 
+            }
+            if ((!model.IsEdit) && (PaperSize != null)) {
+                ModelState.AddModelError("UniqueCode", "参数编码已存在.");
+            }   
+        }
     }
 }

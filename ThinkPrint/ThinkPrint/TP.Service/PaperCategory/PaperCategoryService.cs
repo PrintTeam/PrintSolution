@@ -26,6 +26,13 @@ namespace TP.Service.PaperCategory {
             return m_Repository.GetById(PaperCategoryId);
         }
 
+        public BOM_PaperCategory GetPaperCategory(String UniqueCode) {           
+            List<BOM_PaperCategory> List =  m_Repository.Filter(p => p.IsDelete == false 
+                && p.UniqueCode == UniqueCode).ToList();
+            if (List.Count > 0)
+                return List.First();
+            return null;
+        }
         public List<BOM_PaperCategory> GetPaperCategorys() {
             return m_Repository.Table.Where(p => p.IsDelete == false).ToList();
         }

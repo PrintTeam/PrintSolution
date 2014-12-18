@@ -34,6 +34,7 @@ namespace TP.Site.Models.PaperSize{
 		}
 		
         [Required(ErrorMessage = "请输入高度")]
+        [DisplayFormat(DataFormatString="0.00")]
 		[Display(Name = "高度")]
         public decimal Height
 		{
@@ -43,6 +44,7 @@ namespace TP.Site.Models.PaperSize{
 		
         [Required(ErrorMessage = "请输入宽度")]
 		[Display(Name = "宽度")]
+        [DisplayFormat(DataFormatString = "0.00")]
         public decimal Width
 		{
 			get;

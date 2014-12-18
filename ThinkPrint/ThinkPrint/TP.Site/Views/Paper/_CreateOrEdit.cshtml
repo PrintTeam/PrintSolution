@@ -1,9 +1,30 @@
 ﻿@model TP.Site.Models.Paper.PaperModel
 
 <div class="form-group form-group-boder">
-   @Html.LabelFor(m => m.PaperCategoryId, new { @class = "control-label col-lg-2" })
+    @Html.LabelFor(m => m.Name, new {
+    @class = "control-label col-lg-2"
+})
     <div class="col-lg-6">
-        @Html.TextBoxFor(m => m.PaperCategoryId, new { @class = "form-control", placeholder = "PaperCategoryId", id = "txtPaperCategoryId" })
+        @Html.TextBoxFor(m => m.Name, new {
+       @class = "form-control",
+       placeholder = "名称",
+       id = "txtName"
+   })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Name)
+        </p>
+    </div>
+</div>
+
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.PaperCategoryId, new {
+    @class = "control-label col-lg-2"
+})
+    <div class="col-lg-6">
+        @Html.DropDownListFor(p => p.PaperCategoryId, Model.PaperCategorys, new {
+       @class = "form-control"})
     </div>
     <div class="col-lg-4">
         <p class="text-danger">
@@ -12,9 +33,13 @@
     </div>
 </div>
 <div class="form-group form-group-boder">
-   @Html.LabelFor(m => m.PaperSizeId, new { @class = "control-label col-lg-2" })
+    @Html.LabelFor(m => m.PaperSizeId, new {
+    @class = "control-label col-lg-2"
+})
     <div class="col-lg-6">
-        @Html.TextBoxFor(m => m.PaperSizeId, new { @class = "form-control", placeholder = "PaperSizeId", id = "txtPaperSizeId" })
+        @Html.DropDownListFor(p => p.PaperSizeId, Model.PaperSizes, new {
+       @class = "form-control"
+   })
     </div>
     <div class="col-lg-4">
         <p class="text-danger">
@@ -22,21 +47,17 @@
         </p>
     </div>
 </div>
+
 <div class="form-group form-group-boder">
-   @Html.LabelFor(m => m.Name, new { @class = "control-label col-lg-2" })
+    @Html.LabelFor(m => m.PartsAttributeCode, new {
+    @class = "control-label col-lg-2"
+})
     <div class="col-lg-6">
-        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "名称", id = "txtName" })
-    </div>
-    <div class="col-lg-4">
-        <p class="text-danger">
-            @Html.ValidationMessageFor(m => m.Name)
-        </p>
-    </div>
-</div>
-<div class="form-group form-group-boder">
-   @Html.LabelFor(m => m.PartsAttributeCode, new { @class = "control-label col-lg-2" })
-    <div class="col-lg-6">
-        @Html.TextBoxFor(m => m.PartsAttributeCode, new { @class = "form-control", placeholder = "组成编码", id = "txtPartsAttributeCode" })
+        @Html.TextBoxFor(m => m.PartsAttributeCode, new {
+       @class = "form-control",
+       placeholder = "组成编码",
+       id = "txtPartsAttributeCode"
+   })
     </div>
     <div class="col-lg-4">
         <p class="text-danger">
@@ -45,9 +66,15 @@
     </div>
 </div>
 <div class="form-group form-group-boder">
-   @Html.LabelFor(m => m.MnemonicCode, new { @class = "control-label col-lg-2" })
+    @Html.LabelFor(m => m.MnemonicCode, new {
+    @class = "control-label col-lg-2"
+})
     <div class="col-lg-6">
-        @Html.TextBoxFor(m => m.MnemonicCode, new { @class = "form-control", placeholder = "助记码", id = "txtMnemonicCode" })
+        @Html.TextBoxFor(m => m.MnemonicCode, new {
+       @class = "form-control",
+       placeholder = "助记码",
+       id = "txtMnemonicCode"
+   })
     </div>
     <div class="col-lg-4">
         <p class="text-danger">
@@ -56,9 +83,15 @@
     </div>
 </div>
 <div class="form-group form-group-boder">
-   @Html.LabelFor(m => m.Weight, new { @class = "control-label col-lg-2" })
+    @Html.LabelFor(m => m.Weight, new {
+    @class = "control-label col-lg-2"
+})
     <div class="col-lg-6">
-        @Html.TextBoxFor(m => m.Weight, new { @class = "form-control", placeholder = "克重", id = "txtWeight" })
+        @Html.TextBoxFor(m => m.Weight, new {
+       @class = "form-control",
+       placeholder = "克重",
+       id = "txtWeight"
+   })
     </div>
     <div class="col-lg-4">
         <p class="text-danger">
@@ -67,9 +100,15 @@
     </div>
 </div>
 <div class="form-group form-group-boder">
-   @Html.LabelFor(m => m.Description, new { @class = "control-label col-lg-2" })
+    @Html.LabelFor(m => m.Description, new {
+    @class = "control-label col-lg-2"
+})
     <div class="col-lg-6">
-        @Html.TextBoxFor(m => m.Description, new { @class = "form-control", placeholder = "描述", id = "txtDescription" })
+        @Html.TextBoxFor(m => m.Description, new {
+       @class = "form-control",
+       placeholder = "描述",
+       id = "txtDescription"
+   })
     </div>
     <div class="col-lg-4">
         <p class="text-danger">
@@ -77,5 +116,3 @@
         </p>
     </div>
 </div>
-
-
