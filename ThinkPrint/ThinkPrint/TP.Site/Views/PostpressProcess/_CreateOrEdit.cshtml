@@ -1,0 +1,92 @@
+﻿@model TP.Site.Models.PostpressProcess.PostpressProcessModel
+
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.MachineId, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.MachineId, new { @class = "form-control", placeholder = "MachineId", id = "txtMachineId" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.MachineId)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.ProcessType, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.ProcessType, new { @class = "form-control", placeholder = "工序类别", id = "txtProcessType" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.ProcessType)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.Name, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "名称", id = "txtName" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Name)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.UniqueCode, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.UniqueCode, new { @class = "form-control", placeholder = "编码", id = "txtUniqueCode" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.UniqueCode)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.ShortName, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.ShortName, new { @class = "form-control", placeholder = "简称", id = "txtShortName" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.ShortName)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.MnemonicCode, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.MnemonicCode, new { @class = "form-control", placeholder = "助记码", id = "txtMnemonicCode" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.MnemonicCode)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.SideProperty, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.SideProperty, new { @class = "form-control", placeholder = "面", id = "txtSideProperty" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.SideProperty)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.PricingModels, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.PricingModels, new { @class = "form-control", placeholder = "价格模式", id = "txtPricingModels" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.PricingModels)
+        </p>
+    </div>
+</div>
+
+

@@ -1,0 +1,30 @@
+﻿@model TP.Site.Models.PostpressProcess.PostpressProcessModel
+
+@{
+    ViewBag.Title = Model.PageTitle;
+    ViewBag.SubTitle = Model.PageSubTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        @using (Html.BeginForm("Create", "PostpressProcess", FormMethod.Post, new { id = "create-form", @class = "form-horizontal", role = "form" }))
+        {
+            @Html.Partial("_Notifications")
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">@ViewBag.Title</h3>
+                </div>
+                <div class="panel-body panel-body-reset">
+                    @Html.Partial("_CreateOrEdit", Model)
+                    <div class="form-group form-group-boder form-actions">
+                        <div class="col-lg-offset-2 col-lg-6 col-sm-6">
+                            <a class="btn btn-default  pull-left" href="~/PostpressProcess/Index"><i class="fa fa-reply fa-fw"></i>返 回</a>
+                            <button class="btn btn-primary pull-right" type="submit"><i class="fa fa-floppy-o fa-fw"></i>保 存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

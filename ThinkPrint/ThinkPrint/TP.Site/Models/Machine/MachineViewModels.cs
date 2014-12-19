@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using TP.EntityFramework.Models;
 using TP.Web.Framework.Mvc;
 
@@ -16,9 +17,9 @@ namespace TP.Site.Models.Machine{
     
         public MachineModel(){
         }
-        
-        [Required(ErrorMessage = "请输入MachineCategoryId")]
-		[Display(Name = "MachineCategoryId")]
+
+        [Required(ErrorMessage = "请输入机器设备类别")]
+		[Display(Name = "机器设备类别")]
         public int MachineCategoryId
 		{
 			get;
@@ -57,6 +58,7 @@ namespace TP.Site.Models.Machine{
 		
         [Required(ErrorMessage = "请输入设备类别")]
 		[Display(Name = "设备类别")]
+        [StringLength(3, ErrorMessage = "{0}最大长度为3")]
         public string MachineType
 		{
 			get;
@@ -64,12 +66,18 @@ namespace TP.Site.Models.Machine{
 		}
 		
         [Required(ErrorMessage = "请输入色彩类别")]
+        [StringLength(2,ErrorMessage="{0}最大长度为2")]
 		[Display(Name = "色彩类别")]
         public string ColorType
 		{
 			get;
 			set;
 		}
+
+        public List<SelectListItem> MachineCategorys {
+            get;
+            set;
+        }
 		
     }
     

@@ -142,14 +142,14 @@
                     <li class="sub-menu">
                         <a href="#"><i class="fa fa-file-o fa-fw"></i> 物料管理<span class="fa arrow"></span></a>
                         <ul class="sub">
-                            <li>
-                                <a href="#">纸张类型</a>
+                            <li>                                
+                                @Html.ActionLink("纸张类型", "Index", "PaperCategory")
                             </li>
-                            <li>
-                                <a href="#">纸张信息</a>
+                            <li>                                
+                                @Html.ActionLink("纸张信息", "Index", "Paper")
                             </li>
-                            <li>
-                                <a href="#">纸张尺寸</a>
+                            <li>                               
+                                @Html.ActionLink("纸张尺寸", "Index", "PaperSize")
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -157,20 +157,21 @@
                     <li class="sub-menu">
                         <a href="#"><i class="fa fa-print fa-fw"></i> 生产管理<span class="fa arrow"></span></a>
                         <ul class="sub">
-                            <li>
-                                <a href="#">机器类型</a>
+                            <li>                               
+                                @Html.ActionLink("机器类型", "Index", "MachineCategory")
                             </li>
-                            <li>
-                                <a href="#">机器设备</a>
+                            <li>                                
+                                @Html.ActionLink("机器设备", "Index", "Machine")
                             </li>
-                            <li>
-                                <a href="#">印刷工序</a>
+                            <li>                               
+                                @Html.ActionLink("印刷工序", "Index", "PrintingProcess")                                
                             </li>
-                            <li>
-                                <a href="#">印后工序</a>
+                            <li>                               
+                                @Html.ActionLink("印后工序", "Index", "PostpressProcess")  
                             </li>
-                            <li>
-                                <a href="#">制作要求</a>
+                            <li>                                
+                                @Html.ActionLink("制作要求", "Index", "ProcessRequirement")
+                                
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->

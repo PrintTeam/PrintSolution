@@ -1,0 +1,48 @@
+﻿@model TP.Site.Models.ProcessRequirement.ProcessRequirementModel
+
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.WorkProjectId, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.WorkProjectId, new { @class = "form-control", placeholder = "WorkProjectId", id = "txtWorkProjectId" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.WorkProjectId)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.Name, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "名称", id = "txtName" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Name)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.ProcessType, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.ProcessType, new { @class = "form-control", placeholder = "工序类别", id = "txtProcessType" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.ProcessType)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.Illustrate, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.Illustrate, new { @class = "form-control", placeholder = "说明", id = "txtIllustrate" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Illustrate)
+        </p>
+    </div>
+</div>
+
+

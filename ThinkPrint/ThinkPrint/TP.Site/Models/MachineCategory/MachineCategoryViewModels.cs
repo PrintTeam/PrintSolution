@@ -16,9 +16,9 @@ namespace TP.Site.Models.MachineCategory{
     
         public MachineCategoryModel(){
         }
-        
-        [Required(ErrorMessage = "请输入名称")]
-		[Display(Name = "名称")]
+
+        [Required(ErrorMessage = "请输入机器类型名称")]
+        [Display(Name = "类型名称")]
         public string Name
 		{
 			get;

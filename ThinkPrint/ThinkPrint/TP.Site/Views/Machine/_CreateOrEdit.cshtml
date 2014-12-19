@@ -1,0 +1,82 @@
+﻿@model TP.Site.Models.Machine.MachineModel
+
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.MachineCategoryId, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">       
+        @Html.DropDownListFor(p => p.MachineCategoryId, Model.MachineCategorys, new {@class="form-control"
+   })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.MachineCategoryId)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.Name, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "名称", id = "txtName" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Name)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.UniqueCode, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.UniqueCode, new { @class = "form-control", placeholder = "编码", id = "txtUniqueCode" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.UniqueCode)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.ShortName, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.ShortName, new { @class = "form-control", placeholder = "简称", id = "txtShortName" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.ShortName)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.MnemonicCode, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.MnemonicCode, new { @class = "form-control", placeholder = "助记码", id = "txtMnemonicCode" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.MnemonicCode)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.MachineType, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.MachineType, new { @class = "form-control", placeholder = "设备类别", id = "txtMachineType" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.MachineType)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+   @Html.LabelFor(m => m.ColorType, new { @class = "control-label col-lg-2" })
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.ColorType, new { @class = "form-control", placeholder = "色彩类别", id = "txtColorType" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.ColorType)
+        </p>
+    </div>
+</div>
+
+
