@@ -24,6 +24,8 @@ namespace TP.Site.Models.Organization
 			get;
 			set;
 		}
+
+        public string CompanyName { get; set; }
 		
         [Required(ErrorMessage = "请输入名称")]
 		[Display(Name = "名称")]

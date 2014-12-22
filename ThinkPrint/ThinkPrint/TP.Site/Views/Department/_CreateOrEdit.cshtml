@@ -1,0 +1,41 @@
+﻿@model TP.Site.Models.Organization.DepartmentModel
+@Html.HiddenFor(u => u.IsEdit)
+<div class="form-group form-group-boder">
+    <label class="control-label col-lg-2">公司信息</label>
+    <div class="col-lg-6">
+            @Html.Label("lbCompany", @Model.CompanyName, new { @class = "form-control" })
+    </div>
+    <div class="col-lg-4">
+        @Html.Hidden("hidCompany", @Model.CompanyId)
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    <label for="txtName" class="control-label col-lg-2">部门名称</label>
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "部门名称信息", id = "txtName" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Name)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    <label for="txtShortName" class="control-label col-lg-2">部门简称</label>
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.ShortName, new { @class = "form-control", placeholder = "部门简称信息", id = "txtShortName" })
+    </div>
+    <div class="col-lg-4">
+
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    <label for="txtDescription" class="control-label col-lg-2">描述</label>
+    <div class="col-lg-6">
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control", id = "txtDescription", rows = "3", placeholder = "描述备注信息", maxlength = "200" })
+    </div>
+    <div class="col-lg-4">
+
+    </div>
+</div>
+

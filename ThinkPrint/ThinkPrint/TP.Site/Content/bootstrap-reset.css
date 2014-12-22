@@ -15,8 +15,13 @@ a:hover {
 
 .panel-heading {
     border-color:#eff2f7 ;
-    font-size: 16px;
-    font-weight: 300;
+    color: #007aff;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.panel-heading-edit {
+    color: #41cac0;
 }
 
 .panel-title {

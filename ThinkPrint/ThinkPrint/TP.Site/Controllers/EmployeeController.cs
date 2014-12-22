@@ -17,14 +17,14 @@ namespace TP.Site.Controllers
 {
     public class EmployeeController : BaseController
     {
-      
+
         private readonly IEmployeeService _employeeService;
         private readonly IResourceService _resourceService;
         private readonly IDepartmentService _departmentService;
         private readonly IStoreService _storeService;
         private IList<SYS_SysSetting> statusList;
         private string messages = "";
-        public EmployeeController(IEmployeeService employeeService,IDepartmentService departmentService,IStoreService storeService, IResourceService resourceService)
+        public EmployeeController(IEmployeeService employeeService, IDepartmentService departmentService, IStoreService storeService, IResourceService resourceService)
         {
             _employeeService = employeeService;
             _departmentService = departmentService;
@@ -40,10 +40,37 @@ namespace TP.Site.Controllers
 
             EmployeeListModel model = new EmployeeListModel();
             model.ViewList = employeeList;
-            
-           
+
+
             model.PageTitle = "员工信息";
             model.PageSubTitle = "查看和维护所有的员工信息";
+            return View(model);
+        }
+
+        public ActionResult ShowDetailView(int id)
+        {
+            ORG_Employee employee = _employeeService.GetEmployeeById(id);
+            EmployeeModel model = new EmployeeModel
+            {
+                Id = employee.EmployeeId,
+                Name = employee.Name,
+                JobNumber = employee.JobNumber,
+                CredentialsNum = employee.CredentialsNum,
+                Email = employee.Email,
+                Sex = employee.Sex,
+                Age = employee.Age,
+                MobilePhone = employee.MobilePhone,
+                StatusName = statusList.SingleOrDefault(s => s.ParamValue == employee.Status.Trim()).Name,
+                Status = employee.Status.Trim(),
+                StatusList = statusList,
+                EntryDate = employee.EntryDate,
+                LeaveDate = employee.LeaveDate,
+                CurrentDepartment = employee.ORG_Department.Name,
+                CurrentStrore = employee.ORG_Store != null ? employee.ORG_Store.Name : "",
+                ManagerName = employee.ORG_Employee2 != null ? employee.ORG_Employee2.Name : ""
+            };
+            model.PageTitle = "员工信息明细";
+            model.PageSubTitle = "查看员工明细信息";
             return View(model);
         }
 
@@ -67,12 +94,12 @@ namespace TP.Site.Controllers
                 ORG_Employee employee = new ORG_Employee
                 {
                     Name = model.Name,
-                    ManagerId=model.ManagerId,
-                    DepartmentId=model.CurrentDepartmentId,
-                    StoreId=model.CurrentStroreId,
+                    ManagerId = model.ManagerId,
+                    DepartmentId = model.CurrentDepartmentId,
+                    StoreId = model.CurrentStroreId,
                     JobNumber = model.JobNumber.Trim(),
                     CredentialsNum = model.CredentialsNum,
-                    Email=model.Email,
+                    Email = model.Email,
                     Sex = model.Sex,
                     Age = model.Age,
                     MobilePhone = model.MobilePhone,
@@ -85,7 +112,7 @@ namespace TP.Site.Controllers
                 try
                 {
                     _employeeService.InsertEmployee(employee);
-                  
+
                     messages = "创建" + model.Name + "信息成功.";
                     SuccessNotification(messages);
                 }
@@ -103,7 +130,7 @@ namespace TP.Site.Controllers
 
 
         [HttpGet]
-        public ActionResult Edit(int id) 
+        public ActionResult Edit(int id)
         {
             ORG_Employee employee = _employeeService.GetEmployeeById(id);
 
@@ -164,6 +191,26 @@ namespace TP.Site.Controllers
             return View(model);
         }
 
+
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                ORG_Employee employee = _employeeService.GetEmployeeById(id);
+
+                _employeeService.DeleteEmployee(employee);
+                return Redirect("~/Employee/Index");
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.ToString());
+                ErrorNotification(ex.ToString());
+
+            }
+            return RedirectToAction("Index", "Employee");
+        }
+
         [NonAction]
         private void PrepareModel(EmployeeModel model)
         {
@@ -187,7 +234,7 @@ namespace TP.Site.Controllers
         }
 
         [NonAction]
-        private void PrepareDepartmnet(EmployeeModel model) 
+        private void PrepareDepartmnet(EmployeeModel model)
         {
             if (model == null)
                 throw new ArgumentNullException("model");
@@ -214,7 +261,7 @@ namespace TP.Site.Controllers
             }
         }
 
-        private void PrepareStore(EmployeeModel model) 
+        private void PrepareStore(EmployeeModel model)
         {
             if (model == null)
                 throw new ArgumentNullException("model");
@@ -241,7 +288,7 @@ namespace TP.Site.Controllers
             }
         }
 
-        private void PrepareManager(EmployeeModel model) 
+        private void PrepareManager(EmployeeModel model)
         {
             if (model == null)
                 throw new ArgumentNullException("model");
@@ -282,7 +329,7 @@ namespace TP.Site.Controllers
                 ModelState.AddModelError("", "请选择指标所属的部门信息.");
                 return;
             }
-          
+
             if (string.IsNullOrWhiteSpace(model.JobNumber))
             {
                 ModelState.AddModelError("", "员工工号不能为空.");

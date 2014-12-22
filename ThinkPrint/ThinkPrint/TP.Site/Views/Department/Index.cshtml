@@ -8,7 +8,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <div class="panel panel-primary">
+        <div class="panel">
             <div class="panel-heading">
                 <span><i class="fa fa-table fa-fw"></i></span>
                 信息列表
@@ -33,11 +33,11 @@
                         </div>
                     </div>
 
-                    @Html.Partial("_EmployeeList", Model)
+                    @Html.Partial("_DepartmentList", Model)
                 }
             </div>
         </div>
     </div>
 
 </div>
-
+@Html.Partial("_DeletePartial")

@@ -376,6 +376,10 @@
     <Content Include="Views\ProcessRequirement\Index.cshtml" />
     <Content Include="Views\ProcessRequirement\_CreateOrEdit.cshtml" />
     <Content Include="Views\ProcessRequirement\_ProcessRequirementList.cshtml" />
+    <Content Include="Views\Department\Create.cshtml" />
+    <Content Include="Views\Department\_CreateOrEdit.cshtml" />
+    <Content Include="Views\Department\Edit.cshtml" />
+    <Content Include="Views\Employee\ShowDetailView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
