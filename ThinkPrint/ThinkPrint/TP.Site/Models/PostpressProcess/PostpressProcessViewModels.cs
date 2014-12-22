@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using TP.EntityFramework.Models;
+using TP.Service.PostpressProcess;
 using TP.Web.Framework.Mvc;
 
 namespace TP.Site.Models.PostpressProcess{
@@ -72,7 +73,7 @@ namespace TP.Site.Models.PostpressProcess{
 		
         [Required(ErrorMessage = "请输入价格模式")]
 		[Display(Name = "价格模式")]
-        public int PricingModels
+        public String PricingModels
 		{
 			get;
 			set;
@@ -81,7 +82,7 @@ namespace TP.Site.Models.PostpressProcess{
     }
     
     
-    public class PostpressProcessListModel : BaseListViewModel<PMW_PostpressProcess>{
+    public class PostpressProcessListModel : BaseListViewModel<PMWPostpressProcess>{
 
     }
 }

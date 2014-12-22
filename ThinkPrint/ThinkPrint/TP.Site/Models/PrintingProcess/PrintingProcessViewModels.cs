@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using TP.EntityFramework.Models;
+using TP.Service.PrintingProcess;
 using TP.Web.Framework.Mvc;
 
 namespace TP.Site.Models.PrintingProcess{
@@ -82,7 +83,7 @@ namespace TP.Site.Models.PrintingProcess{
     }
     
     
-    public class PrintingProcessListModel : BaseListViewModel<PMW_PrintingProcess>{
+    public class PrintingProcessListModel : BaseListViewModel<PMWPrintingProcess>{
 
     }
 }

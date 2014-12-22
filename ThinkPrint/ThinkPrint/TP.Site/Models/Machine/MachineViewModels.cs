@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using TP.EntityFramework.Models;
+using TP.Service.Machine;
 using TP.Web.Framework.Mvc;
 
 namespace TP.Site.Models.Machine{
@@ -18,8 +18,8 @@ namespace TP.Site.Models.Machine{
         public MachineModel(){
         }
 
-        [Required(ErrorMessage = "请输入机器设备类别")]
-		[Display(Name = "机器设备类别")]
+        [Required(ErrorMessage = "请输入机器类型")]
+        [Display(Name = "机器类型")]
         public int MachineCategoryId
 		{
 			get;
@@ -58,7 +58,7 @@ namespace TP.Site.Models.Machine{
 		
         [Required(ErrorMessage = "请输入设备类别")]
 		[Display(Name = "设备类别")]
-        [StringLength(3, ErrorMessage = "{0}最大长度为3")]
+        [StringLength(3, ErrorMessage = "{0}最大长度为2")]
         public string MachineType
 		{
 			get;
@@ -66,7 +66,7 @@ namespace TP.Site.Models.Machine{
 		}
 		
         [Required(ErrorMessage = "请输入色彩类别")]
-        [StringLength(2,ErrorMessage="{0}最大长度为2")]
+        [StringLength(3,ErrorMessage="{0}最大长度为3")]
 		[Display(Name = "色彩类别")]
         public string ColorType
 		{
@@ -78,11 +78,22 @@ namespace TP.Site.Models.Machine{
             get;
             set;
         }
+
+        public List<SelectListItem> ColorCategorys {
+            get;
+            set;
+        }
+
+        public List<SelectListItem> MachineTypes {
+
+            get;
+            set;
+        }
 		
     }
-    
-    
-    public class MachineListModel : BaseListViewModel<PMW_Machine>{
+
+
+    public class MachineListModel : BaseListViewModel<TP.Service.Machine.Machine> {
 
     }
 }

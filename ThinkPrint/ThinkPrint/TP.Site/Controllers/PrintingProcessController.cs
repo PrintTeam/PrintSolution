@@ -25,7 +25,7 @@ namespace TP.Site.Controllers{
         // GET: Resource
         public ActionResult Index(int pageIndex = 1, string searchKey = null){
             searchKey = searchKey == null ? searchKey : searchKey.Trim();
-            PagedList<PMW_PrintingProcess> PrintingProcessList = m_PrintingProcessService.GetPrintingProcesss(pageIndex, SysConstant.Page_PageSize, searchKey);
+            PagedList<PMWPrintingProcess> PrintingProcessList = m_PrintingProcessService.GetPrintingProcesss(pageIndex, SysConstant.Page_PageSize, searchKey);
             PrintingProcessListModel model = new PrintingProcessListModel();
             model.ViewList = PrintingProcessList;
             model.PageTitle = "印刷工序";

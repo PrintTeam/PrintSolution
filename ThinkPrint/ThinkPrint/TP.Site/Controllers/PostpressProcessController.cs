@@ -25,7 +25,7 @@ namespace TP.Site.Controllers{
         // GET: Resource
         public ActionResult Index(int pageIndex = 1, string searchKey = null){
             searchKey = searchKey == null ? searchKey : searchKey.Trim();
-            PagedList<PMW_PostpressProcess> PostpressProcessList = m_PostpressProcessService.GetPostpressProcesss(pageIndex, SysConstant.Page_PageSize, searchKey);
+            PagedList<PMWPostpressProcess> PostpressProcessList = m_PostpressProcessService.GetPostpressProcesss(pageIndex, SysConstant.Page_PageSize, searchKey);
             PostpressProcessListModel model = new PostpressProcessListModel();
             model.ViewList = PostpressProcessList;
             model.PageTitle = "印后工序";

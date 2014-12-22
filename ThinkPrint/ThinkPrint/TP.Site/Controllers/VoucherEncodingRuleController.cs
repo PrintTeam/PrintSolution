@@ -136,7 +136,7 @@ namespace TP.Site.Controllers {
                  });
              }
              model.BillCategoryList = new List<SelectListItem>();
-             IList<SYS_SysSetting> SysSettings = m_ResourceService.GetSysSettingList("001");
+             IList<SYS_SysSetting> SysSettings = m_ResourceService.GetSysSettingList(SysConstant.BillType_titleCode);
              foreach (SYS_SysSetting SysSetting in SysSettings) {
                  model.BillCategoryList.Add(new SelectListItem {
                      Value = SysSetting.UniqueCode,
@@ -145,7 +145,7 @@ namespace TP.Site.Controllers {
              }
              
              model.CodeModeTypeList = new List<SelectListItem>();
-             SysSettings = m_ResourceService.GetSysSettingList("002");
+             SysSettings = m_ResourceService.GetSysSettingList(SysConstant.CodemodeType_titlecode);
              foreach (SYS_SysSetting SysSetting in SysSettings) {
                  model.CodeModeTypeList.Add(new SelectListItem {
                      Value = SysSetting.UniqueCode,

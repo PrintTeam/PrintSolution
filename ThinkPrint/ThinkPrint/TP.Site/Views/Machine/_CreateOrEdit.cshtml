@@ -59,7 +59,10 @@
 <div class="form-group form-group-boder">
    @Html.LabelFor(m => m.MachineType, new { @class = "control-label col-lg-2" })
     <div class="col-lg-6">
-        @Html.TextBoxFor(m => m.MachineType, new { @class = "form-control", placeholder = "设备类别", id = "txtMachineType" })
+        @Html.DropDownListFor(p => p.MachineType, Model.MachineTypes, new {
+       @class = "form-control"
+   })
+        
     </div>
     <div class="col-lg-4">
         <p class="text-danger">
@@ -70,7 +73,8 @@
 <div class="form-group form-group-boder">
    @Html.LabelFor(m => m.ColorType, new { @class = "control-label col-lg-2" })
     <div class="col-lg-6">
-        @Html.TextBoxFor(m => m.ColorType, new { @class = "form-control", placeholder = "色彩类别", id = "txtColorType" })
+        @Html.DropDownListFor(p => p.ColorType, Model.ColorCategorys, new {
+   @class="form-control"})       
     </div>
     <div class="col-lg-4">
         <p class="text-danger">

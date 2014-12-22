@@ -7,6 +7,7 @@ using TP.Core.UnitOfWork;
 using TP.Repository;
 using TP.EntityFramework.Models;
 using Webdiyer.WebControls.Mvc;
+using TP.Service.SysResource;
 
 namespace TP.Service.Machine {
 
@@ -15,10 +16,15 @@ namespace TP.Service.Machine {
     /// </summary>
     public class MachineService:IMachineService {
         private readonly IMachineRepository m_Repository;
+        private readonly IMachineCategoryRepository m_CategoryRepository;
+        private readonly ISysSettingRepository m_SysSettingRepository;
         private readonly IUnitOfWork m_UnitOfWork;
 
-        public MachineService(IMachineRepository repository, IUnitOfWork unitOfWork) {
+        public MachineService(IMachineRepository repository, IMachineCategoryRepository CategoryRepository,
+            ISysSettingRepository SysSettingRepository, IUnitOfWork unitOfWork) {
+            m_CategoryRepository = CategoryRepository;
             m_Repository = repository;
+            m_SysSettingRepository = SysSettingRepository;
             m_UnitOfWork = unitOfWork;
         }
 
@@ -26,17 +32,80 @@ namespace TP.Service.Machine {
             return m_Repository.GetById(MachineId);
         }
 
-        public List<PMW_Machine> GetMachines() {
-            return m_Repository.Table.Where(p => p.IsDelete == false).ToList();
+        public PMW_Machine GetMachine(String UniqueCode) {
+            var q = m_Repository.Table.Where(p => p.UniqueCode == UniqueCode).ToList();
+            if (q.Count > 0)
+                return q.First();
+            return null;
         }
 
-        public PagedList<PMW_Machine> GetMachines(int pageIndex, int pageSize, string searchKey = null) {
-            var q = m_Repository.Table.Where(u => u.IsDelete == false);
+        public List<Machine> GetMachines() {
+            var q = from a in m_Repository.Table
+                    join b in m_CategoryRepository.Table   on a.MachineCategoryId equals b.MachineCategoryId
+                    join c in m_SysSettingRepository.Table on a.MachineType  equals c.ParamValue
+                    join d in m_SysSettingRepository.Table on a.ColorType equals d.ParamValue
+                    where a.IsDelete == false
+                    orderby a.ModifiedDate descending
+                    select new Machine {
+                        MachineId = a.MachineId,
+                        Name = a.Name,
+                        MachineCategoryId = a.MachineCategoryId,
+                        MachineCategoryName = b.Name,
+                        MachineType = a.MachineType,
+                        ColorType = a.ColorType,
+                        UniqueCode = a.UniqueCode,
+                        MnemonicCode = a.MnemonicCode,
+                        ShortName = a.ShortName,
+                        MachineTypeName = c.Name,
+                        ColorTypeName = d.Name
+                    };
+            return q.ToList();
+            //return m_Repository.Table.Where(p => p.IsDelete == false).ToList();
+        }
+
+        public PagedList<Machine> GetMachines(int pageIndex, int pageSize, string searchKey = null) {
+            //var q = m_Repository.Table.Where(u => u.IsDelete == false);
+            var q = from a in m_Repository.Table
+                    join b in m_CategoryRepository.Table on a.MachineCategoryId equals b.MachineCategoryId
+                    join c in m_SysSettingRepository.Table on a.MachineType equals c.ParamValue
+                    join d in m_SysSettingRepository.Table on a.ColorType equals d.ParamValue
+                    where a.IsDelete == false
+                    orderby a.ModifiedDate descending
+                    select new Machine {
+                        MachineId = a.MachineId,
+                        Name = a.Name,
+                        MachineCategoryId = a.MachineCategoryId,
+                        MachineCategoryName = b.Name,
+                        MachineType = a.MachineType,
+                        ColorType =a.ColorType,
+                        UniqueCode=a.UniqueCode,
+                        MnemonicCode =a.MnemonicCode,
+                        ShortName = a.ShortName,
+                        MachineTypeName = c.Name,
+                        ColorTypeName = d.Name
+                    };
             if (!string.IsNullOrWhiteSpace(searchKey)) {
-                q = q.Where(p => p.Name.Contains(searchKey));
-            }
-            q = q.OrderByDescending(p => p.ModifiedDate);
-            PagedList<PMW_Machine> result = q.ToPagedList<PMW_Machine>(pageIndex, pageSize);
+                q = from a in m_Repository.Table
+                    join b in m_CategoryRepository.Table on a.MachineCategoryId equals b.MachineCategoryId
+                    join c in m_SysSettingRepository.Table on a.MachineType equals c.ParamValue
+                    join d in m_SysSettingRepository.Table on a.ColorType equals d.ParamValue
+                    where a.IsDelete == false && a.Name.Contains(searchKey)
+                    orderby a.ModifiedDate descending
+                    select new Machine {
+                        MachineId = a.MachineId,
+                        Name = a.Name,
+                        MachineCategoryId = a.MachineCategoryId,
+                        MachineCategoryName = b.Name,
+                        MachineType = a.MachineType,
+                        ColorType = a.ColorType,
+                        UniqueCode = a.UniqueCode,
+                        MnemonicCode = a.MnemonicCode,
+                        ShortName = a.ShortName,
+                        MachineTypeName = c.Name,
+                        ColorTypeName = d.Name
+                    };
+            }         
+            PagedList<Machine> result = q.ToPagedList<Machine>(pageIndex, pageSize);
             return result;
         }
 
@@ -63,5 +132,7 @@ namespace TP.Service.Machine {
             m_UnitOfWork.Commint();
         }    
     }
+
+   
 }
 

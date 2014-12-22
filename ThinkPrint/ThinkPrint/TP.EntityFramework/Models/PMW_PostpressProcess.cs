@@ -19,7 +19,7 @@ namespace TP.EntityFramework.Models
         public string ShortName { get; set; }
         public string MnemonicCode { get; set; }
         public string SideProperty { get; set; }
-        public int PricingModels { get; set; }
+        public String PricingModels { get; set; }
         public System.DateTime ModifiedDate { get; set; }
         public bool IsDelete { get; set; }
         public virtual ICollection<BUS_BusinessComponent> BUS_BusinessComponent { get; set; }

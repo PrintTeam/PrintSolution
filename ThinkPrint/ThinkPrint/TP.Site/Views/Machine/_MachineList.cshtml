@@ -12,7 +12,10 @@
                     序号
                 </th>                
                 <th>
-                    名称
+                    机器类型
+                </th>
+                <th>
+                    设备类别
                 </th>
                 <th>
                     编码
@@ -43,6 +46,9 @@
                         @item.Name
                     </td>
                     <td>
+                        @item.MachineCategoryName
+                    </td>
+                    <td>
                         @item.UniqueCode
                     </td>
                     <td>
@@ -52,10 +58,10 @@
                         @item.MnemonicCode
                     </td>
                     <td>
-                        @item.MachineType
+                        @item.MachineTypeName
                     </td>
                     <td>
-                        @item.ColorType
+                        @item.ColorTypeName
                     </td>
                     <td class="table-action">
                         <a href="~/Machine/Edit/@item.MachineId" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="left" title="编辑"><i class="fa fa-edit"></i></a>
