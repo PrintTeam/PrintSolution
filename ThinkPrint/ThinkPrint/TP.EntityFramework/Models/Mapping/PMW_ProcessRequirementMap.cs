@@ -15,7 +15,7 @@ namespace TP.EntityFramework.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(50);
 
-            this.Property(t => t.ProcessType)
+            this.Property(t => t.BusinessType)
                 .IsRequired()
                 .IsFixedLength()
                 .HasMaxLength(3);
@@ -28,7 +28,7 @@ namespace TP.EntityFramework.Models.Mapping
             this.Property(t => t.ProcessRequirementId).HasColumnName("ProcessRequirementId");
             this.Property(t => t.WorkProjectId).HasColumnName("WorkProjectId");
             this.Property(t => t.Name).HasColumnName("Name");
-            this.Property(t => t.ProcessType).HasColumnName("ProcessType");
+            this.Property(t => t.BusinessType).HasColumnName("BusinessType");
             this.Property(t => t.Illustrate).HasColumnName("Illustrate");
             this.Property(t => t.ModifiedDate).HasColumnName("ModifiedDate");
 

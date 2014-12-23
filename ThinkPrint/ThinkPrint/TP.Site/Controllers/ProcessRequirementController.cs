@@ -45,7 +45,7 @@ namespace TP.Site.Controllers{
                 PMW_ProcessRequirement ProcessRequirement = new PMW_ProcessRequirement{
                     WorkProjectId = model.WorkProjectId,  
                     Name = model.Name,  
-                    ProcessType = model.ProcessType,  
+                    
                     Illustrate = model.Illustrate,  
                     ModifiedDate = DateTime.UtcNow.ToLocalTime()
                 };
@@ -68,7 +68,7 @@ namespace TP.Site.Controllers{
             ProcessRequirementModel model = new ProcessRequirementModel{
               WorkProjectId = ProcessRequirement.WorkProjectId,
               Name = ProcessRequirement.Name,
-              ProcessType = ProcessRequirement.ProcessType,
+         
               Illustrate = ProcessRequirement.Illustrate,
             };
             PrepareModel(model);
@@ -81,7 +81,7 @@ namespace TP.Site.Controllers{
                 PMW_ProcessRequirement ProcessRequirement = m_ProcessRequirementService.GetProcessRequirement(model.Id);
                 ProcessRequirement.WorkProjectId = model.WorkProjectId;  
                 ProcessRequirement.Name = model.Name;  
-                ProcessRequirement.ProcessType = model.ProcessType;  
+           
                 ProcessRequirement.Illustrate = model.Illustrate;                 
                 ProcessRequirement.ModifiedDate = DateTime.UtcNow.ToLocalTime();
                 try{

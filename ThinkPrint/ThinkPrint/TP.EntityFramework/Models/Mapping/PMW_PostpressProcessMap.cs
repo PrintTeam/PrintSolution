@@ -11,11 +11,6 @@ namespace TP.EntityFramework.Models.Mapping
             this.HasKey(t => t.PostpressProcessId);
 
             // Properties
-            this.Property(t => t.ProcessType)
-                .IsRequired()
-                .IsFixedLength()
-                .HasMaxLength(3);
-
             this.Property(t => t.Name)
                 .IsRequired()
                 .HasMaxLength(50);
@@ -31,14 +26,19 @@ namespace TP.EntityFramework.Models.Mapping
                 .HasMaxLength(50);
 
             this.Property(t => t.SideProperty)
+                .IsRequired()
                 .IsFixedLength()
-                .HasMaxLength(2);
+                .HasMaxLength(3);
+
+            this.Property(t => t.PricingModels)
+                .IsRequired()
+                .IsFixedLength()
+                .HasMaxLength(3);
 
             // Table & Column Mappings
             this.ToTable("PMW_PostpressProcess");
             this.Property(t => t.PostpressProcessId).HasColumnName("PostpressProcessId");
             this.Property(t => t.MachineId).HasColumnName("MachineId");
-            this.Property(t => t.ProcessType).HasColumnName("ProcessType");
             this.Property(t => t.Name).HasColumnName("Name");
             this.Property(t => t.UniqueCode).HasColumnName("UniqueCode");
             this.Property(t => t.ShortName).HasColumnName("ShortName");

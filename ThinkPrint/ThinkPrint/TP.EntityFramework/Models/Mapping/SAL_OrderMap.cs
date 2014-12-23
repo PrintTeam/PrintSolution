@@ -58,7 +58,7 @@ namespace TP.EntityFramework.Models.Mapping
             this.Property(t => t.PaymentType)
                 .IsRequired()
                 .IsFixedLength()
-                .HasMaxLength(1);
+                .HasMaxLength(3);
 
             this.Property(t => t.StoredMedium)
                 .HasMaxLength(100);

@@ -52,7 +52,7 @@ namespace TP.Site.Controllers{
             if (ModelState.IsValid){
                 PMW_PostpressProcess PostpressProcess = new PMW_PostpressProcess{
                     MachineId = model.MachineId,  
-                    ProcessType = model.ProcessType,  
+                   
                     Name = model.Name,  
                     UniqueCode = model.UniqueCode,  
                     ShortName = model.ShortName,  
@@ -80,7 +80,7 @@ namespace TP.Site.Controllers{
             PMW_PostpressProcess PostpressProcess = m_PostpressProcessService.GetPostpressProcess(id);
             PostpressProcessModel model = new PostpressProcessModel{
               MachineId = PostpressProcess.MachineId,
-              ProcessType = PostpressProcess.ProcessType,
+             
               Name = PostpressProcess.Name,
               UniqueCode = PostpressProcess.UniqueCode,
               ShortName = PostpressProcess.ShortName,
@@ -99,7 +99,7 @@ namespace TP.Site.Controllers{
             if (ModelState.IsValid){
                 PMW_PostpressProcess PostpressProcess = m_PostpressProcessService.GetPostpressProcess(model.Id);
                 PostpressProcess.MachineId = model.MachineId;  
-                PostpressProcess.ProcessType = model.ProcessType;  
+               
                 PostpressProcess.Name = model.Name;  
                 PostpressProcess.UniqueCode = model.UniqueCode;  
                 PostpressProcess.ShortName = model.ShortName;  

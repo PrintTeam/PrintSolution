@@ -5,6 +5,11 @@ namespace TP.EntityFramework.Models
 {
     public partial class BOM_Paper
     {
+        public BOM_Paper()
+        {
+            this.PMW_PrintingProcess = new List<PMW_PrintingProcess>();
+        }
+
         public int PaperId { get; set; }
         public int PaperCategoryId { get; set; }
         public int PaperSizeId { get; set; }
@@ -17,5 +22,6 @@ namespace TP.EntityFramework.Models
         public bool IsDelete { get; set; }
         public virtual BOM_PaperSize BOM_PaperSize { get; set; }
         public virtual BOM_PaperCategory BOM_PaperCategory { get; set; }
+        public virtual ICollection<PMW_PrintingProcess> PMW_PrintingProcess { get; set; }
     }
 }

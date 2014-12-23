@@ -15,11 +15,6 @@ namespace TP.EntityFramework.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(50);
 
-            this.Property(t => t.UnitType)
-                .IsRequired()
-                .IsFixedLength()
-                .HasMaxLength(2);
-
             this.Property(t => t.Description)
                 .HasMaxLength(225);
 
@@ -27,7 +22,6 @@ namespace TP.EntityFramework.Models.Mapping
             this.ToTable("SYS_Unit");
             this.Property(t => t.UnitId).HasColumnName("UnitId");
             this.Property(t => t.Name).HasColumnName("Name");
-            this.Property(t => t.UnitType).HasColumnName("UnitType");
             this.Property(t => t.ModifiedDate).HasColumnName("ModifiedDate");
             this.Property(t => t.Description).HasColumnName("Description");
             this.Property(t => t.IsDelete).HasColumnName("IsDelete");

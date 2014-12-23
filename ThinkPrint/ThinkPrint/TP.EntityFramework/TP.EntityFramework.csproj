@@ -76,7 +76,7 @@
     <Compile Include="Models\CRM_MembershipCardCategory.cs" />
     <Compile Include="Models\CRM_MembershipFreeze.cs" />
     <Compile Include="Models\CRM_MembershipUnfreeze.cs" />
-    <Compile Include="Models\CRM__PostRegisterCard.cs" />
+    <Compile Include="Models\CRM_PostRegisterCard.cs" />
     <Compile Include="Models\Mapping\AUT_RoleMap.cs" />
     <Compile Include="Models\Mapping\AUT_RoleMenuFunctionMap.cs" />
     <Compile Include="Models\Mapping\AUT_RoleModuleMap.cs" />
@@ -101,7 +101,7 @@
     <Compile Include="Models\Mapping\CRM_MembershipCardMap.cs" />
     <Compile Include="Models\Mapping\CRM_MembershipFreezeMap.cs" />
     <Compile Include="Models\Mapping\CRM_MembershipUnfreezeMap.cs" />
-    <Compile Include="Models\Mapping\CRM__PostRegisterCardMap.cs" />
+    <Compile Include="Models\Mapping\CRM_PostRegisterCardMap.cs" />
     <Compile Include="Models\Mapping\ORG_AuthorizeUserStoreMap.cs" />
     <Compile Include="Models\Mapping\ORG_CompanyMap.cs" />
     <Compile Include="Models\Mapping\ORG_DepartmentMap.cs" />
@@ -166,6 +166,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

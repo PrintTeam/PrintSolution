@@ -33,7 +33,7 @@ namespace TP.EntityFramework.Models.Mapping
             this.Property(t => t.Status)
                 .IsRequired()
                 .IsFixedLength()
-                .HasMaxLength(2);
+                .HasMaxLength(3);
 
             // Table & Column Mappings
             this.ToTable("ORG_Employee");

@@ -13,7 +13,7 @@ using TP.Web.Framework.Mvc;
 using Webdiyer.WebControls.Mvc;
 
 namespace TP.Site.Controllers {
-    /// <summary>
+     /// <summary>
     /// 印刷工序
     /// </summary>
     public class PrintingProcessController : BaseController {
@@ -36,7 +36,7 @@ namespace TP.Site.Controllers {
             model.ViewList = PrintingProcessList;
             model.PageTitle = "印刷工序";
             model.PageSubTitle = "查看和维护印刷工序";
-            return View(model);
+            return View(model);           
         }
 
         public ActionResult Create() {
@@ -49,14 +49,14 @@ namespace TP.Site.Controllers {
         public ActionResult Create(PrintingProcessModel model) {
             if (ModelState.IsValid) {
                 PMW_PrintingProcess PrintingProcess = new PMW_PrintingProcess {
-                    MachineId = model.MachineId,
-                    ProcessType = model.ProcessType,
-                    Name = model.Name,
-                    ShortName = model.ShortName,
-                    MnemonicCode = model.MnemonicCode,
-                    PartsAttributeCode = model.PartsAttributeCode,
-                    SideProperty = model.SideProperty,
-                    ColorType = model.ColorType,
+                    MachineId = model.MachineId,  
+                     
+                    Name = model.Name,  
+                    ShortName = model.ShortName,  
+                    MnemonicCode = model.MnemonicCode,  
+                    PartsAttributeCode = model.PartsAttributeCode,  
+                    SideProperty = model.SideProperty,  
+                    ColorType = model.ColorType,  
                     ModifiedDate = DateTime.UtcNow.ToLocalTime(),
                     IsDelete = false
                 };
@@ -76,14 +76,14 @@ namespace TP.Site.Controllers {
         public ActionResult Edit(int id) {
             PMW_PrintingProcess PrintingProcess = m_PrintingProcessService.GetPrintingProcess(id);
             PrintingProcessModel model = new PrintingProcessModel {
-                MachineId = PrintingProcess.MachineId,
-                ProcessType = PrintingProcess.ProcessType,
-                Name = PrintingProcess.Name,
-                ShortName = PrintingProcess.ShortName,
-                MnemonicCode = PrintingProcess.MnemonicCode,
-                PartsAttributeCode = PrintingProcess.PartsAttributeCode,
-                SideProperty = PrintingProcess.SideProperty,
-                ColorType = PrintingProcess.ColorType,
+              MachineId = PrintingProcess.MachineId,
+          
+              Name = PrintingProcess.Name,
+              ShortName = PrintingProcess.ShortName,
+              MnemonicCode = PrintingProcess.MnemonicCode,
+              PartsAttributeCode = PrintingProcess.PartsAttributeCode,
+              SideProperty = PrintingProcess.SideProperty,
+              ColorType = PrintingProcess.ColorType,
             };
             PrepareModel(model);
             return View(model);
@@ -93,14 +93,14 @@ namespace TP.Site.Controllers {
         public ActionResult Edit(PrintingProcessModel model) {
             if (ModelState.IsValid) {
                 PMW_PrintingProcess PrintingProcess = m_PrintingProcessService.GetPrintingProcess(model.Id);
-                PrintingProcess.MachineId = model.MachineId;
-                PrintingProcess.ProcessType = model.ProcessType;
-                PrintingProcess.Name = model.Name;
-                PrintingProcess.ShortName = model.ShortName;
-                PrintingProcess.MnemonicCode = model.MnemonicCode;
-                PrintingProcess.PartsAttributeCode = model.PartsAttributeCode;
-                PrintingProcess.SideProperty = model.SideProperty;
-                PrintingProcess.ColorType = model.ColorType;
+                PrintingProcess.MachineId = model.MachineId;  
+            
+                PrintingProcess.Name = model.Name;  
+                PrintingProcess.ShortName = model.ShortName;  
+                PrintingProcess.MnemonicCode = model.MnemonicCode;  
+                PrintingProcess.PartsAttributeCode = model.PartsAttributeCode;  
+                PrintingProcess.SideProperty = model.SideProperty;  
+                PrintingProcess.ColorType = model.ColorType;  
                 PrintingProcess.IsDelete = false;
                 PrintingProcess.ModifiedDate = DateTime.UtcNow.ToLocalTime();
                 try {
@@ -138,6 +138,6 @@ namespace TP.Site.Controllers {
                 Value = p.MachineId + "",
                 Text = p.Name
             }).ToList();
-        }
+        }       
     }
 }
