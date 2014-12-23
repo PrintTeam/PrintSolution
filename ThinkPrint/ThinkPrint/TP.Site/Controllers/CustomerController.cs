@@ -27,7 +27,7 @@ namespace TP.Site.Controllers {
         // GET: Resource
         public ActionResult Index(int pageIndex = 1, string searchKey = null) {
             searchKey = searchKey == null ? searchKey : searchKey.Trim();
-            PagedList<SAL_Customer> CustomerList = m_CustomerService.GetCustomers(pageIndex, SysConstant.Page_PageSize, searchKey);
+            PagedList<SALCustomer> CustomerList = m_CustomerService.GetCustomers(pageIndex, SysConstant.Page_PageSize, searchKey);
             CustomerListModel model = new CustomerListModel();
             model.ViewList = CustomerList;
             model.PageTitle = "客户信息";

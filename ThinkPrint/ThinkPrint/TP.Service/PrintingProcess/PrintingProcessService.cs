@@ -32,7 +32,7 @@ namespace TP.Service.PrintingProcess {
         }
 
         public List<PMWPrintingProcess> GetPrintingProcesss() {
-            var q = from a in m_Repository.Table
+            /*var q = from a in m_Repository.Table
                     join b in m_MachineRepository.Table on a.MachineId equals b.MachineId
                   
                     join d in m_SysSettingRepository.Table on a.ColorType equals d.ParamValue
@@ -51,11 +51,12 @@ namespace TP.Service.PrintingProcess {
                         ColorType = a.ColorType,
                         ColorTypeName = d.Name
                     };
-            return q.ToList();
+            return q.ToList();*/
+            return null;
         }
 
         public PagedList<PMWPrintingProcess> GetPrintingProcesss(int pageIndex, int pageSize, string searchKey = null) {
-            var q = from a in m_Repository.Table
+            /*var q = from a in m_Repository.Table
                     join b in m_MachineRepository.Table on a.MachineId equals b.MachineId
                    
                     join d in m_SysSettingRepository.Table on a.ColorType equals d.ParamValue
@@ -95,7 +96,8 @@ namespace TP.Service.PrintingProcess {
                         ColorTypeName = d.Name
                     };
             }
-            return q.ToPagedList<PMWPrintingProcess>(pageIndex, pageSize);          
+            return q.ToPagedList<PMWPrintingProcess>(pageIndex, pageSize);   */
+            return null;
         }
 
         public void InsertPrintingProcess(PMW_PrintingProcess PrintingProcess) {

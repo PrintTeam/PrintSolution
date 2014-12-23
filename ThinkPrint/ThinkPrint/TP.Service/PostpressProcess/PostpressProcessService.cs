@@ -32,7 +32,7 @@ namespace TP.Service.PostpressProcess {
         }
 
         public PMWPostpressProcess GetPostpressProcess(String UniqueCode) {
-            var q = from a in m_Repository.Table
+            /*var q = from a in m_Repository.Table
                     join b in m_MachineRepository.Table on a.MachineId equals b.MachineId
                    
                     join d in m_SysSettingRepository.Table on a.PricingModels equals d.ParamValue
@@ -53,12 +53,12 @@ namespace TP.Service.PostpressProcess {
                     };
             List<PMWPostpressProcess> List = q.ToList();
             if (List.Count > 0)
-                return List.First();
+                return List.First();*/
             return null;
         }
 
         public List<PMWPostpressProcess> GetPostpressProcesss() {
-            var q = from a in m_Repository.Table
+            /*var q = from a in m_Repository.Table
                     join b in m_MachineRepository.Table on a.MachineId equals b.MachineId
                  
                     join d in m_SysSettingRepository.Table on a.PricingModels equals d.ParamValue
@@ -77,11 +77,12 @@ namespace TP.Service.PostpressProcess {
                         PricingModels = a.PricingModels,
                         PricingModelName = d.Name
                     };
-            return q.ToList();
+            return q.ToList();*/
+            return null;
         }
 
         public PagedList<PMWPostpressProcess> GetPostpressProcesss(int pageIndex, int pageSize, string searchKey = null) {
-            var q = from a in m_Repository.Table
+            /*var q = from a in m_Repository.Table
                     join b in m_MachineRepository.Table on a.MachineId equals b.MachineId
                   
                     join d in m_SysSettingRepository.Table on a.PricingModels equals d.ParamValue
@@ -121,7 +122,8 @@ namespace TP.Service.PostpressProcess {
                         PricingModelName = d.Name
                     };
             }
-            return q.ToPagedList<PMWPostpressProcess>(pageIndex, pageSize);
+            return q.ToPagedList<PMWPostpressProcess>(pageIndex, pageSize);*/
+            return null;
         }
 
         public void InsertPostpressProcess(PMW_PostpressProcess PostpressProcess) {

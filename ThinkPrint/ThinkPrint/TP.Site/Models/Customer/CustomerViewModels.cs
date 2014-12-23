@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using TP.EntityFramework.Models;
+using TP.Service.Customer;
 using TP.Web.Framework.Mvc;
 
 namespace TP.Site.Models.Customer{
@@ -177,7 +178,7 @@ namespace TP.Site.Models.Customer{
     }
     
     
-    public class CustomerListModel : BaseListViewModel<SAL_Customer>{
+    public class CustomerListModel : BaseListViewModel<SALCustomer>{
 
     }
 }
