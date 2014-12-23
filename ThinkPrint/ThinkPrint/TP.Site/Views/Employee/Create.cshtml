@@ -15,8 +15,10 @@
                 <div class="panel-heading">
                     <span><i class="fa fa-plus-square-o fa-fw"></i>@ViewBag.Title</span>
                 </div>
-                <div class="panel-body panel-body-reset">
+                <div class="panel-body">
                     @Html.Partial("_CreateOrEdit", Model)
+                </div>
+                <div class="panel-footer">
                     <div class="form-group form-actions">
                         <div class="col-lg-offset-2 col-lg-6 col-sm-6">
                             <a class="btn btn-default  pull-left" href="~/Employee/Index"><i class="fa fa-reply fa-fw"></i>返 回</a>

@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     color: #666666;
-    background-color: #FFF;
+    background-color: #fafcfe;
     -webkit-font-smoothing: antialiased;
     font-weight: 400;
     font-size: 13px;
@@ -167,7 +167,7 @@ a.logo {
     width: 210px;
     height: 100%;
     position: fixed;
-    background: #fcfcfc;
+    background: #fff;
 }
 
     #sidebar ul li {
@@ -362,14 +362,15 @@ ul.sidebar-menu li {
 }
 
 .page-title h3 {
-    color: #555;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 22px;
+text-transform: uppercase;
+color: #414C59;
 }
+.page-title span {
+    opacity: .6;
+} 
 
-.panel-body-reset {
-    padding-bottom: 0;
-}
 
 .form-group-boder {
     margin: 0 -15px;
@@ -379,10 +380,7 @@ ul.sidebar-menu li {
 }
 
 .form-actions {
-    padding-top: 10px;
-    padding-bottom: 5px;
-    margin-top: -1px;
-    background-color: #F7F7F7;
+   margin-bottom: 0!important;
 }
 
 detail-info {
