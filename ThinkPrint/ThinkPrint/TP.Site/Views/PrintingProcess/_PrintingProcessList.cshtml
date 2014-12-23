@@ -12,7 +12,7 @@
                     序号
                 </th>
                 <th>
-                    MachineId
+                    机器设备
                 </th>
                 <th>
                     工序类别
@@ -46,10 +46,10 @@
                         @j.ToString()
                     </td>
                     <td>
-                        @item.MachineId
+                        @item.Machine
                     </td>
                     <td>
-                        @item.ProcessType
+                        @item.ProcessTypeName
                     </td>
                     <td>
                         @item.Name
@@ -67,7 +67,7 @@
                         @item.SideProperty
                     </td>
                     <td>
-                        @item.ColorType
+                        @item.ColorTypeName
                     </td>
                     <td class="table-action">
                         <a href="~/PrintingProcess/Edit/@item.PrintingProcessId" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="left" title="编辑"><i class="fa fa-edit"></i></a>

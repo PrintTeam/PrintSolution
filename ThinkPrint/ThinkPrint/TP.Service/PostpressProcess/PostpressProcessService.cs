@@ -36,11 +36,12 @@ namespace TP.Service.PostpressProcess {
                     join b in m_MachineRepository.Table on a.MachineId equals b.MachineId
                     join c in m_SysSettingRepository.Table on a.ProcessType equals c.ParamValue
                     join d in m_SysSettingRepository.Table on a.PricingModels equals d.ParamValue
-                    where a.UniqueCode==UniqueCode
+                    where a.UniqueCode == UniqueCode
                     orderby a.ModifiedDate descending
                     select new PMWPostpressProcess {
                         PostpressProcessId = a.PostpressProcessId,
                         MachineId = a.MachineId,
+                        Machine = b.Name,
                         ProcessType = a.ProcessType,
                         ProcessTypeName = c.Name,
                         Name = a.Name,
@@ -51,7 +52,10 @@ namespace TP.Service.PostpressProcess {
                         PricingModels = a.PricingModels,
                         PricingModelName = d.Name
                     };
-            return q.ToList().FirstOrDefault();
+            List<PMWPostpressProcess> List = q.ToList();
+            if (List.Count > 0)
+                return List.First();
+            return null;
         }
 
         public List<PMWPostpressProcess> GetPostpressProcesss() {
@@ -64,6 +68,7 @@ namespace TP.Service.PostpressProcess {
                     select new PMWPostpressProcess {
                         PostpressProcessId = a.PostpressProcessId,
                         MachineId = a.MachineId,
+                        Machine = b.Name,
                         ProcessType = a.ProcessType,
                         ProcessTypeName = c.Name,
                         Name = a.Name,
@@ -87,6 +92,7 @@ namespace TP.Service.PostpressProcess {
                     select new PMWPostpressProcess {
                         PostpressProcessId = a.PostpressProcessId,
                         MachineId = a.MachineId,
+                        Machine=b.Name,
                         ProcessType = a.ProcessType,
                         ProcessTypeName = c.Name,
                         Name = a.Name,
@@ -102,11 +108,12 @@ namespace TP.Service.PostpressProcess {
                     join b in m_MachineRepository.Table on a.MachineId equals b.MachineId
                     join c in m_SysSettingRepository.Table on a.ProcessType equals c.ParamValue
                     join d in m_SysSettingRepository.Table on a.PricingModels equals d.ParamValue
-                    where a.IsDelete == false &&(a.Name.Contains(searchKey)||a.ShortName.Contains(searchKey))
+                    where a.IsDelete == false && (a.Name.Contains(searchKey) || a.ShortName.Contains(searchKey))
                     orderby a.ModifiedDate descending
                     select new PMWPostpressProcess {
                         PostpressProcessId = a.PostpressProcessId,
                         MachineId = a.MachineId,
+                        Machine=b.Name,
                         ProcessType = a.ProcessType,
                         ProcessTypeName = c.Name,
                         Name = a.Name,

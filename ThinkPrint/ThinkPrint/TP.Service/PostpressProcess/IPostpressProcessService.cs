@@ -27,6 +27,10 @@ namespace TP.Service.PostpressProcess {
             get;
             set;
         }
+        public String Machine {
+            get;
+            set;
+        }
         public string ProcessType {
             get;
             set;

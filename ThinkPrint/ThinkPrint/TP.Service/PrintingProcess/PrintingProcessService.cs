@@ -41,6 +41,7 @@ namespace TP.Service.PrintingProcess {
                     select new PMWPrintingProcess {
                         PrintingProcessId = a.PrintingProcessId,
                         MachineId = a.MachineId,
+                        Machine = b.Name,
                         ProcessType = a.ProcessType,
                         ProcessTypeName = c.Name,
                         Name = a.Name,
@@ -64,6 +65,7 @@ namespace TP.Service.PrintingProcess {
                     select new PMWPrintingProcess {
                         PrintingProcessId = a.PrintingProcessId,
                         MachineId = a.MachineId,
+                        Machine = b.Name,
                         ProcessType = a.ProcessType,
                         ProcessTypeName = c.Name,
                         Name = a.Name,
@@ -84,6 +86,7 @@ namespace TP.Service.PrintingProcess {
                     select new PMWPrintingProcess {
                         PrintingProcessId = a.PrintingProcessId,
                         MachineId = a.MachineId,
+                        Machine= b.Name,
                         ProcessType = a.ProcessType,
                         ProcessTypeName = c.Name,
                         Name = a.Name,

@@ -39,14 +39,14 @@ namespace TP.Service.Machine {
             return null;
         }
 
-        public List<Machine> GetMachines() {
+        public List<PMWMachine> GetMachines() {
             var q = from a in m_Repository.Table
                     join b in m_CategoryRepository.Table   on a.MachineCategoryId equals b.MachineCategoryId
                     join c in m_SysSettingRepository.Table on a.MachineType  equals c.ParamValue
                     join d in m_SysSettingRepository.Table on a.ColorType equals d.ParamValue
                     where a.IsDelete == false
                     orderby a.ModifiedDate descending
-                    select new Machine {
+                    select new PMWMachine {
                         MachineId = a.MachineId,
                         Name = a.Name,
                         MachineCategoryId = a.MachineCategoryId,
@@ -63,7 +63,7 @@ namespace TP.Service.Machine {
             //return m_Repository.Table.Where(p => p.IsDelete == false).ToList();
         }
 
-        public PagedList<Machine> GetMachines(int pageIndex, int pageSize, string searchKey = null) {
+        public PagedList<PMWMachine> GetMachines(int pageIndex, int pageSize, string searchKey = null) {
             //var q = m_Repository.Table.Where(u => u.IsDelete == false);
             var q = from a in m_Repository.Table
                     join b in m_CategoryRepository.Table on a.MachineCategoryId equals b.MachineCategoryId
@@ -71,7 +71,7 @@ namespace TP.Service.Machine {
                     join d in m_SysSettingRepository.Table on a.ColorType equals d.ParamValue
                     where a.IsDelete == false
                     orderby a.ModifiedDate descending
-                    select new Machine {
+                    select new PMWMachine {
                         MachineId = a.MachineId,
                         Name = a.Name,
                         MachineCategoryId = a.MachineCategoryId,
@@ -91,7 +91,7 @@ namespace TP.Service.Machine {
                     join d in m_SysSettingRepository.Table on a.ColorType equals d.ParamValue
                     where a.IsDelete == false && a.Name.Contains(searchKey)
                     orderby a.ModifiedDate descending
-                    select new Machine {
+                    select new PMWMachine {
                         MachineId = a.MachineId,
                         Name = a.Name,
                         MachineCategoryId = a.MachineCategoryId,
@@ -104,8 +104,8 @@ namespace TP.Service.Machine {
                         MachineTypeName = c.Name,
                         ColorTypeName = d.Name
                     };
-            }         
-            PagedList<Machine> result = q.ToPagedList<Machine>(pageIndex, pageSize);
+            }
+            PagedList<PMWMachine> result = q.ToPagedList<PMWMachine>(pageIndex, pageSize);
             return result;
         }
 

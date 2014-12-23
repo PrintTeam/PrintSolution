@@ -11,14 +11,14 @@ namespace TP.Service.Machine {
     public interface IMachineService {
         PMW_Machine GetMachine(int  MachineId);
         PMW_Machine GetMachine(String UniqueCode);
-        List<Machine> GetMachines();
-        PagedList<Machine> GetMachines(int pageIndex, int pageSize, string searchKey = null);
+        List<PMWMachine> GetMachines();
+        PagedList<PMWMachine> GetMachines(int pageIndex, int pageSize, string searchKey = null);
         void InsertMachine(PMW_Machine Machine);
         void UpdateMachine(PMW_Machine Machine);
         void DeleteMachine(PMW_Machine Machine);
     }
 
-    public class Machine {
+    public class PMWMachine {
 
         public int MachineId {
             get;

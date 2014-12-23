@@ -4,7 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TP.EntityFramework.Models;
+using TP.Service.Machine;
 using TP.Service.PostpressProcess;
+using TP.Service.SysResource;
 using TP.Site.Helper;
 using TP.Site.Models.PostpressProcess;
 using TP.Web.Framework.Mvc;
@@ -17,8 +19,13 @@ namespace TP.Site.Controllers{
     public class PostpressProcessController : BaseController
     {
         private readonly IPostpressProcessService m_PostpressProcessService;
+        private readonly IMachineService m_MachineService;
+        private readonly IResourceService m_ResourceService;
         private string messages = "";
-        public PostpressProcessController(IPostpressProcessService PostpressProcessService){
+        public PostpressProcessController(IPostpressProcessService PostpressProcessService,
+            IMachineService machineService, IResourceService resourceService) {
+            m_MachineService = machineService;
+            m_ResourceService = resourceService;
             m_PostpressProcessService = PostpressProcessService;
         }
 
@@ -40,7 +47,8 @@ namespace TP.Site.Controllers{
         }
 
         [HttpPost]
-        public ActionResult Create(PostpressProcessModel model){            
+        public ActionResult Create(PostpressProcessModel model){
+            VerifyModel(model);
             if (ModelState.IsValid){
                 PMW_PostpressProcess PostpressProcess = new PMW_PostpressProcess{
                     MachineId = model.MachineId,  
@@ -85,7 +93,9 @@ namespace TP.Site.Controllers{
         }
 
         [HttpPost]
-        public ActionResult Edit(PostpressProcessModel model){            
+        public ActionResult Edit(PostpressProcessModel model){
+            model.IsEdit = true;
+            VerifyModel(model);
             if (ModelState.IsValid){
                 PMW_PostpressProcess PostpressProcess = m_PostpressProcessService.GetPostpressProcess(model.Id);
                 PostpressProcess.MachineId = model.MachineId;  
@@ -117,7 +127,35 @@ namespace TP.Site.Controllers{
         private void PrepareModel(PostpressProcessModel model){
             model.PageTitle = "印后工序";
             model.PageSubTitle = "维护印后工序信息";
-            //model.IsEdit = model.Id == 0 ? false : true;
-        }       
+
+            model.PriceModels = m_ResourceService.GetSysSettingList(SysConstant.ColorType_titlecode)
+                .Select(p => new SelectListItem {
+                    Value = p.ParamValue,
+                    Text = p.Name
+                }).ToList();
+
+            model.ProcessTypes = m_ResourceService.GetSysSettingList(SysConstant.BillType_titleCode)
+                .Select(p => new SelectListItem {
+                    Value = p.ParamValue,
+                    Text = p.Name
+                }).ToList();
+
+            model.Machines = m_MachineService.GetMachines().Select(p => new SelectListItem {
+                Value = p.MachineId + "",
+                Text = p.Name
+            }).ToList();
+        }
+
+        [NonAction]
+        private void VerifyModel(PostpressProcessModel model) {
+            PMWPostpressProcess Process = null;
+            Process = m_PostpressProcessService.GetPostpressProcess(model.UniqueCode);
+            if ((model.IsEdit) && (Process.MachineId != model.Id) && (Process != null)) {
+                ModelState.AddModelError("UniqueCode", "工序编码已存在.");
+            }
+            if ((!model.IsEdit) && (Process != null)) {
+                ModelState.AddModelError("UniqueCode", "工序编码已存在.");
+            }
+        }
     }
 }

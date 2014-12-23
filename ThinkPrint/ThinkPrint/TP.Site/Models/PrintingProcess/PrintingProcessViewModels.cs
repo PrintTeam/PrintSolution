@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using TP.EntityFramework.Models;
 using TP.Service.PrintingProcess;
 using TP.Web.Framework.Mvc;
@@ -16,15 +17,14 @@ namespace TP.Site.Models.PrintingProcess{
     public class PrintingProcessModel : BaseViewModel{
     
         public PrintingProcessModel(){
-        }
-        
-        [Required(ErrorMessage = "请输入MachineId")]
+        }        
+       
 		[Display(Name = "MachineId")]
         public int MachineId
 		{
 			get;
 			set;
-		}
+		}       
 		
         [Required(ErrorMessage = "请输入工序类别")]
 		[Display(Name = "工序类别")]
@@ -79,6 +79,21 @@ namespace TP.Site.Models.PrintingProcess{
 			get;
 			set;
 		}
+
+        public List<SelectListItem> Machines {
+            get;
+            set;
+        }
+
+        public List<SelectListItem> ProcessTypes {
+            get;
+            set;
+        }
+
+        public List<SelectListItem> ColorTypes {
+            get;
+            set;
+        }
 		
     }
     

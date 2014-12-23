@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using TP.EntityFramework.Models;
 using TP.Service.PostpressProcess;
 using TP.Web.Framework.Mvc;
@@ -78,7 +79,21 @@ namespace TP.Site.Models.PostpressProcess{
 			get;
 			set;
 		}
-		
+
+        public List<SelectListItem> Machines {
+            get;
+            set;
+        }
+
+        public List<SelectListItem> ProcessTypes {
+            get;
+            set;
+        }
+
+        public List<SelectListItem> PriceModels {
+            get;
+            set;
+        }
     }
     
     

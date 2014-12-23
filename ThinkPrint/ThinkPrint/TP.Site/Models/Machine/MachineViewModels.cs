@@ -93,7 +93,7 @@ namespace TP.Site.Models.Machine{
     }
 
 
-    public class MachineListModel : BaseListViewModel<TP.Service.Machine.Machine> {
+    public class MachineListModel : BaseListViewModel<PMWMachine> {
 
     }
 }

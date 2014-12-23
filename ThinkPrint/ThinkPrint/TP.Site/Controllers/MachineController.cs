@@ -32,7 +32,7 @@ namespace TP.Site.Controllers {
         // GET: Resource
         public ActionResult Index(int pageIndex = 1, string searchKey = null) {
             searchKey = searchKey == null ? searchKey : searchKey.Trim();
-            PagedList<Machine> MachineList = m_MachineService.GetMachines(pageIndex, SysConstant.Page_PageSize, searchKey);
+            PagedList<PMWMachine> MachineList = m_MachineService.GetMachines(pageIndex, SysConstant.Page_PageSize, searchKey);
             MachineListModel model = new MachineListModel();
             model.ViewList = MachineList;
             model.PageTitle = "机器设备";
