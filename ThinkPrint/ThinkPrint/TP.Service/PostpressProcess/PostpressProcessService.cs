@@ -41,8 +41,6 @@ namespace TP.Service.PostpressProcess {
                     select new PMWPostpressProcess {
                         PostpressProcessId = a.PostpressProcessId,
                         MachineId = a.MachineId,
-                        ProcessType = a.ProcessType,
-                        ProcessTypeName = c.Name,
                         Name = a.Name,
                         UniqueCode = a.UniqueCode,
                         ShortName = a.ShortName,
@@ -67,8 +65,7 @@ namespace TP.Service.PostpressProcess {
                     select new PMWPostpressProcess {
                         PostpressProcessId = a.PostpressProcessId,
                         MachineId = a.MachineId,
-                        ProcessType = a.ProcessType,
-                        ProcessTypeName = c.Name,
+                       
                         Name = a.Name,
                         UniqueCode = a.UniqueCode,
                         ShortName = a.ShortName,
@@ -91,8 +88,7 @@ namespace TP.Service.PostpressProcess {
                     select new PMWPostpressProcess {
                         PostpressProcessId = a.PostpressProcessId,
                         MachineId = a.MachineId,
-                        ProcessType = a.ProcessType,
-                        ProcessTypeName = c.Name,
+                       
                         Name = a.Name,
                         UniqueCode = a.UniqueCode,
                         ShortName = a.ShortName,
@@ -111,8 +107,7 @@ namespace TP.Service.PostpressProcess {
                     select new PMWPostpressProcess {
                         PostpressProcessId = a.PostpressProcessId,
                         MachineId = a.MachineId,
-                        ProcessType = a.ProcessType,
-                        ProcessTypeName = c.Name,
+                        
                         Name = a.Name,
                         UniqueCode = a.UniqueCode,
                         ShortName = a.ShortName,
