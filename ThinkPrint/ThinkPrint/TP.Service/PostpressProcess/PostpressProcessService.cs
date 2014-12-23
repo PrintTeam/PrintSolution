@@ -34,15 +34,14 @@ namespace TP.Service.PostpressProcess {
         public PMWPostpressProcess GetPostpressProcess(String UniqueCode) {
             var q = from a in m_Repository.Table
                     join b in m_MachineRepository.Table on a.MachineId equals b.MachineId
-                    join c in m_SysSettingRepository.Table on a.ProcessType equals c.ParamValue
+                   
                     join d in m_SysSettingRepository.Table on a.PricingModels equals d.ParamValue
                     where a.UniqueCode==UniqueCode
                     orderby a.ModifiedDate descending
                     select new PMWPostpressProcess {
                         PostpressProcessId = a.PostpressProcessId,
                         MachineId = a.MachineId,
-                        ProcessType = a.ProcessType,
-                        ProcessTypeName = c.Name,
+                        
                         Name = a.Name,
                         UniqueCode = a.UniqueCode,
                         ShortName = a.ShortName,
@@ -57,15 +56,14 @@ namespace TP.Service.PostpressProcess {
         public List<PMWPostpressProcess> GetPostpressProcesss() {
             var q = from a in m_Repository.Table
                     join b in m_MachineRepository.Table on a.MachineId equals b.MachineId
-                    join c in m_SysSettingRepository.Table on a.ProcessType equals c.ParamValue
+                 
                     join d in m_SysSettingRepository.Table on a.PricingModels equals d.ParamValue
                     where a.IsDelete == false
                     orderby a.ModifiedDate descending
                     select new PMWPostpressProcess {
                         PostpressProcessId = a.PostpressProcessId,
                         MachineId = a.MachineId,
-                        ProcessType = a.ProcessType,
-                        ProcessTypeName = c.Name,
+                       
                         Name = a.Name,
                         UniqueCode = a.UniqueCode,
                         ShortName = a.ShortName,
@@ -80,15 +78,14 @@ namespace TP.Service.PostpressProcess {
         public PagedList<PMWPostpressProcess> GetPostpressProcesss(int pageIndex, int pageSize, string searchKey = null) {
             var q = from a in m_Repository.Table
                     join b in m_MachineRepository.Table on a.MachineId equals b.MachineId
-                    join c in m_SysSettingRepository.Table on a.ProcessType equals c.ParamValue
+                  
                     join d in m_SysSettingRepository.Table on a.PricingModels equals d.ParamValue
                     where a.IsDelete == false
                     orderby a.ModifiedDate descending
                     select new PMWPostpressProcess {
                         PostpressProcessId = a.PostpressProcessId,
                         MachineId = a.MachineId,
-                        ProcessType = a.ProcessType,
-                        ProcessTypeName = c.Name,
+                    
                         Name = a.Name,
                         UniqueCode = a.UniqueCode,
                         ShortName = a.ShortName,
@@ -100,15 +97,14 @@ namespace TP.Service.PostpressProcess {
             if (!String.IsNullOrWhiteSpace(searchKey)) {
                 q = from a in m_Repository.Table
                     join b in m_MachineRepository.Table on a.MachineId equals b.MachineId
-                    join c in m_SysSettingRepository.Table on a.ProcessType equals c.ParamValue
+                   
                     join d in m_SysSettingRepository.Table on a.PricingModels equals d.ParamValue
                     where a.IsDelete == false &&(a.Name.Contains(searchKey)||a.ShortName.Contains(searchKey))
                     orderby a.ModifiedDate descending
                     select new PMWPostpressProcess {
                         PostpressProcessId = a.PostpressProcessId,
                         MachineId = a.MachineId,
-                        ProcessType = a.ProcessType,
-                        ProcessTypeName = c.Name,
+                       
                         Name = a.Name,
                         UniqueCode = a.UniqueCode,
                         ShortName = a.ShortName,

@@ -37,7 +37,6 @@ namespace TP.Site.Controllers {
             if (ModelState.IsValid) {
                 SYS_Unit Unit = new SYS_Unit {
                     Name = model.Name,
-                    UnitType = model.UnitType,
                     Description = model.Description
                 };
                 try {
@@ -57,7 +56,6 @@ namespace TP.Site.Controllers {
             SYS_Unit Unit = m_Service.GetUnit(id);
             UnitModel model = new UnitModel {
                 Name = Unit.Name,
-                UnitType = Unit.UnitType,
                 Description = Unit.Description
             };
             model.PageTitle = "计量单位";
@@ -70,7 +68,6 @@ namespace TP.Site.Controllers {
             if (ModelState.IsValid) {
                 SYS_Unit Unit = m_Service.GetUnit(model.Id);
                 Unit.Name = model.Name;
-                Unit.UnitType = model.UnitType;
                 Unit.Description = model.Description;
                 try {
                     m_Service.UpdateUnit(Unit);

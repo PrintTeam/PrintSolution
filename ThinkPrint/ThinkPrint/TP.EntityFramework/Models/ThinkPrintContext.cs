@@ -33,7 +33,6 @@ namespace TP.EntityFramework.Models
         public DbSet<BPM_PrintingSalePriceList> BPM_PrintingSalePriceList { get; set; }
         public DbSet<BUS_BusinessCategory> BUS_BusinessCategory { get; set; }
         public DbSet<BUS_BusinessComponent> BUS_BusinessComponent { get; set; }
-        public DbSet<CRM_PostRegisterCard> CRM__PostRegisterCard { get; set; }
         public DbSet<CRM_CardConsumption> CRM_CardConsumption { get; set; }
         public DbSet<CRM_CardDictionary> CRM_CardDictionary { get; set; }
         public DbSet<CRM_CardRecharge> CRM_CardRecharge { get; set; }
@@ -41,6 +40,7 @@ namespace TP.EntityFramework.Models
         public DbSet<CRM_MembershipCardCategory> CRM_MembershipCardCategory { get; set; }
         public DbSet<CRM_MembershipFreeze> CRM_MembershipFreeze { get; set; }
         public DbSet<CRM_MembershipUnfreeze> CRM_MembershipUnfreeze { get; set; }
+        public DbSet<CRM_PostRegisterCard> CRM_PostRegisterCard { get; set; }
         public DbSet<ORG_AuthorizeUserStore> ORG_AuthorizeUserStore { get; set; }
         public DbSet<ORG_Company> ORG_Company { get; set; }
         public DbSet<ORG_Department> ORG_Department { get; set; }
@@ -91,7 +91,6 @@ namespace TP.EntityFramework.Models
             modelBuilder.Configurations.Add(new BPM_PrintingSalePriceListMap());
             modelBuilder.Configurations.Add(new BUS_BusinessCategoryMap());
             modelBuilder.Configurations.Add(new BUS_BusinessComponentMap());
-            modelBuilder.Configurations.Add(new CRM_PostRegisterCardMap());
             modelBuilder.Configurations.Add(new CRM_CardConsumptionMap());
             modelBuilder.Configurations.Add(new CRM_CardDictionaryMap());
             modelBuilder.Configurations.Add(new CRM_CardRechargeMap());
@@ -99,6 +98,7 @@ namespace TP.EntityFramework.Models
             modelBuilder.Configurations.Add(new CRM_MembershipCardCategoryMap());
             modelBuilder.Configurations.Add(new CRM_MembershipFreezeMap());
             modelBuilder.Configurations.Add(new CRM_MembershipUnfreezeMap());
+            modelBuilder.Configurations.Add(new CRM_PostRegisterCardMap());
             modelBuilder.Configurations.Add(new ORG_AuthorizeUserStoreMap());
             modelBuilder.Configurations.Add(new ORG_CompanyMap());
             modelBuilder.Configurations.Add(new ORG_DepartmentMap());

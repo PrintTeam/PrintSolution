@@ -34,15 +34,14 @@ namespace TP.Service.PrintingProcess {
         public List<PMWPrintingProcess> GetPrintingProcesss() {
             var q = from a in m_Repository.Table
                     join b in m_MachineRepository.Table on a.MachineId equals b.MachineId
-                    join c in m_SysSettingRepository.Table on a.ProcessType equals c.ParamValue
+                  
                     join d in m_SysSettingRepository.Table on a.ColorType equals d.ParamValue
                     where a.IsDelete == false
                     orderby a.ModifiedDate descending
                     select new PMWPrintingProcess {
                         PrintingProcessId = a.PrintingProcessId,
                         MachineId = a.MachineId,
-                        ProcessType = a.ProcessType,
-                        ProcessTypeName = c.Name,
+                        
                         Name = a.Name,
                         ShortName = a.ShortName,
                         MnemonicCode = a.MnemonicCode,
@@ -57,15 +56,14 @@ namespace TP.Service.PrintingProcess {
         public PagedList<PMWPrintingProcess> GetPrintingProcesss(int pageIndex, int pageSize, string searchKey = null) {
             var q = from a in m_Repository.Table
                     join b in m_MachineRepository.Table on a.MachineId equals b.MachineId
-                    join c in m_SysSettingRepository.Table on a.ProcessType equals c.ParamValue
+                   
                     join d in m_SysSettingRepository.Table on a.ColorType equals d.ParamValue
                     where a.IsDelete == false 
                     orderby a.ModifiedDate descending
                     select new PMWPrintingProcess {
                         PrintingProcessId = a.PrintingProcessId,
                         MachineId = a.MachineId,
-                        ProcessType = a.ProcessType,
-                        ProcessTypeName = c.Name,
+                       
                         Name = a.Name,
                         ShortName = a.ShortName,
                         MnemonicCode = a.MnemonicCode,
@@ -77,15 +75,14 @@ namespace TP.Service.PrintingProcess {
             if (!string.IsNullOrWhiteSpace(searchKey)) {
                 q = from a in m_Repository.Table
                     join b in m_MachineRepository.Table on a.MachineId equals b.MachineId
-                    join c in m_SysSettingRepository.Table on a.ProcessType equals c.ParamValue
+                   
                     join d in m_SysSettingRepository.Table on a.ColorType equals d.ParamValue
                     where a.IsDelete == false && a.Name.Contains(searchKey)
                     orderby a.ModifiedDate descending
                     select new PMWPrintingProcess {
                         PrintingProcessId = a.PrintingProcessId,
                         MachineId = a.MachineId,
-                        ProcessType = a.ProcessType,
-                        ProcessTypeName = c.Name,
+                       
                         Name = a.Name,
                         ShortName = a.ShortName,
                         MnemonicCode = a.MnemonicCode,

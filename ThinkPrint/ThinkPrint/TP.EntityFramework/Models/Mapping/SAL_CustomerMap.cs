@@ -56,7 +56,7 @@ namespace TP.EntityFramework.Models.Mapping
             this.Property(t => t.SalePriceType)
                 .IsRequired()
                 .IsFixedLength()
-                .HasMaxLength(2);
+                .HasMaxLength(3);
 
             this.Property(t => t.Description)
                 .HasMaxLength(225);

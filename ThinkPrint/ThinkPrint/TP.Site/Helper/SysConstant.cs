@@ -67,19 +67,6 @@ namespace TP.Site.Helper
         /// 日编号
         /// </summary>
         public static readonly string CodemodeType_day = "CODEMODETYPE_DAY";
-        
-        /// <summary>
-        /// 单位类型
-        /// </summary>
-        public static readonly string UnitType_titlecode = "UNITTYPE";
-        /// <summary>
-        /// 基本单位
-        /// </summary>
-        public static readonly string UnitType_bu= "UNITTYPE_BU";
-        /// <summary>
-        /// 包装单位
-        /// </summary>
-        public static readonly string UnitType_pu = "UNITTYPE_PU";
 
 
         /// <summary>
@@ -128,6 +115,82 @@ namespace TP.Site.Helper
         /// 后加工设备
         /// </summary>
         public static readonly string MachineType_postpress = "MACHINETYPE_POSTPRESS";
+
+        /// <summary>
+        /// 面
+        /// </summary>
+        public static readonly string SideProperty_titlecode = "SIDEPROPERTY";
+        /// <summary>
+        /// 单面                            
+        /// </summary>
+        public static readonly string SideProperty_sin = "SIDEPROPERTY_SIN";
+        /// <summary>
+        /// 双面
+        /// </summary>
+        public static readonly string SideProperty_dou = "SIDEPROPERTY_DOU";
+
+        /// <summary>
+        /// 价格模式
+        /// </summary>
+        public static readonly string PricingModels_titlecode = "PRICINGMODELS";
+        /// <summary>
+        /// 普通计价                            
+        /// </summary>
+        public static readonly string PricingModels_nor = "PRICINGMODELS_NOR";
+        /// <summary>
+        /// 区间计价
+        /// </summary>
+        public static readonly string PricingModels_ran = "PRICINGMODELS_RAN";
+
+
+        /// <summary>
+        /// 客户类型
+        /// </summary>
+        public static readonly string CustomerType_titlecode = "CUSTOMERTYPE";
+        /// <summary>
+        /// 会员                            
+        /// </summary>
+        public static readonly string CustomerType_m = "CUSTOMERTYPE_M";
+        /// <summary>
+        /// 普通
+        /// </summary>
+        public static readonly string CustomerType_g = "CUSTOMERTYPE_G";
+        /// <summary>
+        /// 散户
+        /// </summary>
+        public static readonly string CustomerType_r = "CUSTOMERTYPE_R";
+
+        /// <summary>
+        /// 启用的价格类型
+        /// </summary>
+        public static readonly string SalePriceType_titlecode = "SALEPRICETYPE";
+        /// <summary>
+        /// 默认价格                            
+        /// </summary>
+        public static readonly string SalePriceType_dep = "SALEPRICETYPE_DEP";
+        /// <summary>
+        /// 会员价格
+        /// </summary>
+        public static readonly string SalePriceType_mep = "SALEPRICETYPE_MEP";
+        /// <summary>
+        /// 协议价格
+        /// </summary>
+        public static readonly string SalePriceType_aep = "SALEPRICETYPE_AEP";
+
+
+        /// <summary>
+        /// 证件类型
+        /// </summary>
+        public static readonly string CredentialsType_titlecode = "CREDENTIALSTYPE";
+        /// <summary>
+        /// 身份证                            
+        /// </summary>
+        public static readonly string CredentialsType_idc = "CREDENTIALSTYPE_IDC";
+        /// <summary>
+        /// 军官证
+        /// </summary>
+        public static readonly string CredentialsType_aic = "CREDENTIALSTYPE_AIC";
+
 
         public static readonly string MenuTypeName_Category = "菜单分类";
         public static readonly string MenuTypeName_Link = "链接";

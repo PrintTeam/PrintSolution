@@ -11,11 +11,6 @@ namespace TP.EntityFramework.Models.Mapping
             this.HasKey(t => t.PrintingProcessId);
 
             // Properties
-            this.Property(t => t.ProcessType)
-                .IsRequired()
-                .IsFixedLength()
-                .HasMaxLength(3);
-
             this.Property(t => t.Name)
                 .IsRequired()
                 .HasMaxLength(50);
@@ -33,7 +28,7 @@ namespace TP.EntityFramework.Models.Mapping
             this.Property(t => t.SideProperty)
                 .IsRequired()
                 .IsFixedLength()
-                .HasMaxLength(2);
+                .HasMaxLength(3);
 
             this.Property(t => t.ColorType)
                 .IsRequired()
@@ -44,7 +39,7 @@ namespace TP.EntityFramework.Models.Mapping
             this.ToTable("PMW_PrintingProcess");
             this.Property(t => t.PrintingProcessId).HasColumnName("PrintingProcessId");
             this.Property(t => t.MachineId).HasColumnName("MachineId");
-            this.Property(t => t.ProcessType).HasColumnName("ProcessType");
+            this.Property(t => t.PaperId).HasColumnName("PaperId");
             this.Property(t => t.Name).HasColumnName("Name");
             this.Property(t => t.ShortName).HasColumnName("ShortName");
             this.Property(t => t.MnemonicCode).HasColumnName("MnemonicCode");
@@ -55,6 +50,9 @@ namespace TP.EntityFramework.Models.Mapping
             this.Property(t => t.IsDelete).HasColumnName("IsDelete");
 
             // Relationships
+            this.HasRequired(t => t.BOM_Paper)
+                .WithMany(t => t.PMW_PrintingProcess)
+                .HasForeignKey(d => d.PaperId);
             this.HasRequired(t => t.PMW_Machine)
                 .WithMany(t => t.PMW_PrintingProcess)
                 .HasForeignKey(d => d.MachineId);

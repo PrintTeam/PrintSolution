@@ -24,7 +24,7 @@ namespace TP.EntityFramework.Models.Mapping
                 .HasMaxLength(50);
 
             // Table & Column Mappings
-            this.ToTable("CRM_ PostRegisterCard");
+            this.ToTable("CRM_PostRegisterCard");
             this.Property(t => t.PostRegisterCardId).HasColumnName("PostRegisterCardId");
             this.Property(t => t.MembershipCardId).HasColumnName("MembershipCardId");
             this.Property(t => t.QuondamCardNumber).HasColumnName("QuondamCardNumber");
@@ -36,7 +36,7 @@ namespace TP.EntityFramework.Models.Mapping
 
             // Relationships
             this.HasRequired(t => t.CRM_MembershipCard)
-                .WithMany(t => t.CRM__PostRegisterCard)
+                .WithMany(t => t.CRM_PostRegisterCard)
                 .HasForeignKey(d => d.MembershipCardId);
 
         }

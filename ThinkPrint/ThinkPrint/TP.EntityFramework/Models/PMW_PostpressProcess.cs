@@ -13,13 +13,12 @@ namespace TP.EntityFramework.Models
 
         public int PostpressProcessId { get; set; }
         public int MachineId { get; set; }
-        public string ProcessType { get; set; }
         public string Name { get; set; }
         public string UniqueCode { get; set; }
         public string ShortName { get; set; }
         public string MnemonicCode { get; set; }
         public string SideProperty { get; set; }
-        public String PricingModels { get; set; }
+        public string PricingModels { get; set; }
         public System.DateTime ModifiedDate { get; set; }
         public bool IsDelete { get; set; }
         public virtual ICollection<BUS_BusinessComponent> BUS_BusinessComponent { get; set; }

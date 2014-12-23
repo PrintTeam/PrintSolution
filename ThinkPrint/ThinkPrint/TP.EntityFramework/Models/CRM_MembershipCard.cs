@@ -7,11 +7,11 @@ namespace TP.EntityFramework.Models
     {
         public CRM_MembershipCard()
         {
-            this.CRM__PostRegisterCard = new List<CRM_PostRegisterCard>();
             this.CRM_CardConsumption = new List<CRM_CardConsumption>();
             this.CRM_CardRecharge = new List<CRM_CardRecharge>();
             this.CRM_MembershipUnfreeze = new List<CRM_MembershipUnfreeze>();
             this.CRM_MembershipFreeze = new List<CRM_MembershipFreeze>();
+            this.CRM_PostRegisterCard = new List<CRM_PostRegisterCard>();
         }
 
         public int MembershipCardId { get; set; }
@@ -39,12 +39,12 @@ namespace TP.EntityFramework.Models
         public string CardStatus { get; set; }
         public string Description { get; set; }
         public System.DateTime ModifiedDate { get; set; }
-        public virtual ICollection<CRM_PostRegisterCard> CRM__PostRegisterCard { get; set; }
         public virtual ICollection<CRM_CardConsumption> CRM_CardConsumption { get; set; }
         public virtual ICollection<CRM_CardRecharge> CRM_CardRecharge { get; set; }
         public virtual ICollection<CRM_MembershipUnfreeze> CRM_MembershipUnfreeze { get; set; }
         public virtual CRM_MembershipCardCategory CRM_MembershipCardCategory { get; set; }
         public virtual ICollection<CRM_MembershipFreeze> CRM_MembershipFreeze { get; set; }
         public virtual ORG_Store ORG_Store { get; set; }
+        public virtual ICollection<CRM_PostRegisterCard> CRM_PostRegisterCard { get; set; }
     }
 }

@@ -44,7 +44,7 @@ namespace TP.EntityFramework.Models.Mapping
             this.Property(t => t.CredentialsType)
                 .IsRequired()
                 .IsFixedLength()
-                .HasMaxLength(2);
+                .HasMaxLength(3);
 
             this.Property(t => t.CredentialsNum)
                 .IsRequired()
@@ -57,7 +57,7 @@ namespace TP.EntityFramework.Models.Mapping
             this.Property(t => t.CardStatus)
                 .IsRequired()
                 .IsFixedLength()
-                .HasMaxLength(2);
+                .HasMaxLength(3);
 
             this.Property(t => t.Description)
                 .HasMaxLength(225);

@@ -44,7 +44,7 @@ namespace TP.Site.Controllers{
             if (ModelState.IsValid){
                 PMW_PrintingProcess PrintingProcess = new PMW_PrintingProcess{
                     MachineId = model.MachineId,  
-                    ProcessType = model.ProcessType,  
+                     
                     Name = model.Name,  
                     ShortName = model.ShortName,  
                     MnemonicCode = model.MnemonicCode,  
@@ -72,7 +72,7 @@ namespace TP.Site.Controllers{
             PMW_PrintingProcess PrintingProcess = m_PrintingProcessService.GetPrintingProcess(id);
             PrintingProcessModel model = new PrintingProcessModel{
               MachineId = PrintingProcess.MachineId,
-              ProcessType = PrintingProcess.ProcessType,
+          
               Name = PrintingProcess.Name,
               ShortName = PrintingProcess.ShortName,
               MnemonicCode = PrintingProcess.MnemonicCode,
@@ -89,7 +89,7 @@ namespace TP.Site.Controllers{
             if (ModelState.IsValid){
                 PMW_PrintingProcess PrintingProcess = m_PrintingProcessService.GetPrintingProcess(model.Id);
                 PrintingProcess.MachineId = model.MachineId;  
-                PrintingProcess.ProcessType = model.ProcessType;  
+            
                 PrintingProcess.Name = model.Name;  
                 PrintingProcess.ShortName = model.ShortName;  
                 PrintingProcess.MnemonicCode = model.MnemonicCode;  
