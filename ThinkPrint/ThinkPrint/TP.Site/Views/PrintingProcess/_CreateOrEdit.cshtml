@@ -13,22 +13,22 @@
     </div>
 </div>
 <div class="form-group form-group-boder">
-   @Html.LabelFor(m => m.ProcessType, new { @class = "control-label col-lg-2" })
+   @Html.LabelFor(m => m.PaperId, new { @class = "control-label col-lg-2" })
     <div class="col-lg-6">
-        @Html.DropDownListFor(m => m.ProcessType, Model.ProcessTypes, new {
+        @Html.DropDownListFor(m => m.PaperId, Model.Papers, new {
        @class = "form-control"
    })
     </div>
     <div class="col-lg-4">
         <p class="text-danger">
-            @Html.ValidationMessageFor(m => m.ProcessType)
+            @Html.ValidationMessageFor(m => m.PaperId)
         </p>
     </div>
 </div>
 <div class="form-group form-group-boder">
    @Html.LabelFor(m => m.Name, new { @class = "control-label col-lg-2" })
     <div class="col-lg-6">
-        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "名称", id = "txtName" })
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", id = "txtName" })
     </div>
     <div class="col-lg-4">
         <p class="text-danger">
@@ -39,7 +39,7 @@
 <div class="form-group form-group-boder">
    @Html.LabelFor(m => m.ShortName, new { @class = "control-label col-lg-2" })
     <div class="col-lg-6">
-        @Html.TextBoxFor(m => m.ShortName, new { @class = "form-control", placeholder = "简称", id = "txtShortName" })
+        @Html.TextBoxFor(m => m.ShortName, new { @class = "form-control", id = "txtShortName" })
     </div>
     <div class="col-lg-4">
         <p class="text-danger">
@@ -50,7 +50,7 @@
 <div class="form-group form-group-boder">
    @Html.LabelFor(m => m.MnemonicCode, new { @class = "control-label col-lg-2" })
     <div class="col-lg-6">
-        @Html.TextBoxFor(m => m.MnemonicCode, new { @class = "form-control", placeholder = "助记码", id = "txtMnemonicCode" })
+        @Html.TextBoxFor(m => m.MnemonicCode, new { @class = "form-control", id = "txtMnemonicCode" })
     </div>
     <div class="col-lg-4">
         <p class="text-danger">
@@ -59,20 +59,10 @@
     </div>
 </div>
 <div class="form-group form-group-boder">
-   @Html.LabelFor(m => m.PartsAttributeCode, new { @class = "control-label col-lg-2" })
-    <div class="col-lg-6">
-        @Html.TextBoxFor(m => m.PartsAttributeCode, new { @class = "form-control", placeholder = "组成编码", id = "txtPartsAttributeCode" })
-    </div>
-    <div class="col-lg-4">
-        <p class="text-danger">
-            @Html.ValidationMessageFor(m => m.PartsAttributeCode)
-        </p>
-    </div>
-</div>
-<div class="form-group form-group-boder">
    @Html.LabelFor(m => m.SideProperty, new { @class = "control-label col-lg-2" })
     <div class="col-lg-6">
-        @Html.TextBoxFor(m => m.SideProperty, new { @class = "form-control", placeholder = "面", id = "txtSideProperty" })
+        @Html.DropDownListFor(m => m.SideProperty, Model.Sides, new {
+       @class = "form-control"})
     </div>
     <div class="col-lg-4">
         <p class="text-danger">
@@ -83,7 +73,7 @@
 <div class="form-group form-group-boder">
    @Html.LabelFor(m => m.ColorType, new { @class = "control-label col-lg-2" })
     <div class="col-lg-6">
-        @Html.DropDownListFor(m => m.ColorType, Model.ColorTypes, new {
+        @Html.DropDownListFor(m => m.ColorType, Model.Colors, new {
        @class = "form-control"})
     </div>
     <div class="col-lg-4">

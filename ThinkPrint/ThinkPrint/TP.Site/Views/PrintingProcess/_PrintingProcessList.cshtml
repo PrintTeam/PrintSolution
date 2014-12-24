@@ -12,23 +12,17 @@
                     序号
                 </th>
                 <th>
+                    工序名称
+                </th> 
+                <th>
                     机器设备
                 </th>
                 <th>
-                    工序类别
-                </th>
-                <th>
-                    名称
-                </th>
-                <th>
-                    简称
-                </th>
+                    纸张类别
+                </th>                              
                 <th>
                     助记码
-                </th>
-                <th>
-                    组成编码
-                </th>
+                </th>                
                 <th>
                     面
                 </th>
@@ -46,25 +40,19 @@
                         @j.ToString()
                     </td>
                     <td>
+                        @item.Name
+                    </td> 
+                    <td>
                         @item.Machine
                     </td>
                     <td>
-                        @item.ProcessTypeName
-                    </td>
-                    <td>
-                        @item.Name
-                    </td>
-                    <td>
-                        @item.ShortName
-                    </td>
+                        @item.PaperName
+                    </td>                                       
                     <td>
                         @item.MnemonicCode
-                    </td>
+                    </td>                   
                     <td>
-                        @item.PartsAttributeCode
-                    </td>
-                    <td>
-                        @item.SideProperty
+                        @item.SideName
                     </td>
                     <td>
                         @item.ColorTypeName

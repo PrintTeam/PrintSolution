@@ -17,25 +17,25 @@ namespace TP.Site.Models.PrintingProcess{
     public class PrintingProcessModel : BaseViewModel{
     
         public PrintingProcessModel(){
-        }        
-       
-		[Display(Name = "MachineId")]
+        }
+
+        [Display(Name = "机器设备")]
         public int MachineId
 		{
 			get;
 			set;
-		}       
-		
-        [Required(ErrorMessage = "请输入工序类别")]
-		[Display(Name = "工序类别")]
-        public string ProcessType
+		}
+
+        [Required(ErrorMessage = "请输入纸张类别")]
+        [Display(Name = "纸张类别")]
+        public int PaperId
 		{
 			get;
 			set;
 		}
-		
+
         [Required(ErrorMessage = "请输入名称")]
-		[Display(Name = "名称")]
+        [Display(Name = "名称")]
         public string Name
 		{
 			get;
@@ -54,15 +54,8 @@ namespace TP.Site.Models.PrintingProcess{
 		{
 			get;
 			set;
-		}
-		
-        [Required(ErrorMessage = "请输入组成编码")]
-		[Display(Name = "组成编码")]
-        public string PartsAttributeCode
-		{
-			get;
-			set;
-		}
+		}	
+        
 		
         [Required(ErrorMessage = "请输入面")]
 		[Display(Name = "面")]
@@ -85,12 +78,17 @@ namespace TP.Site.Models.PrintingProcess{
             set;
         }
 
-        public List<SelectListItem> ProcessTypes {
+        public List<SelectListItem> Papers {
             get;
             set;
         }
 
-        public List<SelectListItem> ColorTypes {
+        public List<SelectListItem> Sides {
+            get;
+            set;
+        }
+
+        public List<SelectListItem> Colors {
             get;
             set;
         }

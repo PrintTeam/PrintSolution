@@ -30,11 +30,11 @@ namespace TP.Service.PrintingProcess {
             get;
             set;
         }
-        public string ProcessType {
+        public int PaperId {
             get;
             set;
         }
-        public String ProcessTypeName {
+        public String PaperName {
             get;
             set;
         }
@@ -55,6 +55,10 @@ namespace TP.Service.PrintingProcess {
             set;
         }
         public string SideProperty {
+            get;
+            set;
+        }
+        public String SideName {
             get;
             set;
         }
