@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TP.EntityFramework.Models;
+using TP.Service.Paper;
 using TP.Web.Framework.Mvc;
 
 namespace TP.Site.Models.Paper{
@@ -17,16 +18,16 @@ namespace TP.Site.Models.Paper{
     
         public PaperModel(){
         }
-        
-        [Required(ErrorMessage = "请输入PaperCategoryId")]
+
+        [Required(ErrorMessage = "请输入纸张类型")]
         [Display(Name = "纸张类型")]
         public int PaperCategoryId
 		{
 			get;
 			set;
 		}
-		
-        [Required(ErrorMessage = "请输入PaperSizeId")]
+
+        [Required(ErrorMessage = "请输入纸张尺寸")]
         [Display(Name = "纸张尺寸")]
         public int PaperSizeId
 		{
@@ -40,16 +41,7 @@ namespace TP.Site.Models.Paper{
 		{
 			get;
 			set;
-		}
-		
-        [Required(ErrorMessage = "请输入组成编码")]
-		[Display(Name = "组成编码")]
-        public string PartsAttributeCode
-		{
-			get;
-			set;
-		}
-		
+		}			
 		[Display(Name = "助记码")]
         public string MnemonicCode
 		{
@@ -85,7 +77,7 @@ namespace TP.Site.Models.Paper{
     }
     
     
-    public class PaperListModel : BaseListViewModel<BOM_Paper>{
+    public class PaperListModel : BaseListViewModel<BOMPaper>{
 
     }
 }

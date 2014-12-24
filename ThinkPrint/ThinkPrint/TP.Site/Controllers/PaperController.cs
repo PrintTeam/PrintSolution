@@ -31,7 +31,7 @@ namespace TP.Site.Controllers {
         // GET: Resource
         public ActionResult Index(int pageIndex = 1, string searchKey = null) {
             searchKey = searchKey == null ? searchKey : searchKey.Trim();
-            PagedList<BOM_Paper> PaperList = m_PaperService.GetPapers(pageIndex, SysConstant.Page_PageSize, searchKey);
+            PagedList<BOMPaper> PaperList = m_PaperService.GetPapers(pageIndex, SysConstant.Page_PageSize, searchKey);
             PaperListModel model = new PaperListModel();
             model.ViewList = PaperList;
             model.PageTitle = "纸张信息";
@@ -51,8 +51,7 @@ namespace TP.Site.Controllers {
                 BOM_Paper Paper = new BOM_Paper {
                     PaperCategoryId = model.PaperCategoryId,
                     PaperSizeId = model.PaperSizeId,
-                    Name = model.Name,
-                    PartsAttributeCode = model.PartsAttributeCode,
+                    Name = model.Name,                    
                     MnemonicCode = model.MnemonicCode,
                     Weight = model.Weight,
                     Description = model.Description,
@@ -77,8 +76,7 @@ namespace TP.Site.Controllers {
             PaperModel model = new PaperModel {
                 PaperCategoryId = Paper.PaperCategoryId,
                 PaperSizeId = Paper.PaperSizeId,
-                Name = Paper.Name,
-                PartsAttributeCode = Paper.PartsAttributeCode,
+                Name = Paper.Name,               
                 MnemonicCode = Paper.MnemonicCode,
                 Weight = Paper.Weight,
                 Description = Paper.Description,
@@ -93,8 +91,7 @@ namespace TP.Site.Controllers {
                 BOM_Paper Paper = m_PaperService.GetPaper(model.Id);
                 Paper.PaperCategoryId = model.PaperCategoryId;
                 Paper.PaperSizeId = model.PaperSizeId;
-                Paper.Name = model.Name;
-                Paper.PartsAttributeCode = model.PartsAttributeCode;
+                Paper.Name = model.Name;              
                 Paper.MnemonicCode = model.MnemonicCode;
                 Paper.Weight = model.Weight;
                 Paper.Description = model.Description;
