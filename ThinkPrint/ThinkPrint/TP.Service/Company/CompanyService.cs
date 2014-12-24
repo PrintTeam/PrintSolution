@@ -8,60 +8,71 @@ using TP.Repository;
 using TP.EntityFramework.Models;
 using Webdiyer.WebControls.Mvc;
 
-namespace TP.Service.Company {
+namespace TP.Service.Company
+{
 
     /// <summary>
     /// 公司信息业务服务对象
     /// </summary>
-    public class CompanyService:ICompanyService {
-        private readonly ICompanyRepository m_Repository;
-        private readonly IUnitOfWork m_UnitOfWork;
+    public class CompanyService : ICompanyService
+    {
+        private readonly ICompanyRepository _companyRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CompanyService(ICompanyRepository repository, IUnitOfWork unitOfWork) {
-            m_Repository = repository;
-            m_UnitOfWork = unitOfWork;
+        public CompanyService(ICompanyRepository companyRepository, IUnitOfWork unitOfWork)
+        {
+            _companyRepository = companyRepository;
+            _unitOfWork = unitOfWork;
+        }
+        public ORG_Company GetCompanyById(int companyId)
+        {
+            return _companyRepository.GetById(companyId);
         }
 
-        public ORG_Company GetCompany(int  CompanyId) {
-            return m_Repository.GetById(CompanyId);
+
+
+        public ORG_Company GetCompany()
+        {
+            return _companyRepository.Table.SingleOrDefault();
         }
 
-        public List<ORG_Company> GetCompanys() {
-            return m_Repository.Table.Where(p => p.IsDelete == false).ToList();
-        }
+        public void InsertCompany(ORG_Company company)
+        {
+            if (company == null)
+                throw new ArgumentNullException("Insert ORG_Company entity is Null");
 
-        public PagedList<ORG_Company> GetCompanys(int pageIndex, int pageSize, string searchKey = null) {
-            var q = m_Repository.Table.Where(u => u.IsDelete == false);
-            if (!string.IsNullOrWhiteSpace(searchKey)) {
-                q = q.Where(p => p.Name.Contains(searchKey));
+            try
+            {
+                _companyRepository.Add(company);
+                _unitOfWork.Commint();
+
             }
-            q = q.OrderByDescending(p => p.ModifiedDate);
-            PagedList<ORG_Company> result = q.ToPagedList<ORG_Company>(pageIndex, pageSize);
-            return result;
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
-        public void InsertCompany(ORG_Company Company) {
-            if (Company == null) throw new ArgumentNullException("公司信息实体不能为null值");
-            Company.IsDelete = false;
-            Company.ModifiedDate = DateTime.Now.ToLocalTime();
-            m_Repository.Add(Company);
-            m_UnitOfWork.Commint();
+        public void UpdateCompany(ORG_Company company)
+        {
+            if (company == null)
+                throw new ArgumentNullException("Update ORG_Company entity is Null");
+            try
+            {
+
+                _companyRepository.Update(company);
+                _unitOfWork.Commint();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
-        public void UpdateCompany(ORG_Company Company) {
-            if (Company == null) throw new ArgumentNullException("公司信息实体不能为null值");           
-            Company.ModifiedDate = DateTime.Now.ToLocalTime();
-            m_Repository.Update(Company);
-            m_UnitOfWork.Commint();
-        }
 
-        public void DeleteCompany(ORG_Company Company) {
-            if (Company == null) throw new ArgumentNullException("公司信息实体不能为null值");
-            Company.IsDelete = true;
-            Company.ModifiedDate = DateTime.Now.ToLocalTime();
-            m_Repository.Update(Company);
-            m_UnitOfWork.Commint();
-        }    
     }
 }
 

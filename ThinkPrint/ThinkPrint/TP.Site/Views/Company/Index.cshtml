@@ -1,0 +1,54 @@
+﻿@model TP.Site.Models.Organization.CompanyModel
+
+@{
+    if(Model!=null)
+    {
+        ViewBag.Title = Model.PageTitle;
+        ViewBag.SubTitle = Model.PageSubTitle;
+    }
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel">
+            <div class="panel-body">
+                @if (Model == null)
+                {
+                    <div class="alert alert-info">
+                        还没建立公司信息！<a href="~/Company/Create" class="alert-link">点击这里</a> 建立公司信息。
+                    </div>
+                }
+                else
+                {
+                   <div class="row">
+                      <div class="col-lg-12">
+                          <h2 class="show-list-title">@Model.Name</h2>
+                          <ul class="show-list">
+                              <li>
+                                  <b>负责人</b>
+                                  @Model.ResponsiblePerson
+                              </li>
+                              <li>
+                                  <b>地 址</b>
+                                  @Model.Address
+                              </li>
+                              <li>
+                                  <b>传 真</b>
+                                  @Model.FaxNumber
+                              </li>
+                              <li>
+                                  <b>电 话</b>
+                                  @Model.Telephone
+                              </li>
+                          </ul>
+                          <a href="~/Company/Edit/@Model.Id" class="btn btn-primary pull-right"><i class="fa fa-pencil-square-o fa-fw"></i>编辑</a>
+                      </div>
+                   </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

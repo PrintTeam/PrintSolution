@@ -53,7 +53,8 @@ namespace TP.Site.Controllers
             {
                 ORG_Department department = new ORG_Department
                 {
-                    Name = model.Name,
+                    
+                    Name = model.Name.Trim(),
                     CompanyId = model.CompanyId,
                     ShortName = model.ShortName,
                     Description = model.Description,
@@ -179,7 +180,7 @@ namespace TP.Site.Controllers
         {
             if (model == null)
                 throw new ArgumentNullException("model");
-            ORG_Company company = _companyService.GetCompanys().FirstOrDefault();
+            ORG_Company company = _companyService.GetCompany();
             model.CompanyId = company.CompanyId;
             model.CompanyName = company.Name;
         }

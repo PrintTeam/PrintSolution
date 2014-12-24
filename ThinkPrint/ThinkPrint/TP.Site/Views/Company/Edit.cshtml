@@ -1,4 +1,4 @@
-﻿@model TP.Site.Models.Organization.DepartmentModel
+﻿@model TP.Site.Models.Organization.CompanyModel
 
 @{
     ViewBag.Title = Model.PageTitle;
@@ -8,7 +8,7 @@
 
 <div class="row">
     <div class="col-lg-12 col-md-12">
-        @using (Html.BeginForm("Create", "Department", FormMethod.Post, new { id = "create-form", @class = "form-horizontal", role = "form" }))
+        @using (Html.BeginForm("Edit", "Company", FormMethod.Post, new { id = "create-form", @class = "form-horizontal", role = "form" }))
         {
             @Html.Partial("_Notifications")
             <div class="panel">
@@ -16,13 +16,13 @@
                     <span><i class="fa fa-plus-square-o fa-fw"></i>@ViewBag.Title</span>
                 </div>
                 <div class="panel-body">
+                    @Html.HiddenFor(u => u.Id)
                     @Html.Partial("_CreateOrEdit", Model)
-                   
                 </div>
                 <div class="panel-footer">
                     <div class="form-group form-actions">
                         <div class="col-lg-offset-2 col-lg-6 col-sm-6">
-                            <a class="btn btn-default  pull-left" href="~/Department/Index"><i class="fa fa-reply fa-fw"></i>返 回</a>
+                            <a class="btn btn-default  pull-left" href="~/Company/Index"><i class="fa fa-reply fa-fw"></i>返 回</a>
                             <button class="btn btn-primary pull-right" type="submit"><i class="fa fa-floppy-o fa-fw"></i>保 存</button>
                         </div>
                     </div>

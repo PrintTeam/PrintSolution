@@ -364,12 +364,13 @@ ul.sidebar-menu li {
 .page-title h3 {
     font-weight: 400;
     font-size: 22px;
-text-transform: uppercase;
-color: #414C59;
+    text-transform: uppercase;
+    color: #414C59;
 }
+
 .page-title span {
     opacity: .6;
-} 
+}
 
 
 .form-group-boder {
@@ -380,18 +381,18 @@ color: #414C59;
 }
 
 .form-actions {
-   margin-bottom: 0!important;
+    margin-bottom: 0 !important;
 }
 
 detail-info {
     color: #89817e;
 }
 
-    .detail-info h1 {
-        font-size: 25px;
-        font-weight: 300;
-        margin: 0 0 20px;
-    }
+.detail-info h1 {
+    font-size: 25px;
+    font-weight: 300;
+    margin: 0 0 20px;
+}
 
 .detail-row {
     width: 50%;
@@ -403,9 +404,30 @@ detail-info {
     .detail-row p span {
         width: 100px;
         display: inline-block;
+
     }
 
+.show-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
 
+.show-list-title {
+    font-size: 22px;
+    text-transform: uppercase;
+    margin: 10px 0 15px;
+    font-weight: 300;
+    margin-top: 10px !important;
+}
 
+.show-list li {
+    padding: 0 0 15px;
+}
 
-
+    .show-list li b {
+        width: 80px;
+        display: inline-block;
+        font-size: 15px;
+        opacity: .7;
+    }

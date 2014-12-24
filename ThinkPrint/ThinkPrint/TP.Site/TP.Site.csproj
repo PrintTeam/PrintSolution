@@ -145,6 +145,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
@@ -177,7 +178,7 @@
     <Compile Include="Models\CardConsumption\CardConsumptionViewModels.cs" />
     <Compile Include="Models\CardDictionary\CardDictionaryViewModels.cs" />
     <Compile Include="Models\CardRecharge\CardRechargeViewModels.cs" />
-    <Compile Include="Models\Company\CompanyViewModels.cs" />
+    <Compile Include="Models\Organization\CompanyViewModels.cs" />
     <Compile Include="Models\Customer\CustomerViewModels.cs" />
     <Compile Include="Models\Organization\DepartmentViewModels.cs" />
     <Compile Include="Models\EmployeeDepartmentHistory\EmployeeDepartmentHistoryViewModels.cs" />
@@ -382,6 +383,10 @@
     <Content Include="Views\Department\_CreateOrEdit.cshtml" />
     <Content Include="Views\Department\Edit.cshtml" />
     <Content Include="Views\Employee\ShowDetailView.cshtml" />
+    <Content Include="Views\Company\Index.cshtml" />
+    <Content Include="Views\Company\Create.cshtml" />
+    <Content Include="Views\Company\_CreateOrEdit.cshtml" />
+    <Content Include="Views\Company\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
