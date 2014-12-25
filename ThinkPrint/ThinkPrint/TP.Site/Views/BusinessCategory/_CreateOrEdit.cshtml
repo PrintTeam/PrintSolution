@@ -1,0 +1,11 @@
+﻿@model TP.Site.Models.BusinessCategory.BusinessCategoryModel
+@Html.HiddenFor(u => u.IsEdit)
+<div class="form-group form-group-boder">
+    <label for="selectBusinessType" class="control-label col-lg-2">业务类别</label>
+    <div class="col-lg-6">
+        @Html.DropDownListFor(i => i.BusinessType, Model.BusinessTypeList, new { @class = "form-control", id = "selectDepartment" })
+    </div>
+    <div class="col-lg-4">
+        @Html.ValidationMessageFor(m => m.BusinessType)
+    </div>
+</div>

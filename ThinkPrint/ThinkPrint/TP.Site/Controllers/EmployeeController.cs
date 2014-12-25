@@ -40,8 +40,7 @@ namespace TP.Site.Controllers
 
             EmployeeListModel model = new EmployeeListModel();
             model.ViewList = employeeList;
-
-
+            model.StatusList = statusList; 
             model.PageTitle = "员工信息";
             model.PageSubTitle = "查看和维护所有的员工信息";
             return View(model);

@@ -111,7 +111,7 @@
     <label for="txtEntryDate" class="control-label col-lg-2">入职时间</label>
     <div class="col-lg-6">
         <div class="input-group">
-            @Html.TextBoxFor(m => m.EntryDate, new { @class = "form-control", placeholder = "员工的入职时间", Value = Model.EntryDate.ToString("yyyy-MM-dd"), id = "txtEntryDate", size = "16", @readonly = "" })
+            @Html.TextBoxFor(m => m.EntryDate, new { @class = "form-control", placeholder = "员工的入职时间", Value = Model.EntryDate.ToString("yyyy-MM-dd"), id = "txtEntryDate", size = "16"})
             <div class="input-group-btn">
                 <button type="button" id="btnEntryDate" class="btn btn-warning date-set">
                     <i class="fa fa-calendar-o"></i>

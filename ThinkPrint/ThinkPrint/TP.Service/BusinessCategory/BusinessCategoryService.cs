@@ -16,13 +16,14 @@ namespace TP.Service.BusinessCategory
     /// </summary>
     public class BusinessCategoryService : IBusinessCategoryService
     {
-        private readonly IBusinessCategoryRepository m_Repository;
-        private readonly IUnitOfWork m_UnitOfWork;
+        private readonly IBusinessCategoryRepository _businessCategoryRepository;
+       
+        private readonly IUnitOfWork _unitOfWork;
 
-        public BusinessCategoryService(IBusinessCategoryRepository repository, IUnitOfWork unitOfWork)
+        public BusinessCategoryService(IBusinessCategoryRepository businessCategoryRepository, IUnitOfWork unitOfWork)
         {
-            m_Repository = repository;
-            m_UnitOfWork = unitOfWork;
+            _businessCategoryRepository = businessCategoryRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public void InsertBusinessCategory(BUS_BusinessCategory businessCategory)
@@ -32,8 +33,8 @@ namespace TP.Service.BusinessCategory
 
             try
             {
-                m_Repository.Add(businessCategory);
-                m_UnitOfWork.Commint();
+                _businessCategoryRepository.Add(businessCategory);
+                _unitOfWork.Commint();
             }
             catch (Exception ex)
             {
@@ -50,8 +51,8 @@ namespace TP.Service.BusinessCategory
 
             try
             {
-                m_Repository.Update(businessCategory);
-                m_UnitOfWork.Commint();
+                _businessCategoryRepository.Update(businessCategory);
+                _unitOfWork.Commint();
             }
             catch (Exception ex)
             {
@@ -69,8 +70,8 @@ namespace TP.Service.BusinessCategory
             {
                 businessCategory.IsDelete = true;
                 businessCategory.ModifiedDate = DateTime.Now.ToLocalTime();
-                m_Repository.Update(businessCategory);
-                m_UnitOfWork.Commint();
+                _businessCategoryRepository.Update(businessCategory);
+                _unitOfWork.Commint();
             }
             catch (Exception ex)
             {
@@ -81,27 +82,44 @@ namespace TP.Service.BusinessCategory
 
         public IList<BUS_BusinessCategory> GetBusinessCategoryList()
         {
-            throw new NotImplementedException();
+            var query = _businessCategoryRepository.Table.Where(u => u.IsDelete == false);
+            IList<BUS_BusinessCategory> businessCategoryList = query.OrderByDescending(u => u.ModifiedDate).ToList();
+            return businessCategoryList;
         }
 
         public PagedList<BUS_BusinessCategory> GetBusinessCategoryList(int pageIndex, int pageSize, string searchKey = null)
         {
-            throw new NotImplementedException();
+            var query = _businessCategoryRepository.Table.Where(u => u.IsDelete == false);
+            if (!string.IsNullOrWhiteSpace(searchKey))
+            {
+                query = query.Where(u => u.Name.Contains(searchKey));
+            }
+
+            query = query.OrderByDescending(u => u.ModifiedDate);
+
+            PagedList<BUS_BusinessCategory> businessCategoryList = query.ToPagedList(pageIndex, pageSize);
+            return businessCategoryList;
         }
 
-        public BUS_BusinessCategory GetBusinessCategory(int businessCategoryId)
+        public BUS_BusinessCategory GetBusinessCategoryById(int businessCategoryId)
         {
-            throw new NotImplementedException();
+            return _businessCategoryRepository.GetById(businessCategoryId);
         }
 
         public BUS_BusinessCategory CheckExistBusinessCategoryByName(string name)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrWhiteSpace(name))
+                return null;
+            var query = _businessCategoryRepository.Filter(u => u.Name == name).FirstOrDefault();
+            return query;
         }
 
         public BUS_BusinessCategory CheckExistBusinessCategoryByName(int id, string name)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrWhiteSpace(name))
+                return null;
+            var query = _businessCategoryRepository.Filter(u => u.BusinessCategoryId != id && u.Name == name).FirstOrDefault();
+            return query;
         }
     }
 }

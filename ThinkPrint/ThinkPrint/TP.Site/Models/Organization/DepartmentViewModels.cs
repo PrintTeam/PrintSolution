@@ -28,6 +28,7 @@ namespace TP.Site.Models.Organization
         public string CompanyName { get; set; }
 		
         [Required(ErrorMessage = "请输入名称")]
+        [StringLength(20, ErrorMessage = "部门名称过长.")]
 		[Display(Name = "名称")]
         public string Name
 		{
@@ -36,6 +37,7 @@ namespace TP.Site.Models.Organization
 		}
 		
 		[Display(Name = "简称")]
+        [StringLength(20, ErrorMessage = "部门简称过长.")]
         public string ShortName
 		{
 			get;

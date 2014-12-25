@@ -33,7 +33,7 @@ namespace TP.Service.BusinessCategory
         /// </summary>
         /// <param name="businessCategoryId"></param>
         /// <returns>BUS_BusinessCategory</returns>
-        BUS_BusinessCategory GetBusinessCategory(int businessCategoryId);
+        BUS_BusinessCategory GetBusinessCategoryById(int businessCategoryId);
 
 
         /// <summary>

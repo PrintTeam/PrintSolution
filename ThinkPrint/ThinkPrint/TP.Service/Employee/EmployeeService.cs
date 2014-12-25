@@ -30,17 +30,17 @@ namespace NSIS.Service.Employee
 
         public PagedList<ORG_Employee> GetEmployeeList(int pageIndex, int pageSize, string searchKey = null)
         {
-            //var query = _employeeRepository.Table;
-            //if (!string.IsNullOrWhiteSpace(searchKey))
-            //{
-            //    query = query.Where(u => u.Name.Contains(searchKey) || u.JobNumber.Contains(searchKey));
-            //}
+            var query = _employeeRepository.Table;
+            if (!string.IsNullOrWhiteSpace(searchKey))
+            {
+                query = query.Where(u => u.Name.Contains(searchKey) || u.JobNumber.Contains(searchKey));
+            }
 
-            //query = query.OrderByDescending(u => u.ModifiedDate);
-            var query = new List<ORG_Employee>();
-            //PagedList<ORG_Employee> employeeList = query.ToPagedList(pageIndex, pageSize);
+            query = query.OrderByDescending(u => u.ModifiedDate);
+           
+            PagedList<ORG_Employee> employeeList = query.ToPagedList(pageIndex, pageSize);
 
-            PagedList<ORG_Employee> employeeList = new PagedList<ORG_Employee>(query, pageIndex, pageSize);
+            //PagedList<ORG_Employee> employeeList = new PagedList<ORG_Employee>(query, pageIndex, pageSize);
             return employeeList;
         }
 

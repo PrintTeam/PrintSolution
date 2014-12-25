@@ -388,10 +388,13 @@
     <Content Include="Views\Company\Create.cshtml" />
     <Content Include="Views\Company\_CreateOrEdit.cshtml" />
     <Content Include="Views\Company\Edit.cshtml" />
+    <Content Include="Views\BusinessCategory\Index.cshtml" />
+    <Content Include="Views\BusinessCategory\_BusinessCategoryList.cshtml" />
+    <Content Include="Views\BusinessCategory\Create.cshtml" />
+    <Content Include="Views\BusinessCategory\_CreateOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\BusinessCategory\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
