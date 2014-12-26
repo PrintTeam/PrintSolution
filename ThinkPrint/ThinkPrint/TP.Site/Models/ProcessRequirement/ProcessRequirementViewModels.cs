@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using TP.EntityFramework.Models;
 using TP.Web.Framework.Mvc;
 
@@ -16,9 +17,9 @@ namespace TP.Site.Models.ProcessRequirement{
     
         public ProcessRequirementModel(){
         }
-        
-        [Required(ErrorMessage = "请输入WorkProjectId")]
-		[Display(Name = "WorkProjectId")]
+
+        [Required(ErrorMessage = "请输入制作项目")]
+        [Display(Name = "制作项目")]
         public int WorkProjectId
 		{
 			get;
@@ -32,10 +33,10 @@ namespace TP.Site.Models.ProcessRequirement{
 			get;
 			set;
 		}
-		
-        [Required(ErrorMessage = "请输入工序类别")]
-		[Display(Name = "工序类别")]
-        public string ProcessType
+
+        [Required(ErrorMessage = "请输入业务类别")]
+        [Display(Name = "业务类别")]
+        public string BusinessType
 		{
 			get;
 			set;
@@ -47,12 +48,25 @@ namespace TP.Site.Models.ProcessRequirement{
 			get;
 			set;
 		}
+
+        public List<SelectListItem> BusinessTypeList {
+            get;
+            set;
+        }
+
+        public List<SelectListItem> WorkProjects {
+            get;
+            set;
+        }
 		
     }
     
     
     public class ProcessRequirementListModel : BaseListViewModel<PMW_ProcessRequirement>{
-
+        public List<SYS_SysSetting> Parameters {
+            get;
+            set;
+        }
     }
 }
 

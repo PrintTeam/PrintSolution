@@ -3,7 +3,8 @@
 <div class="form-group form-group-boder">
    @Html.LabelFor(m => m.WorkProjectId, new { @class = "control-label col-lg-2" })
     <div class="col-lg-6">
-        @Html.TextBoxFor(m => m.WorkProjectId, new { @class = "form-control", placeholder = "WorkProjectId", id = "txtWorkProjectId" })
+        @Html.DropDownListFor(m => m.WorkProjectId, Model.WorkProjects, new {
+       @class = "form-control"})
     </div>
     <div class="col-lg-4">
         <p class="text-danger">
@@ -23,13 +24,16 @@
     </div>
 </div>
 <div class="form-group form-group-boder">
-   @Html.LabelFor(m => m.ProcessType, new { @class = "control-label col-lg-2" })
+   @Html.LabelFor(m => m.BusinessType, new {
+    @class = "control-label col-lg-2"
+})
     <div class="col-lg-6">
-        @Html.TextBoxFor(m => m.ProcessType, new { @class = "form-control", placeholder = "工序类别", id = "txtProcessType" })
+        @Html.DropDownListFor(m => m.BusinessType, Model.BusinessTypeList, new {
+       @class = "form-control"})
     </div>
     <div class="col-lg-4">
         <p class="text-danger">
-            @Html.ValidationMessageFor(m => m.ProcessType)
+            @Html.ValidationMessageFor(m => m.BusinessType)
         </p>
     </div>
 </div>
