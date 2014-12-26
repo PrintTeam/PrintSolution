@@ -48,6 +48,95 @@ namespace TP.Site.Controllers
             return View(model);
         }
 
+
+        [HttpPost]
+        public ActionResult Create(BusinessCategoryModel model)
+        {
+            VerifyModel(model);
+            if (ModelState.IsValid)
+            {
+                BUS_BusinessCategory businessCategory = new BUS_BusinessCategory
+                {
+
+                    Name = model.Name.Trim(),
+                    MnemonicCode = model.MnemonicCode.Trim(),
+                    DisplayOrder = model.DisplayOrder,
+                    BusinessType = model.BusinessType,
+                    Description = model.Description,
+                    ModifiedDate = DateTime.UtcNow.ToLocalTime(),
+                    IsDelete = false
+
+                };
+
+                try
+                {
+                    _businessCategoryService.InsertBusinessCategory(businessCategory);
+                    SuccessNotification("Success");
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.ToString());
+                    ErrorNotification(ex.ToString());
+                }
+            }
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            BUS_BusinessCategory businessCategory = _businessCategoryService.GetBusinessCategoryById(id);
+
+            BusinessCategoryModel model = new BusinessCategoryModel
+            {
+                Id = businessCategory.BusinessCategoryId,
+                Name = businessCategory.Name,
+                MnemonicCode = businessCategory.MnemonicCode,
+                DisplayOrder = businessCategory.DisplayOrder,
+                BusinessType = businessCategory.BusinessType,
+                BusinessTypeName=businessTypeList.SingleOrDefault(b=>b.ParamValue==businessCategory.BusinessType.Trim()).Name,
+                Description = businessCategory.Description,
+                IsEdit = true
+            };
+            PrepareModel(model);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(BusinessCategoryModel model)
+        {
+
+            VerifyModel(model);
+            if (ModelState.IsValid)
+            {
+                BUS_BusinessCategory businessCategory = _businessCategoryService.GetBusinessCategoryById(model.Id);
+
+                businessCategory.Name = model.Name;
+                businessCategory.MnemonicCode = model.MnemonicCode;
+                businessCategory.DisplayOrder = model.DisplayOrder;
+                businessCategory.Description = model.Description;
+                businessCategory.ModifiedDate = DateTime.UtcNow.ToLocalTime();
+
+                try                            
+                {
+                    _businessCategoryService.UpdateBusinessCategory(businessCategory);
+
+                    messages = "编辑" + model.Name + "信息成功.";
+                    SuccessNotification(messages);
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.ToString());
+                    ErrorNotification(ex.ToString());
+                }
+
+            }
+            model.BusinessTypeName = businessTypeList.SingleOrDefault(b => b.ParamValue == model.BusinessType.Trim()).Name;
+            PrepareModel(model);
+            return View(model);
+        }
+
+
         [NonAction]
         private void PrepareBusinessTypeList()
         {
@@ -87,8 +176,10 @@ namespace TP.Site.Controllers
             model.PageTitle = "业务类型";
             model.PageSubTitle = "维护系统中业务类型信息";
             model.IsEdit = model.Id == 0 ? false : true;
-            PrepareBusinessTypeList(model);
-
+            if(!model.IsEdit)
+            {
+                PrepareBusinessTypeList(model);
+            }
         }
 
         [NonAction]

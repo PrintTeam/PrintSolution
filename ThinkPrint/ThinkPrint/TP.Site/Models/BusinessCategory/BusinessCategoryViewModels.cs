@@ -47,6 +47,12 @@ namespace TP.Site.Models.BusinessCategory
             set;
         }
 
+        public string BusinessTypeName
+        {
+            get;
+            set;
+        }
+
         [Display(Name = "助记码")]
         [StringLength(20, ErrorMessage = "助记码过长.")]
         public string MnemonicCode

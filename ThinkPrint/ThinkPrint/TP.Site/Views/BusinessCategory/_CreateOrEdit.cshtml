@@ -1,11 +1,68 @@
 ﻿@model TP.Site.Models.BusinessCategory.BusinessCategoryModel
 @Html.HiddenFor(u => u.IsEdit)
+
+@if (@Model.IsEdit)
+{
+    <div class="form-group form-group-boder">
+        <label for="selectBusinessType" class="control-label col-lg-2">业务类别</label>
+        <div class="col-lg-6">
+            <p class="form-control-static">@Model.BusinessTypeName</p>
+        </div>
+        <div class="col-lg-4">
+            @Html.HiddenFor(u => u.BusinessType, new { id = "hidBusinessType" })
+        </div>
+    </div>
+}
+else
+{
+    <div class="form-group form-group-boder">
+        <label for="selectBusinessType" class="control-label col-lg-2">业务类别</label>
+        <div class="col-lg-6">
+            @Html.DropDownListFor(i => i.BusinessType, Model.BusinessTypeList, new { @class = "form-control", id = "selectDepartment" })
+        </div>
+        <div class="col-lg-4">
+            @Html.ValidationMessageFor(m => m.BusinessType)
+        </div>
+    </div>
+}
 <div class="form-group form-group-boder">
-    <label for="selectBusinessType" class="control-label col-lg-2">业务类别</label>
+    <label for="txtName" class="control-label col-lg-2">业务名称</label>
     <div class="col-lg-6">
-        @Html.DropDownListFor(i => i.BusinessType, Model.BusinessTypeList, new { @class = "form-control", id = "selectDepartment" })
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "业务类型名称信息", id = "txtName" })
     </div>
     <div class="col-lg-4">
-        @Html.ValidationMessageFor(m => m.BusinessType)
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Name)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    <label for="txtMnemonicCode" class="control-label col-lg-2">助记码</label>
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.MnemonicCode, new { @class = "form-control", placeholder = "助记码信息", id = "txtMnemonicCode" })
+    </div>
+    <div class="col-lg-4">
+
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    <label for="txtDisplayOrder" class="control-label col-lg-2">显示顺序</label>
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.DisplayOrder, new { @class = "form-control", placeholder = "业务类型显示顺序", id = "txtDisplayOrder" })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.DisplayOrder)
+        </p>
+    </div>
+</div>
+
+<div class="form-group form-group-boder">
+    <label for="txtDescription" class="control-label col-lg-2">描述</label>
+    <div class="col-lg-6">
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control", id = "txtDescription", rows = "3", placeholder = "描述备注信息", maxlength = "200" })
+    </div>
+    <div class="col-lg-4">
+
     </div>
 </div>
