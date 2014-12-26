@@ -14,6 +14,11 @@ namespace TP.Site
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+                   "~/Scripts/jquery-ui-{version}.js",
+                   "~/Scripts/jquery.ui.datepicker-zh-CN.js"
+                   ));
+
             // 使用要用于开发和学习的 Modernizr 的开发版本。然后，当你做好
             // 生产准备时，请使用 http://modernizr.com 上的生成工具来仅选择所需的测试。
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -57,6 +62,10 @@ namespace TP.Site
                       "~/Content/style-responsive.css",
                       "~/Content/bootstrap-reset.css"
                       ));
+            bundles.Add(new StyleBundle("~/Content/jqueryuicss").Include(
+                       "~/Content/themes/base/core.css",
+                       "~/Content/themes/base/datepicker.css",
+                       "~/Content/themes/base/theme.css"));
 
             // 将 EnableOptimizations 设为 false 以进行调试。有关详细信息，
             // 请访问 http://go.microsoft.com/fwlink/?LinkId=301862
