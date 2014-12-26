@@ -13,10 +13,7 @@
                 </th>
                 <th>
                     机器设备
-                </th>
-                <th>
-                    工序类别
-                </th>
+                </th>               
                 <th>
                     名称
                 </th>
@@ -46,11 +43,8 @@
                         @j.ToString()
                     </td>
                     <td>
-                        @item.Machine
-                    </td>
-                    <td>
-                        @item.ProcessTypeName
-                    </td>
+                        @item.PMW_Machine.Name
+                    </td>                    
                     <td>
                         @item.Name
                     </td>
@@ -64,10 +58,10 @@
                         @item.MnemonicCode
                     </td>
                     <td>
-                        @item.SideProperty
+                       @Model.Parameters.SingleOrDefault(p => p.ParamValue == @item.SideProperty).Name 
                     </td>
                     <td>
-                        @item.PricingModelName
+                        @Model.Parameters.SingleOrDefault(p => p.ParamValue == @item.PricingModels).Name                       
                     </td>
                     <td class="table-action">
                         <a href="~/PostpressProcess/Edit/@item.PostpressProcessId" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="left" title="编辑"><i class="fa fa-edit"></i></a>

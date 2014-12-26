@@ -97,6 +97,10 @@ namespace TP.Site.Models.PrintingProcess{
     
     
     public class PrintingProcessListModel : BaseListViewModel<PMWPrintingProcess>{
+        public List<SYS_SysSetting> Parameters {
+            get;
+            set;
+        }
 
     }
 }

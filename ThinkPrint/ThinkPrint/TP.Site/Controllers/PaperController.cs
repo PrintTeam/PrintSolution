@@ -30,10 +30,9 @@ namespace TP.Site.Controllers {
 
         // GET: Resource
         public ActionResult Index(int pageIndex = 1, string searchKey = null) {
-            searchKey = searchKey == null ? searchKey : searchKey.Trim();
-            PagedList<BOMPaper> PaperList = m_PaperService.GetPapers(pageIndex, SysConstant.Page_PageSize, searchKey);
+            searchKey = searchKey == null ? searchKey : searchKey.Trim();           
             PaperListModel model = new PaperListModel();
-            model.ViewList = PaperList;
+            model.ViewList = m_PaperService.GetPapers(pageIndex, SysConstant.Page_PageSize, searchKey);          
             model.PageTitle = "纸张信息";
             model.PageSubTitle = "查看和维护纸张信息";
             return View(model);

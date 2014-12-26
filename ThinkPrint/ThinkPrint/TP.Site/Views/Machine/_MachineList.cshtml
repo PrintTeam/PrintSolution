@@ -46,7 +46,7 @@
                         @item.Name
                     </td>
                     <td>
-                        @item.MachineCategoryName
+                        @item.PMW_MachineCategory.Name
                     </td>
                     <td>
                         @item.UniqueCode
@@ -57,11 +57,11 @@
                     <td>
                         @item.MnemonicCode
                     </td>
-                    <td>
-                        @item.MachineTypeName
+                    <td>                      
+                        @Model.Parameters.SingleOrDefault(s => s.ParamValue == @item.MachineType.Trim()).Name
                     </td>
                     <td>
-                        @item.ColorTypeName
+                       @Model.Parameters.SingleOrDefault(s => s.ParamValue == @item.ColorType.Trim()).Name
                     </td>
                     <td class="table-action">
                         <a href="~/Machine/Edit/@item.MachineId" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="left" title="编辑"><i class="fa fa-edit"></i></a>

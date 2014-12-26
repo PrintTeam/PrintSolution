@@ -31,7 +31,9 @@ namespace TP.Service.PostpressProcess {
             return m_Repository.GetById(PostpressProcessId);
         }
 
-        public PMWPostpressProcess GetPostpressProcess(String UniqueCode) {
+        public PMW_PostpressProcess GetPostpressProcess(String UniqueCode) {
+            var q = m_Repository.Table.Where(p => p.UniqueCode == UniqueCode).ToList();
+            return q.Count > 0 ? q.First() : null;
             /*var q = from a in m_Repository.Table
                     join b in m_MachineRepository.Table on a.MachineId equals b.MachineId
                    
@@ -51,11 +53,13 @@ namespace TP.Service.PostpressProcess {
                     };
             List<PMWPostpressProcess> List = q.ToList();
             if (List.Count > 0)
-                return List.First();*/
-            return null;
+                return List.First();*/            
         }
 
-        public List<PMWPostpressProcess> GetPostpressProcesss() {
+        public List<PMW_PostpressProcess> GetPostpressProcesss() {
+            return m_Repository.Table.Where(p => p.IsDelete == false)
+                .OrderByDescending(p=>p.ModifiedDate)
+                .ToList();
             /*var q = from a in m_Repository.Table
                     join b in m_MachineRepository.Table on a.MachineId equals b.MachineId
                  
@@ -74,51 +78,15 @@ namespace TP.Service.PostpressProcess {
                         PricingModels = a.PricingModels,
                         PricingModelName = d.Name
                     };
-            return q.ToList();*/
-            return null;
+            return q.ToList();*/            
         }
 
-        public PagedList<PMWPostpressProcess> GetPostpressProcesss(int pageIndex, int pageSize, string searchKey = null) {
-            /*var q = from a in m_Repository.Table
-                    join b in m_MachineRepository.Table on a.MachineId equals b.MachineId
-                  
-                    join d in m_SysSettingRepository.Table on a.PricingModels equals d.ParamValue
-                    where a.IsDelete == false
-                    orderby a.ModifiedDate descending
-                    select new PMWPostpressProcess {
-                        PostpressProcessId = a.PostpressProcessId,
-                        MachineId = a.MachineId,
-                       
-                        Name = a.Name,
-                        UniqueCode = a.UniqueCode,
-                        ShortName = a.ShortName,
-                        MnemonicCode = a.MnemonicCode,
-                        SideProperty = a.SideProperty,
-                        PricingModels = a.PricingModels,
-                        PricingModelName = d.Name
-                    };
-            if (!String.IsNullOrWhiteSpace(searchKey)) {
-                q = from a in m_Repository.Table
-                    join b in m_MachineRepository.Table on a.MachineId equals b.MachineId
-                   
-                    join d in m_SysSettingRepository.Table on a.PricingModels equals d.ParamValue
-                    where a.IsDelete == false && (a.Name.Contains(searchKey) || a.ShortName.Contains(searchKey))
-                    orderby a.ModifiedDate descending
-                    select new PMWPostpressProcess {
-                        PostpressProcessId = a.PostpressProcessId,
-                        MachineId = a.MachineId,
-                        
-                        Name = a.Name,
-                        UniqueCode = a.UniqueCode,
-                        ShortName = a.ShortName,
-                        MnemonicCode = a.MnemonicCode,
-                        SideProperty = a.SideProperty,
-                        PricingModels = a.PricingModels,
-                        PricingModelName = d.Name
-                    };
-            }
-            return q.ToPagedList<PMWPostpressProcess>(pageIndex, pageSize);*/
-            return null;
+        public PagedList<PMW_PostpressProcess> GetPostpressProcesss(int pageIndex, int pageSize, string searchKey = null) {
+            var q = m_Repository.Table.Where(p => p.IsDelete == false);
+            if (!String.IsNullOrWhiteSpace(searchKey))
+                q = q.Where(p => p.Name.Contains(searchKey) || p.ShortName.Contains(searchKey));
+            q = q.OrderByDescending(p => p.ModifiedDate);
+            return q.ToPagedList<PMW_PostpressProcess>(pageIndex, pageSize);           
         }
 
         public void InsertPostpressProcess(PMW_PostpressProcess PostpressProcess) {

@@ -31,65 +31,18 @@ namespace TP.Service.Paper {
             return m_Repository.GetById(PaperId);
         }
 
-        public List<BOMPaper> GetPapers() {
-            var q = from a in m_Repository.Table
-                    join b in m_PaperCategory.Table on a.PaperCategoryId equals b.PaperCategoryId
-                    join c in m_PaperSize.Table on a.PaperSizeId equals c.PaperSizeId
-                    where a.IsDelete == false
-                    orderby a.ModifiedDate descending
-                    select new BOMPaper {
-                        PaperId = a.PaperId,
-                        PaperCategoryId = a.PaperCategoryId,
-                        PaperCategory = b.Name,
-                        PaperSizeId = a.PaperSizeId,
-                        PaperSize = c.Name,
-                        Name = a.Name,
-                        PartsAttributeCode = a.PartsAttributeCode,
-                        MnemonicCode = a.MnemonicCode,
-                        Weight = a.Weight,
-                        Description = a.Description
-                    };
-            return q.ToList();
+        public List<BOM_Paper> GetPapers() {
+            return m_Repository.Table.Where(p => p.IsDelete == false)
+                .OrderByDescending(p=>p.ModifiedDate).ToList();
         }
 
-        public PagedList<BOMPaper> GetPapers(int pageIndex, int pageSize, string searchKey = null) {
-            var q = from a in m_Repository.Table
-                    join b in m_PaperCategory.Table on a.PaperCategoryId equals b.PaperCategoryId
-                    join c in m_PaperSize.Table on a.PaperSizeId equals c.PaperSizeId
-                    where a.IsDelete == false
-                    orderby a.ModifiedDate descending
-                    select new BOMPaper {
-                        PaperId = a.PaperId,
-                        PaperCategoryId = a.PaperCategoryId,
-                        PaperCategory = b.Name,
-                        PaperSizeId = a.PaperSizeId,
-                        PaperSize = c.Name,
-                        Name = a.Name,
-                        PartsAttributeCode = a.PartsAttributeCode,
-                        MnemonicCode = a.MnemonicCode,
-                        Weight = a.Weight,
-                        Description = a.Description
-                    };
+        public PagedList<BOM_Paper> GetPapers(int pageIndex, int pageSize, string searchKey = null) {
+            var q = m_Repository.Table.Where(p => p.IsDelete == false);
             if (!String.IsNullOrWhiteSpace(searchKey)) {
-                q = from a in m_Repository.Table
-                    join b in m_PaperCategory.Table on a.PaperCategoryId equals b.PaperCategoryId
-                    join c in m_PaperSize.Table on a.PaperSizeId equals c.PaperSizeId
-                    where a.IsDelete == false && a.Name.Contains(searchKey)
-                    orderby a.ModifiedDate descending
-                    select new BOMPaper {
-                        PaperId = a.PaperId,
-                        PaperCategoryId = a.PaperCategoryId,
-                        PaperCategory = b.Name,
-                        PaperSizeId = a.PaperSizeId,
-                        PaperSize = c.Name,
-                        Name = a.Name,
-                        PartsAttributeCode = a.PartsAttributeCode,
-                        MnemonicCode = a.MnemonicCode,
-                        Weight = a.Weight,
-                        Description = a.Description
-                    };
+                q = q.Where(p => p.Name.Contains(searchKey));
             }
-            return q.ToPagedList<BOMPaper>(pageIndex, pageSize);
+            q = q.OrderByDescending(p => p.ModifiedDate);
+            return q.ToPagedList<BOM_Paper>(pageIndex, pageSize);
         }
 
         public void InsertPaper(BOM_Paper Paper) {
@@ -98,6 +51,8 @@ namespace TP.Service.Paper {
             Paper.IsDelete = false;
             Paper.PartsAttributeCode = m_PaperSize.GetById(Paper.PaperSizeId).UniqueCode +
                     Paper.Weight + m_PaperCategory.GetById(Paper.PaperCategoryId).UniqueCode;
+            //Paper.PartsAttributeCode = Paper.BOM_PaperSize.UniqueCode +
+            //   Paper.Weight + Paper.BOM_PaperCategory.UniqueCode;
             Paper.ModifiedDate = DateTime.Now.ToLocalTime();
             m_Repository.Add(Paper);
             m_UnitOfWork.Commint();
@@ -107,8 +62,10 @@ namespace TP.Service.Paper {
             if (Paper == null)
                 throw new ArgumentNullException("纸张信息实体不能为null值");
             Paper.ModifiedDate = DateTime.Now.ToLocalTime();
-            Paper.PartsAttributeCode = m_PaperSize.GetById(Paper.PaperSizeId).UniqueCode +
-                    Paper.Weight + m_PaperCategory.GetById(Paper.PaperCategoryId).UniqueCode;
+            Paper.PartsAttributeCode = Paper.BOM_PaperSize.UniqueCode + 
+                Paper.Weight + Paper.BOM_PaperCategory.UniqueCode;
+            //Paper.PartsAttributeCode = m_PaperSize.GetById(Paper.PaperSizeId).UniqueCode +
+            //        Paper.Weight + m_PaperCategory.GetById(Paper.PaperCategoryId).UniqueCode;
             m_Repository.Update(Paper);
             m_UnitOfWork.Commint();
         }

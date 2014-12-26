@@ -32,9 +32,10 @@ namespace TP.Site.Controllers {
         // GET: Resource
         public ActionResult Index(int pageIndex = 1, string searchKey = null) {
             searchKey = searchKey == null ? searchKey : searchKey.Trim();
-            PagedList<PMWMachine> MachineList = m_MachineService.GetMachines(pageIndex, SysConstant.Page_PageSize, searchKey);
             MachineListModel model = new MachineListModel();
-            model.ViewList = MachineList;
+            model.Parameters = m_ResourceService.GetSysSettingList(SysConstant.ColorType_titlecode);
+            model.Parameters.AddRange(m_ResourceService.GetSysSettingList(SysConstant.MachineType_titlecode));
+            model.ViewList =  m_MachineService.GetMachines(pageIndex, SysConstant.Page_PageSize, searchKey);;
             model.PageTitle = "机器设备";
             model.PageSubTitle = "查看和维护机器设备";
             return View(model);

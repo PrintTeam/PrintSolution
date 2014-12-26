@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using TP.Service.Machine;
+using TP.EntityFramework.Models;
 using TP.Web.Framework.Mvc;
 
 namespace TP.Site.Models.Machine{
@@ -93,7 +93,12 @@ namespace TP.Site.Models.Machine{
     }
 
 
-    public class MachineListModel : BaseListViewModel<PMWMachine> {
+    public class MachineListModel : BaseListViewModel<PMW_Machine> {
+
+        public List<SYS_SysSetting> Parameters {
+            get;
+            set;
+        }
 
     }
 }

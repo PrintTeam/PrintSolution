@@ -31,10 +31,12 @@ namespace TP.Site.Controllers{
 
         // GET: Resource
         public ActionResult Index(int pageIndex = 1, string searchKey = null){
-            searchKey = searchKey == null ? searchKey : searchKey.Trim();
-            PagedList<PMWPostpressProcess> PostpressProcessList = m_PostpressProcessService.GetPostpressProcesss(pageIndex, SysConstant.Page_PageSize, searchKey);
+            searchKey = searchKey == null ? searchKey : searchKey.Trim();           
             PostpressProcessListModel model = new PostpressProcessListModel();
-            model.ViewList = PostpressProcessList;
+            model.Parameters = m_ResourceService.GetSysSettingList(SysConstant.SideProperty_titlecode);
+            model.Parameters.AddRange(m_ResourceService.GetSysSettingList(SysConstant.PricingModels_titlecode));
+            model.ViewList = m_PostpressProcessService.GetPostpressProcesss(pageIndex, 
+                SysConstant.Page_PageSize, searchKey);
             model.PageTitle = "印后工序";
             model.PageSubTitle = "查看和维护印后工序";
             return View(model);           
@@ -128,13 +130,13 @@ namespace TP.Site.Controllers{
             model.PageTitle = "印后工序";
             model.PageSubTitle = "维护印后工序信息";
 
-            model.PriceModels = m_ResourceService.GetSysSettingList(SysConstant.ColorType_titlecode)
+            model.PriceModels = m_ResourceService.GetSysSettingList(SysConstant.PricingModels_titlecode)
                 .Select(p => new SelectListItem {
                     Value = p.ParamValue,
                     Text = p.Name
                 }).ToList();
 
-            model.ProcessTypes = m_ResourceService.GetSysSettingList(SysConstant.BillType_titleCode)
+            model.SidePropertys= m_ResourceService.GetSysSettingList(SysConstant.SideProperty_titlecode)
                 .Select(p => new SelectListItem {
                     Value = p.ParamValue,
                     Text = p.Name
@@ -148,7 +150,7 @@ namespace TP.Site.Controllers{
 
         [NonAction]
         private void VerifyModel(PostpressProcessModel model) {
-            PMWPostpressProcess Process = null;
+            PMW_PostpressProcess Process = null;
             Process = m_PostpressProcessService.GetPostpressProcess(model.UniqueCode);
             if ((model.IsEdit) && (Process.MachineId != model.Id) && (Process != null)) {
                 ModelState.AddModelError("UniqueCode", "工序编码已存在.");

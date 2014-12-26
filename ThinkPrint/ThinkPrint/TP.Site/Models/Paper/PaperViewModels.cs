@@ -5,7 +5,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TP.EntityFramework.Models;
-using TP.Service.Paper;
 using TP.Web.Framework.Mvc;
 
 namespace TP.Site.Models.Paper{
@@ -77,7 +76,7 @@ namespace TP.Site.Models.Paper{
     }
     
     
-    public class PaperListModel : BaseListViewModel<BOMPaper>{
+    public class PaperListModel : BaseListViewModel<BOM_Paper>{
 
     }
 }

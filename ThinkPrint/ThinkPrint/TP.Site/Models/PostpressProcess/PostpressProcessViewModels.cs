@@ -5,7 +5,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TP.EntityFramework.Models;
-using TP.Service.PostpressProcess;
 using TP.Web.Framework.Mvc;
 
 namespace TP.Site.Models.PostpressProcess{
@@ -25,15 +24,8 @@ namespace TP.Site.Models.PostpressProcess{
 		{
 			get;
 			set;
-		}
-		
-        [Required(ErrorMessage = "请输入工序类别")]
-		[Display(Name = "工序类别")]
-        public string ProcessType
-		{
-			get;
-			set;
-		}
+		}		
+
 		
         [Required(ErrorMessage = "请输入名称")]
 		[Display(Name = "名称")]
@@ -85,7 +77,7 @@ namespace TP.Site.Models.PostpressProcess{
             set;
         }
 
-        public List<SelectListItem> ProcessTypes {
+        public List<SelectListItem> SidePropertys {
             get;
             set;
         }
@@ -97,8 +89,11 @@ namespace TP.Site.Models.PostpressProcess{
     }
     
     
-    public class PostpressProcessListModel : BaseListViewModel<PMWPostpressProcess>{
-
+    public class PostpressProcessListModel : BaseListViewModel<PMW_PostpressProcess>{
+        public List<SYS_SysSetting> Parameters {
+            get;
+            set;
+        }
     }
 }
 
