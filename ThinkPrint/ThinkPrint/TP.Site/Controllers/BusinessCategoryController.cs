@@ -136,6 +136,33 @@ namespace TP.Site.Controllers
             return View(model);
         }
 
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                BUS_BusinessCategory businessCategory = _businessCategoryService.GetBusinessCategoryById(id);
+                if(businessCategory.BUS_BusinessComponent.Count==0)
+                {
+                     _businessCategoryService.DeleteBusinessCategory(businessCategory);
+                    return Redirect("~/Resource/Index");
+                }
+                else
+                {
+                    messages = "无法删除" + businessCategory.Name + "该信息具有关联的子项信息，请先删除子项信息。";
+                    ErrorNotification(messages);
+                }
+               
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.ToString());
+                ErrorNotification(ex.ToString());
+
+            }
+            return RedirectToAction("Index", "BusinessCategory");
+        }
+
 
         [NonAction]
         private void PrepareBusinessTypeList()
