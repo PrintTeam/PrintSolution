@@ -429,6 +429,7 @@
     <Content Include="Views\BusinessCategory\Create.cshtml" />
     <Content Include="Views\BusinessCategory\_CreateOrEdit.cshtml" />
     <Content Include="Views\BusinessCategory\Edit.cshtml" />
+    <Content Include="Views\Employee\EditStatus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

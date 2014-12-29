@@ -190,6 +190,71 @@ namespace TP.Site.Controllers
             return View(model);
         }
 
+        public ActionResult EditStatus(int id)
+        {
+
+            ORG_Employee employee = _employeeService.GetEmployeeById(id);
+
+            EmployeeStatusModel model = new EmployeeStatusModel
+            {
+                Id = employee.EmployeeId,
+                Name = employee.Name,
+                StatusName = statusList.SingleOrDefault(s => s.ParamValue == employee.Status.Trim()).Name,
+                Status = employee.Status.Trim(),
+                LeaveDate = employee.LeaveDate,
+                IsEdit = true
+            };
+            PrepareStatusList(model);
+            model.PageTitle = "员工状态";
+            model.PageSubTitle = "维护系统中员工的状态信息";
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult EditStatus(EmployeeStatusModel model)
+        {
+
+            if (model.Status.Trim() == statusList.SingleOrDefault(s => s.UniqueCode == SysConstant.EmployeeStatus_leave).ParamValue)
+            {
+                if (!model.LeaveDate.HasValue)
+                {
+
+                    ErrorNotification("请选择员工的离职日期！");
+                    ModelState.AddModelError("", "请选择员工的离职日期！");
+                }
+            }
+            else
+            {
+                model.LeaveDate = null;
+            }
+
+            if (ModelState.IsValid)
+            {
+                ORG_Employee employee = _employeeService.GetEmployeeById(model.Id);
+                employee.Status = model.Status;
+                employee.LeaveDate = model.LeaveDate;
+                try
+                {
+                    _employeeService.UpdateEmployee(employee);
+                    messages = "员工" + model.Name + "状态信息变更成功.";
+                    SuccessNotification(messages);
+
+                    model.StatusName = statusList.SingleOrDefault(s => s.ParamValue == employee.Status.Trim()).Name;
+                    model.Status = employee.Status.Trim();
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.ToString());
+                    ErrorNotification(ex.ToString());
+                }
+            }
+
+
+            PrepareStatusList(model);
+            model.PageTitle = "员工状态";
+            model.PageSubTitle = "维护系统中员工的状态信息";
+            return View(model);
+        }
+
 
         public ActionResult Delete(int id)
         {
@@ -230,6 +295,25 @@ namespace TP.Site.Controllers
         private void PrepareStatusList()
         {
             statusList = _resourceService.GetSysSettingList(SysConstant.EmployeeStatus_titleCode);
+        }
+
+        [NonAction]
+        private void PrepareStatusList(EmployeeStatusModel model)
+        {
+            if (model == null)
+                throw new ArgumentNullException("model");
+
+            foreach (var item in statusList)
+            {
+                model.StatusList.Add(new SelectListItem
+                {
+                    Text = item.Name,
+                    Value = item.ParamValue.ToString()
+                });
+            }
+
+            var selected = model.StatusList.FirstOrDefault(u => u.Value == model.Status.Trim());
+            selected.Selected = true;
         }
 
         [NonAction]

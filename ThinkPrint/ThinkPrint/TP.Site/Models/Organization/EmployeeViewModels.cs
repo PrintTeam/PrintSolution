@@ -88,4 +88,21 @@ namespace TP.Site.Models.Organization
         }
         public IList<SYS_SysSetting> StatusList { get; set; }
     }
+
+    public class EmployeeStatusModel : BaseViewModel
+    {
+        public EmployeeStatusModel()
+        {
+            StatusList = new List<SelectListItem>();
+        }
+        public string Name { get; set; }
+
+        public string Status { get; set; }
+
+        public string StatusName { get; set; }
+
+        public Nullable<DateTime> LeaveDate { get; set; }
+
+        public IList<SelectListItem> StatusList { get; set; }
+    }
 }
