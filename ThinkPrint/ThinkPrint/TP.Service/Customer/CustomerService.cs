@@ -36,102 +36,17 @@ namespace TP.Service.Customer {
             return null;
         }
 
-        public List<SALCustomer> GetCustomers() {
-            var q = from a in m_Repository.Table
-                    join b in m_IndustryRepository.Table on a.IndustryId equals b.IndustryId
-                    where a.IsDelete == false
-                    orderby a.ModifiedDate descending
-                    select new SALCustomer {
-                        CustomerId = a.CustomerId,
-                        IndustryId = a.IndustryId,
-                        IndustryName = b.Name,
-                        Name = a.Name,
-                        MembershipCode = a.MembershipCode,
-                        Cardholder = a.Cardholder,
-                        CardNumber = a.CardNumber,
-                        CustomerType = a.CustomerType,
-                        UniqueCode = a.UniqueCode,
-                        MnemonicCode = a.MnemonicCode,
-                        Sex = a.Sex,
-                        MobilePhone = a.MobilePhone,
-                        Telephone = a.Telephone,
-                        Birthday = a.Birthday,
-                        Email = a.Email,
-                        QQ = a.QQ,
-                        ZipCode = a.ZipCode,
-                        Address = a.Address,
-                        CreditRating = a.CreditRating,
-                        IsCreditCard = a.IsCreditCard,
-                        MaximumAmount = a.MaximumAmount,
-                        SalePriceType = a.SalePriceType,
-                        Description = a.Description
-                    };
-            return q.ToList();
-            //return m_Repository.Table.Where(p => p.IsDelete == false).ToList();
+        public List<SAL_Customer> GetCustomers() {           
+            return m_Repository.Table.Where(p => p.IsDelete == false).ToList();
         }
 
-        public PagedList<SALCustomer> GetCustomers(int pageIndex, int pageSize, string searchKey = null) {
-            var q = from a in m_Repository.Table
-                    join b in m_IndustryRepository.Table on a.IndustryId equals b.IndustryId
-                    where a.IsDelete == false
-                    orderby a.ModifiedDate descending
-                    select new SALCustomer {
-                        CustomerId = a.CustomerId,
-                        IndustryId = a.IndustryId,
-                        IndustryName = b.Name,
-                        Name = a.Name,
-                        MembershipCode = a.MembershipCode,
-                        Cardholder = a.Cardholder,
-                        CardNumber = a.CardNumber,
-                        CustomerType = a.CustomerType,
-                        UniqueCode = a.UniqueCode,
-                        MnemonicCode = a.MnemonicCode,
-                        Sex = a.Sex,
-                        MobilePhone = a.MobilePhone,
-                        Telephone = a.Telephone,
-                        Birthday = a.Birthday,
-                        Email = a.Email,
-                        QQ = a.QQ,
-                        ZipCode = a.ZipCode,
-                        Address = a.Address,
-                        CreditRating = a.CreditRating,
-                        IsCreditCard = a.IsCreditCard,
-                        MaximumAmount = a.MaximumAmount,
-                        SalePriceType = a.SalePriceType,
-                        Description = a.Description
-                    };
-            if (!String.IsNullOrWhiteSpace(searchKey)) {
-                q = from a in m_Repository.Table
-                    join b in m_IndustryRepository.Table on a.IndustryId equals b.IndustryId
-                    where a.IsDelete == false && a.Name.Contains(searchKey)
-                    orderby a.ModifiedDate descending
-                    select new SALCustomer {
-                        CustomerId = a.CustomerId,
-                        IndustryId = a.IndustryId,
-                        IndustryName = b.Name,
-                        Name = a.Name,
-                        MembershipCode = a.MembershipCode,
-                        Cardholder = a.Cardholder,
-                        CardNumber = a.CardNumber,
-                        CustomerType = a.CustomerType,
-                        UniqueCode = a.UniqueCode,
-                        MnemonicCode = a.MnemonicCode,
-                        Sex = a.Sex,
-                        MobilePhone = a.MobilePhone,
-                        Telephone = a.Telephone,
-                        Birthday = a.Birthday,
-                        Email = a.Email,
-                        QQ = a.QQ,
-                        ZipCode = a.ZipCode,
-                        Address = a.Address,
-                        CreditRating = a.CreditRating,
-                        IsCreditCard = a.IsCreditCard,
-                        MaximumAmount = a.MaximumAmount,
-                        SalePriceType = a.SalePriceType,
-                        Description = a.Description
-                    };
-            }
-            PagedList<SALCustomer> result = q.ToPagedList<SALCustomer>(pageIndex, pageSize);
+        public PagedList<SAL_Customer> GetCustomers(int pageIndex, int pageSize, string searchKey = null) {
+            var q = m_Repository.Table.Where(p => p.IsDelete == false);
+            if (!String.IsNullOrWhiteSpace(searchKey))
+                q = q.Where(p => p.Name.Contains(searchKey.Trim())||p.MobilePhone.Contains(searchKey) ||
+                    p.Telephone.Contains(searchKey)||p.Email.Contains(searchKey));
+            q = q.OrderByDescending(p => p.CustomerId);
+            PagedList<SAL_Customer> result = q.ToPagedList<SAL_Customer>(pageIndex, pageSize);
             return result;
         }
 

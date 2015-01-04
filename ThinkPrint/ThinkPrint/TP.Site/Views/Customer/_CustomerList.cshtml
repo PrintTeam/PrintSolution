@@ -1,0 +1,175 @@
+﻿@model TP.Site.Models.Customer.CustomerListModel
+
+@using Webdiyer.WebControls.Mvc
+@{
+    var j = 1;
+}
+<div class="row">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>
+                    序号
+                </th>
+                <th>
+                    
+                </th>
+                <th>
+                    
+                </th>
+                <th>
+                    
+                </th>
+                <th>
+                    
+                </th>
+                <th>
+                    
+                </th>
+                <th>
+                    M:会员
+   G:普通
+   R:散户
+                </th>
+                <th>
+                    
+                </th>
+                <th>
+                    
+                </th>
+                <th>
+                    
+                </th>
+                <th>
+                    
+                </th>
+                <th>
+                    
+                </th>
+                <th>
+                    
+                </th>
+                <th>
+                    
+                </th>
+                <th>
+                    
+                </th>
+                <th>
+                    
+                </th>
+                <th>
+                    
+                </th>
+                <th>
+                    
+                </th>
+                <th>
+                    
+                </th>
+                <th>
+                    
+                </th>
+                <th>
+                    DEP:默认价格
+   MEP:会员价格
+   AEP:协议价格
+                </th>
+                <th>
+                    
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ViewList)
+            {
+                <tr>
+                    <td>
+                        @j.ToString()
+                    </td>
+                    <td>
+                        @item.IndustryId
+                    </td>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.MembershipCode
+                    </td>
+                    <td>
+                        @item.Cardholder
+                    </td>
+                    <td>
+                        @item.CardNumber
+                    </td>
+                    <td>
+                        @item.CustomerType
+                    </td>
+                    <td>
+                        @item.UniqueCode
+                    </td>
+                    <td>
+                        @item.MnemonicCode
+                    </td>
+                    <td>
+                        @item.Sex
+                    </td>
+                    <td>
+                        @item.MobilePhone
+                    </td>
+                    <td>
+                        @item.Telephone
+                    </td>
+                    <td>
+                        @item.Birthday
+                    </td>
+                    <td>
+                        @item.Email
+                    </td>
+                    <td>
+                        @item.QQ
+                    </td>
+                    <td>
+                        @item.ZipCode
+                    </td>
+                    <td>
+                        @item.Address
+                    </td>
+                    <td>
+                        @item.CreditRating
+                    </td>
+                    <td>
+                        @item.IsCreditCard
+                    </td>
+                    <td>
+                        @item.MaximumAmount
+                    </td>
+                    <td>
+                        @item.SalePriceType
+                    </td>
+                    <td>
+                        @item.Description
+                    </td>
+                    <td class="table-action">
+                        <a href="~/Customer/Edit/@item.CustomerId" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="left" title="编辑"><i class="fa fa-edit"></i></a>
+                        <button id="@item.CustomerId" type="button" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="删除"><i class="fa fa-trash-o "></i></button>
+                    </td>
+                </tr>
+                j++;
+            }
+
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <div class="dataTable_info">
+            共 @Model.ViewList.TotalPageCount 页 @Model.ViewList.TotalItemCount
+            条记录，当前为第 @Model.ViewList.CurrentPageIndex 页
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        @Html.Pager(Model.ViewList, new PagerOptions { PageIndexParameterName = "pageIndex", ShowPageIndexBox = false, ShowGoButton = false, CurrentPagerItemWrapperFormatString = "<span class=\"current\">{0}</span>" }, new { id = "badoopager", @class = "pull-right" })
+    </div>
+</div>

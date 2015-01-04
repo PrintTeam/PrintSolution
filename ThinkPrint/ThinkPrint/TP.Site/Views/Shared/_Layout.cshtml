@@ -131,8 +131,8 @@
                     <li class="sub-menu">
                         <a href="#"><i class="fa fa-users fa-fw"></i> 客户管理<span class="fa arrow"></span></a>
                         <ul class="sub">
-                            <li>
-                                <a href="#">会员卡信息</a>
+                            <li>                                
+                                @Html.ActionLink("会员卡信息", "Index", "Customer")
                             </li>
                             <li>
                                 <a href="#">会员卡类型</a>
@@ -225,8 +225,8 @@
 
                                 @Html.ActionLink("部门信息", "Index", "Department")
                             </li>
-                            <li>
-                                <a href="#">预收款设置</a>
+                            <li>                               
+                                @Html.ActionLink("预收款设置", "Index", "PrepaymentsSetting")
                             </li>
                             <li>
                                 @Html.ActionLink("税率分类", "Index", "TaxRateCategory")

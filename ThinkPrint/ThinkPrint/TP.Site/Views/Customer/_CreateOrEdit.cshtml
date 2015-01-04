@@ -1,0 +1,351 @@
+﻿@model TP.Site.Models.Customer.CustomerModel
+
+
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.Name, new {
+    @class = "control-label col-lg-2"
+})
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.Name, new {
+       @class = "form-control",
+       id = "txtName"
+   })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Name)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.IndustryId, new {
+    @class = "control-label col-lg-2"
+})
+    <div class="col-lg-6">
+        @Html.DropDownListFor(m => m.IndustryId, Model.Industry, new {
+       @class = "form-control"
+   })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.IndustryId)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.MembershipCode, new {
+    @class = "control-label col-lg-2"
+})
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.MembershipCode, new {
+       @class = "form-control",
+       id = "txtMembershipCode"
+   })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.MembershipCode)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.Cardholder, new {
+    @class = "control-label col-lg-2"
+})
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.Cardholder, new {
+       @class = "form-control",
+       id = "txtCardholder"
+   })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Cardholder)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.CardNumber, new {
+    @class = "control-label col-lg-2"
+})
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.CardNumber, new {
+       @class = "form-control",
+       id = "txtCardNumber"
+   })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.CardNumber)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.CustomerType, new {
+    @class = "control-label col-lg-2"
+})
+    <div class="col-lg-6">
+        @Html.DropDownListFor(m => m.CustomerType, Model.CustomerTypes, new {
+       @class = "form-control"
+   })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.CustomerType)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.UniqueCode, new {
+    @class = "control-label col-lg-2"
+})
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.UniqueCode, new {
+       @class = "form-control",
+       id = "txtUniqueCode"
+   })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.UniqueCode)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.MnemonicCode, new {
+    @class = "control-label col-lg-2"
+})
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.MnemonicCode, new {
+       @class = "form-control",
+       id = "txtMnemonicCode"
+   })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.MnemonicCode)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.Sex, new {
+    @class = "control-label col-lg-2"
+})
+    <div class="col-lg-6">
+        <label class="radio-inline col-lg-3">
+            @Html.RadioButtonFor(m => m.Sex, true, new {
+           name = "radSex",
+           id = "radMan"
+       })
+            男
+        </label>
+        <label class="radio-inline col-lg-3">
+            @Html.RadioButtonFor(m => m.Sex, false, new {
+           name = "radSex",
+           id = "radWoMen"
+       })
+            女
+        </label>
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Sex)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.MobilePhone, new {
+    @class = "control-label col-lg-2"
+})
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.MobilePhone, new {
+       @class = "form-control",
+       id = "txtMobilePhone"
+   })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.MobilePhone)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.Telephone, new {
+    @class = "control-label col-lg-2"
+})
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.Telephone, new {
+       @class = "form-control",
+       id = "txtTelephone"
+   })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Telephone)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">    
+        @Html.LabelFor(m => m.Birthday, new {
+       @class = "control-label col-lg-2"
+   })    
+    <div class="col-lg-6">
+        <div class="input-group">
+            @Html.TextBoxFor(m => m.Birthday, new {
+           @class = "form-control",                   
+           size = "16"
+       })
+            <div class="input-group-btn">
+                <button type="button" id="btnBirthday" class="btn btn-warning date-set">
+                    <i class="fa fa-calendar-o"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Birthday)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.Email, new {
+    @class = "control-label col-lg-2"
+})
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.Email, new {
+       @class = "form-control",
+       id = "txtEmail"
+   })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Email)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.QQ, new {
+    @class = "control-label col-lg-2"
+})
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.QQ, new {
+       @class = "form-control",
+       id = "txtQQ"
+   })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.QQ)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.ZipCode, new {
+    @class = "control-label col-lg-2"
+})
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.ZipCode, new {
+       @class = "form-control",
+       id = "txtZipCode"
+   })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.ZipCode)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.Address, new {
+    @class = "control-label col-lg-2"
+})
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.Address, new {
+       @class = "form-control",
+       id = "txtAddress"
+   })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Address)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.CreditRating, new {
+    @class = "control-label col-lg-2"
+})
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.CreditRating, new {
+       @class = "form-control",
+       id = "txtCreditRating"
+   })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.CreditRating)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.IsCreditCard, new {
+    @class = "control-label col-lg-2"
+})
+    <div class="col-lg-6">
+        @Html.CheckBoxFor(m => m.IsCreditCard, new {      
+       id = "chkIsCreditCard"
+   })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.IsCreditCard)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.MaximumAmount, new {
+    @class = "control-label col-lg-2"
+})
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.MaximumAmount, new {
+       @class = "form-control",
+       id = "txtMaximumAmount"
+   })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.MaximumAmount)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.SalePriceType, new {
+    @class = "control-label col-lg-2"
+})
+    <div class="col-lg-6">
+        @Html.DropDownListFor(m => m.SalePriceType, Model.SalePriceTypes, new {
+       @class = "form-control"  })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.SalePriceType)
+        </p>
+    </div>
+</div>
+<div class="form-group form-group-boder">
+    @Html.LabelFor(m => m.Description, new {
+    @class = "control-label col-lg-2"
+})
+    <div class="col-lg-6">
+        @Html.TextBoxFor(m => m.Description, new {
+       @class = "form-control",
+       id = "txtDescription"
+   })
+    </div>
+    <div class="col-lg-4">
+        <p class="text-danger">
+            @Html.ValidationMessageFor(m => m.Description)
+        </p>
+    </div>
+</div>

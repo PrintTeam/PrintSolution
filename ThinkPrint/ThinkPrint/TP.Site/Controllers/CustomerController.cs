@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using TP.EntityFramework.Models;
 using TP.Service.Customer;
 using TP.Service.Industry;
+using TP.Service.SysResource;
 using TP.Site.Helper;
 using TP.Site.Models.Customer;
 using TP.Web.Framework.Mvc;
@@ -13,23 +14,26 @@ using Webdiyer.WebControls.Mvc;
 
 namespace TP.Site.Controllers {
     /// <summary>
-    /// 
+    /// 客户信息
     /// </summary>
     public class CustomerController : BaseController {
         private readonly ICustomerService m_CustomerService;
         private readonly IIndustryService m_IndustryService;
+        private readonly IResourceService m_ResourceService;
         private string messages = "";
-        public CustomerController(ICustomerService CustomerService,IIndustryService industryService) {
+        public CustomerController(ICustomerService CustomerService, IIndustryService industryService,
+            IResourceService resourceService) {
             m_CustomerService = CustomerService;
             m_IndustryService = industryService;
+            m_ResourceService = resourceService;
         }
 
         // GET: Resource
         public ActionResult Index(int pageIndex = 1, string searchKey = null) {
             searchKey = searchKey == null ? searchKey : searchKey.Trim();
-            PagedList<SALCustomer> CustomerList = m_CustomerService.GetCustomers(pageIndex, SysConstant.Page_PageSize, searchKey);
             CustomerListModel model = new CustomerListModel();
-            model.ViewList = CustomerList;
+            model.ViewList = m_CustomerService.GetCustomers(pageIndex, SysConstant.Page_PageSize, searchKey);
+            ;
             model.PageTitle = "客户信息";
             model.PageSubTitle = "查看和维护客户信息";
             return View(model);
@@ -43,6 +47,8 @@ namespace TP.Site.Controllers {
 
         [HttpPost]
         public ActionResult Create(CustomerModel model) {
+            model.IsEdit = false;
+            VerifyModel(model);
             if (ModelState.IsValid) {
                 SAL_Customer Customer = new SAL_Customer {
                     IndustryId = model.IndustryId,
@@ -95,15 +101,15 @@ namespace TP.Site.Controllers {
                 MnemonicCode = Customer.MnemonicCode,
                 Sex = Customer.Sex,
                 MobilePhone = Customer.MobilePhone,
-                Telephone = Customer.Telephone,                
-                Birthday = Customer.Birthday.HasValue? Customer.Birthday.Value:DateTime.MinValue,
+                Telephone = Customer.Telephone,
+                Birthday = Customer.Birthday.HasValue ? Customer.Birthday.Value : DateTime.MinValue,
                 Email = Customer.Email,
-                QQ = Customer.QQ.HasValue?Customer.QQ.Value:0,
+                QQ = Customer.QQ.HasValue ? Customer.QQ.Value : 0,
                 ZipCode = Customer.ZipCode,
                 Address = Customer.Address,
                 CreditRating = Customer.CreditRating,
                 IsCreditCard = Customer.IsCreditCard,
-                MaximumAmount = Customer.MaximumAmount.HasValue? Customer.MaximumAmount.Value:0,
+                MaximumAmount = Customer.MaximumAmount.HasValue ? Customer.MaximumAmount.Value : 0,
                 SalePriceType = Customer.SalePriceType,
                 Description = Customer.Description,
             };
@@ -113,6 +119,8 @@ namespace TP.Site.Controllers {
 
         [HttpPost]
         public ActionResult Edit(CustomerModel model) {
+            model.IsEdit = true;
+            VerifyModel(model);
             if (ModelState.IsValid) {
                 SAL_Customer Customer = m_CustomerService.GetCustomer(model.Id);
                 Customer.IndustryId = model.IndustryId;
@@ -156,7 +164,33 @@ namespace TP.Site.Controllers {
         private void PrepareModel(CustomerModel model) {
             model.PageTitle = "客户信息";
             model.PageSubTitle = "客户信息维护";
+            model.Industry = m_IndustryService.GetIndustrys().Select(p => new SelectListItem {
+                Value = p.IndustryId + "",
+                Text = p.Name
+            }).ToList();
+            model.CustomerTypes = m_ResourceService.GetSysSettingList(SysConstant.CustomerType_titlecode)
+                .Select(p => new SelectListItem {
+                    Value = p.ParamValue,
+                    Text = p.Name
+                }).ToList();
+            model.SalePriceTypes = m_ResourceService.GetSysSettingList(SysConstant.SalePriceType_titlecode)
+                .Select(p => new SelectListItem {
+                    Value = p.ParamValue,
+                    Text = p.Name
+                }).ToList();
             //model.IsEdit = model.Id == 0 ? false : true;
+        }
+
+        [NonAction]
+        private void VerifyModel(CustomerModel model) {
+            SAL_Customer Customer = null;
+            Customer = m_CustomerService.GetCustomer(model.UniqueCode);
+            if ((model.IsEdit) && (Customer.CustomerId != model.Id) && (Customer != null)) {
+                ModelState.AddModelError("UniqueCode", "该客户信息已存在.");
+            }
+            if ((!model.IsEdit) && (Customer != null)) {
+                ModelState.AddModelError("UniqueCode", "该客户信息已存在.");
+            }
         }
     }
 }

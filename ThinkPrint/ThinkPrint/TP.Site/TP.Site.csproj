@@ -430,6 +430,11 @@
     <Content Include="Views\BusinessCategory\_CreateOrEdit.cshtml" />
     <Content Include="Views\BusinessCategory\Edit.cshtml" />
     <Content Include="Views\Employee\EditStatus.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\Customer\Edit.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Customer\_CreateOrEdit.cshtml" />
+    <Content Include="Views\Customer\_CustomerList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

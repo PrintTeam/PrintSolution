@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using TP.EntityFramework.Models;
 using TP.Service.Customer;
 using TP.Web.Framework.Mvc;
@@ -17,17 +18,17 @@ namespace TP.Site.Models.Customer{
     
         public CustomerModel(){
         }
-        
-        [Required(ErrorMessage = "请输入IndustryId")]
-		[Display(Name = "IndustryId")]
+
+        [Required(ErrorMessage = "请输入所属行业")]
+		[Display(Name = "所属行业")]
         public int IndustryId
 		{
 			get;
 			set;
 		}
 		
-        [Required(ErrorMessage = "请输入名称")]
-		[Display(Name = "名称")]
+        [Required(ErrorMessage = "请输入客户名称")]
+		[Display(Name = "客户名称")]
         public string Name
 		{
 			get;
@@ -102,8 +103,8 @@ namespace TP.Site.Models.Customer{
 			set;
 		}
 		
-		[Display(Name = "生日")]
-        public DateTime Birthday
+		[Display(Name = "生日")]        
+        public DateTime? Birthday
 		{
 			get;
 			set;
@@ -174,11 +175,28 @@ namespace TP.Site.Models.Customer{
 			get;
 			set;
 		}
+
+        /// <summary>
+        /// 行业下拉框
+        /// </summary>
+        public List<SelectListItem> Industry {
+            get;
+            set;
+        }
+
+        public List<SelectListItem> CustomerTypes {
+            get;
+            set;
+        }
+        public List<SelectListItem> SalePriceTypes {
+            get;
+            set;
+        }
 		
     }
     
     
-    public class CustomerListModel : BaseListViewModel<SALCustomer>{
+    public class CustomerListModel : BaseListViewModel<SAL_Customer>{
 
     }
 }
